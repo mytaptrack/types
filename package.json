@@ -1,11 +1,11 @@
 {
     "name": "@mytaptrack/types",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "build": "tsc -d",
         "lint": "tslint --config tslint.json --project tsconfig.json",
-        "release": "npm publish --access private"
+        "release": "npm publish"
     },
     "devDependencies": {
         "@babel/core": "7.4.3",
