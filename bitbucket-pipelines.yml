@@ -19,5 +19,4 @@ pipelines:
             - npm install
             - npm run lint
             - npm run build
-            - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
             - npm run release

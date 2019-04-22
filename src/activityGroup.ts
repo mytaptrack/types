@@ -10,4 +10,5 @@ export interface Activity {
 export interface ActivityGroup {
     activities: Activity[];
     name: string;
+    id: string;
 }
