@@ -13,7 +13,7 @@ export interface StudentBehaviorDeleteRequest {
 
 export interface StudentBehaviorGetRequest {
     behavior: string;
-    studentId: string
+    studentId: string;
 }
 
 export interface StudentBehaviorPutRequest {
@@ -80,7 +80,7 @@ export interface ReportDataPostRequest {
 export interface TeamDeleteRequest {
     studentId: string;
     userId: string;
-};
+}
 
 export interface TeamPostRequest {
     studentId: string;

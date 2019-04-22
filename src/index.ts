@@ -5,5 +5,4 @@ export * from './userDetails';
 export * from './student';
 export * from './iotDevice';
 export * from './notifications';
-export * from './behavior';
 export * from './requests/index';

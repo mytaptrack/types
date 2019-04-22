@@ -1,1 +1,0 @@
-import { StudentBehavior } from '.';
