@@ -1,0 +1,36 @@
+{
+    "name": "@mytaptrack/types",
+    "version": "1.0.3",
+    "main": "dist/out-tsc/index.js",
+    "scripts": {
+        "build": "tsc -d",
+        "lint": "tslint --config tslint.json --project tsconfig.json",
+        "release": "npm publish --access private"
+    },
+    "devDependencies": {
+        "@babel/core": "7.4.3",
+        "@babel/preset-env": "7.4.3",
+        "@babel/preset-react": "7.0.0",
+        "@babel/preset-typescript": "7.3.3",
+        "@types/jest": "24.0.11",
+        "@types/node": "^11.13.5",
+        "aws-sdk": "^2.439.0",
+        "babel-jest": "24.7.1",
+        "jest": "^24.7.1",
+        "tslib": "^1.9.3",
+        "typescript": "^3.4.4",
+        "tslint": "^5.16.0"
+    },
+    "jest": {
+        "verbose": true
+    },
+    "dependencies": {},
+    "description": "mytaptrack library for server development",
+    "repository": {
+        "type": "git",
+        "url": "git+https://inspiredfuturesai@bitbucket.org/inspiredfuturesai/lib.git"
+    },
+    "author": "mytaptrack",
+    "license": "",
+    "homepage": "https://bitbucket.org/inspiredfuturesai/lib#readme"
+}
