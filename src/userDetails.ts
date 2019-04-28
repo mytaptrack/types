@@ -1,4 +1,4 @@
-import { BehaviorSubscription, ActivityGroup, Notification, NotificationDetails } from '.';
+import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary } from '.';
 import { TeamRole } from './student';
 
 export interface User {
@@ -71,10 +71,10 @@ export interface UserSummary {
         role: TeamRole
         restrictions: UserSummaryRestrictions;
     };
-    enterpriseId: string;
+    enterpriseId?: string;
     studentId: string;
     version: number;
-    smallImage: string;
+    smallImage?: string;
 }
 
 export interface UserSummaryRestrictions {
@@ -104,5 +104,5 @@ export interface UserSubscriptionResponse {
 }
 
 export interface UserContext {
-    activityGroups: Array<ActivityGroup>;
+    activityGroups: Array<ActivityGroupSummary>;
 }

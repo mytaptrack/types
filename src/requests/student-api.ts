@@ -6,6 +6,10 @@ export interface ActivityRequest {
     activity: Activity;
 }
 
+export interface ActivityPutResponse {
+    id: string;
+}
+
 export interface StudentBehaviorDeleteRequest {
     behavior: string;
     studentId: string;

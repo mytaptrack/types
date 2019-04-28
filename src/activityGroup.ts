@@ -8,7 +8,18 @@ export interface Activity {
 }
 
 export interface ActivityGroup {
+    userId: string;
+    id: string;
+    details: ActivityGroupDetails;
+    version: number;
+}
+
+export interface ActivityGroupDetails {
     activities: Activity[];
     name: string;
+}
+
+export interface ActivityGroupSummary {
     id: string;
+    name: string;
 }
