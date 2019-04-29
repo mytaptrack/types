@@ -12,7 +12,7 @@ export interface ReportDetails {
     activities: {
         [key: string]: Activity[];
     };
-    lastUpdateDate?: Date | number;
+    lastUpdateDate?: number;
     enterpriseId?: string;
 }
 
