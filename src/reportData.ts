@@ -19,6 +19,7 @@ export interface ReportDetails {
 export interface ReportData {
     date: string;
     behavior: string;
+    enterpriseId: string;
     reported?: boolean;
     score?: number;
 }
