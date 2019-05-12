@@ -98,3 +98,9 @@ export interface TeamPutRequest {
     role: TeamRole;
     restrictions: UserSummaryRestrictions;
 }
+
+export interface StudentDataPut {
+    studentId: string;
+    behaviorId: string;
+    eventDate: string;
+}
