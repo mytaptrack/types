@@ -22,6 +22,7 @@ export interface ReportData {
     enterpriseId: string;
     reported?: boolean;
     score?: number;
+    isManual: boolean;
 }
 
 export interface DeviceReports {
