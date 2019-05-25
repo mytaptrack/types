@@ -22,6 +22,7 @@ export interface StudentBehavior {
     id?: string;
     name: string;
     isArchived?: boolean;
+    isDuration?: boolean;
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
