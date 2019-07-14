@@ -1,5 +1,4 @@
 import { Activity, ReportDefinition, NotificationType, UserDetails } from '..';
-import { StudentBehavior, BehaviorSubscription } from 'student';
 
 export interface UserActivityGroupPutRequest {
     name: string;
@@ -27,9 +26,6 @@ export interface ReportSharePostRequest {
 
 export interface SubscriptionPostRequest {
     studentId: string;
-}
-
-export interface SubscriptionPutRequest extends BehaviorSubscription {
 }
 
 export interface SubscriptionDeleteRequest {
