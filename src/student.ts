@@ -34,6 +34,8 @@ export interface BehaviorSubscription {
     studentId: string;
     behaviorId: string;
     onEach: boolean;
+    email: boolean;
+    mobile: boolean;
 }
 
 export enum TeamRole {
