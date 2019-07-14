@@ -17,6 +17,7 @@ export interface UserDetails {
     name: string;
     state: string;
     zip: string;
+    mobile: string;
     behaviors: Array<Behavior>;
     reports: Array<ReportDefinition>;
     students: Array<StudentSummary>;
