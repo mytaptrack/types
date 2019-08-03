@@ -16,8 +16,6 @@ phases:
   build:
     commands:
       - npm run build
-      - npm version patch
-      - npm push
       - npm run release
   post_build:
     commands:
