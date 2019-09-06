@@ -1,4 +1,4 @@
-import { ReportDefinition } from '.';
+import { ReportDefinition, ReportUpdateRequest } from '.';
 
 export interface Notification<T extends NotificationDetails> {
     version: string;
@@ -24,7 +24,7 @@ export interface NotificationDetailsBehavior extends NotificationDetails {
 }
 
 export interface NotificationDetailsReport extends NotificationDetails {
-    report: ReportDefinition;
+    report: ReportUpdateRequest;
 }
 
 export interface NotificationDetailsTeam extends NotificationDetails {
