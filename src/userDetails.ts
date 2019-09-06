@@ -3,6 +3,7 @@ import { TeamRole } from './student';
 
 export interface User {
     notifications: Array<Notification<NotificationDetails>>;
+    reports: Array<ReportDefinition>;
     details: UserDetails;
     terms: string;
     userId: string;
@@ -19,8 +20,10 @@ export interface UserDetails {
     zip: string;
     mobile: string;
     behaviors: Array<Behavior>;
-    reports: Array<ReportDefinition>;
     students: Array<StudentSummary>;
+    reportNames: {
+        [key: string]: string;
+    }
 }
 
 export interface StudentSummary {
@@ -30,7 +33,6 @@ export interface StudentSummary {
 }
 
 export interface ReportDefinition {
-    name: string;
     id?: string;
     studentId: string;
     style: ReportDefinitionStyle;
