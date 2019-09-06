@@ -11,6 +11,7 @@ phases:
       - echo Install Complete
   pre_build:
     commands:
+      - curl -d "{'text':'Build types:$STAGE started'}" -X POST https://hooks.slack.com/services/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
       - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - npm install
   build:
@@ -22,4 +23,5 @@ phases:
       - echo Build completed on `date`
     finally:
       - rm -f ~/.npmrc
+      - curl -d "{'text':'Build types:$STAGE completed with status $CODEBUILD_BUILD_SUCCEEDING (1 = Success, 0 = Failure)'}" -X POST https://hooks.slack.com/services/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
  

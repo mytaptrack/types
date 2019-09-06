@@ -19,6 +19,10 @@ export interface ReportPostRequest {
     reportIds: string[];
 }
 
+export interface ReportUpdateRequest extends ReportDefinition {
+    name: string;
+}
+
 export interface ReportSharePostRequest {
     email: string;
     report: ReportDefinition;
