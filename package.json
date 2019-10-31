@@ -1,6 +1,6 @@
 {
     "name": "@mytaptrack/types",
-    "version": "1.0.31",
+    "version": "1.0.33",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "build": "tsc -d",
@@ -18,8 +18,8 @@
         "babel-jest": "24.7.1",
         "jest": "^24.7.1",
         "tslib": "^1.9.3",
-        "typescript": "^3.4.4",
-        "tslint": "^5.16.0"
+        "tslint": "^5.16.0",
+        "typescript": "^3.6.2"
     },
     "jest": {
         "verbose": true

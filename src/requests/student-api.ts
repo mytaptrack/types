@@ -1,4 +1,4 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData } from '..';
+import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '..';
 
 export interface ActivityRequest {
     studentId: string;
@@ -40,6 +40,7 @@ export interface DevicePutRequest {
     studentId: string;
     enterpriseId: string;
     events: DevicePutRequestEvent[];
+    subscriptions?: IoTDeviceSubscription[];
 }
 
 export interface DevicePutRequestEvent {

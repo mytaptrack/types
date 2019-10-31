@@ -23,7 +23,7 @@ export interface UserDetails {
     students: Array<StudentSummary>;
     reportNames: {
         [key: string]: string;
-    }
+    };
 }
 
 export interface StudentSummary {

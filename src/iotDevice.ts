@@ -5,6 +5,12 @@ export interface IoTDevice {
     name: string;
     validated?: boolean;
     events: Array<IoTDeviceEvent>;
+    subscriptions?: IoTDeviceSubscription[];
+}
+
+export interface IoTDeviceSubscription {
+    type: 'Low Power' | 'Change' | 'De-register';
+    userId: string;
 }
 
 export interface IoTDeviceEvent {
