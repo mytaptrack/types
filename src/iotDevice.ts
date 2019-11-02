@@ -8,9 +8,17 @@ export interface IoTDevice {
     subscriptions?: IoTDeviceSubscription[];
 }
 
+export enum IoTDeviceEventType {
+    LowPower = 'Low Power',
+    Change = 'Change',
+    DeRegister = 'De-register'
+}
+
 export interface IoTDeviceSubscription {
-    type: 'Low Power' | 'Change' | 'De-register';
+    type: IoTDeviceEventType;
     userId: string;
+    email: boolean;
+    sms: boolean;
 }
 
 export interface IoTDeviceEvent {
