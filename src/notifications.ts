@@ -1,4 +1,4 @@
-import { ReportDefinition, ReportUpdateRequest } from '.';
+import { ReportDefinition, ReportUpdateRequest } from './index';
 
 export interface Notification<T extends NotificationDetails> {
     version: string;

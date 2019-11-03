@@ -1,4 +1,4 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '..';
+import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '../index';
 
 export interface ActivityRequest {
     studentId: string;

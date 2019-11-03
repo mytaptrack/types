@@ -1,4 +1,4 @@
-import { Activity } from '.';
+import { Activity } from './index';
 
 export interface ReportResponse {
     available: ReportDetails;

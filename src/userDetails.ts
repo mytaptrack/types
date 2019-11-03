@@ -1,4 +1,4 @@
-import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary } from '.';
+import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary } from './index';
 import { TeamRole } from './student';
 
 export interface User {
@@ -10,6 +10,8 @@ export interface User {
     enterpriseId: string;
     version: number;
 }
+
+export const USER_VERSION: number = 4;
 
 export interface UserDetails {
     email: string;

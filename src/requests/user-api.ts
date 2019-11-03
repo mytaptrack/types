@@ -1,4 +1,4 @@
-import { Activity, ReportDefinition, NotificationType, UserDetails } from '..';
+import { Activity, ReportDefinition, NotificationType, UserDetails } from '../index';
 
 export interface UserActivityGroupPutRequest {
     name: string;
