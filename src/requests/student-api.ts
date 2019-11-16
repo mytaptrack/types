@@ -43,6 +43,11 @@ export interface DevicePutRequest {
     subscriptions?: IoTDeviceSubscription[];
 }
 
+export interface DeviceResyncPostRequest {
+    dsn: string;
+    studentId: string;
+}
+
 export interface DevicePutRequestEvent {
     eventId: string;
     presses: number | string;

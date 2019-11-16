@@ -11,7 +11,7 @@ export interface User {
     version: number;
 }
 
-export const USER_VERSION: number = 4;
+export const USER_VERSION = 4;
 
 export interface UserDetails {
     email: string;
