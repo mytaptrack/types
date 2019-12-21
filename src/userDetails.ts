@@ -41,12 +41,20 @@ export interface ReportDefinition {
     metrics: Array<ReportDefinitionMetric>;
 }
 
+export enum MetricType {
+    min = 'min',
+    max = 'max',
+    sum = 'sum',
+    occurance = 'occurance'
+}
+
 export interface ReportDefinitionMetric {
     id: string;
     timeline: ReportDefinitionTimeline;
     name: string;
     data: Array<any>;
     color: string;
+    metricType?: MetricType;
 }
 
 export interface ReportDefinitionTimeline {
