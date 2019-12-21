@@ -45,6 +45,7 @@ export enum MetricType {
     min = 'min',
     max = 'max',
     sum = 'sum',
+    avg = 'avg',
     occurance = 'occurance'
 }
 
