@@ -46,7 +46,7 @@ export enum MetricType {
     max = 'max',
     sum = 'sum',
     avg = 'avg',
-    occurance = 'occurance'
+    occurence = 'occurence'
 }
 
 export interface ReportDefinitionMetric {
