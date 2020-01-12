@@ -62,6 +62,7 @@ export interface StudentCreateRequest {
     allowContactSchool: boolean;
     teacher: string;
     studentId: string;
+    subtext?: string;
 }
 
 export interface ReportDataRequest {

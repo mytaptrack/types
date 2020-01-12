@@ -16,6 +16,7 @@ export interface StudentDetails {
     schoolDistrict: string;
     teacher: string;
     allowContactSchool: boolean;
+    subtext?: string;
 }
 
 export interface StudentBehavior {
