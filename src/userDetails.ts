@@ -32,6 +32,7 @@ export interface StudentSummary {
     studentId: string;
     firstName: string;
     lastName: string;
+    subtext?: string;
 }
 
 export interface ReportDefinition {
