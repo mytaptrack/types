@@ -1,5 +1,5 @@
 import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '../index';
-import { ActivityGroupDetails } from 'activityGroup';
+import { ActivityGroupDetails } from '..';
 
 export interface ActivityRequest {
     studentId: string;
