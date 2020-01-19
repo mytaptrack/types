@@ -1,6 +1,6 @@
 import { UserSummary } from './userDetails';
 import { IoTDevice } from './iotDevice';
-import { ActivityGroupDetails } from 'index';
+import { ActivityGroupDetails } from '.';
 
 export interface Student {
     details: StudentDetails;
