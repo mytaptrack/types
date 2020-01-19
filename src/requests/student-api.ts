@@ -3,7 +3,7 @@ import { ActivityGroupDetails } from 'activityGroup';
 
 export interface ActivityRequest {
     studentId: string;
-    schedules: ActivityGroupDetails[];
+    schedules: ActivityGroupDetails;
 }
 
 export interface ActivityPutResponse {
@@ -63,6 +63,7 @@ export interface StudentCreateRequest {
     teacher: string;
     studentId: string;
     subtext?: string;
+    schedules: ActivityGroupDetails[];
 }
 
 export interface ReportDataRequest {
