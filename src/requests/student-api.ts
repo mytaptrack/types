@@ -4,7 +4,7 @@ import { ActivityGroupDetails } from '..';
 export interface ActivityRequest {
     studentId: string;
     date: string;
-    schedules: ActivityGroupDetails;
+    schedule: ActivityGroupDetails;
 }
 
 export interface ActivityPutResponse {
