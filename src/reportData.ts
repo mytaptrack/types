@@ -21,6 +21,7 @@ export interface ReportDetails {
     }
     lastUpdateDate?: number;
     enterpriseId?: string;
+    version: number;
 }
 
 export interface ReportData {
