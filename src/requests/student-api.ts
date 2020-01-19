@@ -56,7 +56,7 @@ export interface DevicePutRequestEvent {
 }
 
 export interface StudentCreateRequest {
-    role: TeamRole;
+    role?: TeamRole;
     firstName: string;
     lastName: string;
     schoolDistrict: string;
