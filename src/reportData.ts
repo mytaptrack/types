@@ -9,9 +9,16 @@ export interface ReportDetails {
     data: Array<ReportData>;
     studentBehavior: string;
     weekStart: string;
+    scheduleName?: string;
     activities: {
         [key: string]: Activity[];
     };
+    schedules: {
+        [key: string]: {
+            scheduleName: string;
+            activities: Activity[];
+        }
+    }
     lastUpdateDate?: number;
     enterpriseId?: string;
 }
