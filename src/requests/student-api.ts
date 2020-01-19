@@ -1,9 +1,9 @@
 import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '../index';
+import { ActivityGroupDetails } from 'activityGroup';
 
 export interface ActivityRequest {
     studentId: string;
-    date: string;
-    activity: Activity;
+    schedules: ActivityGroupDetails[];
 }
 
 export interface ActivityPutResponse {
