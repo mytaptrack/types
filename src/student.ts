@@ -1,5 +1,6 @@
 import { UserSummary } from './userDetails';
 import { IoTDevice } from './iotDevice';
+import { ActivityGroupDetails } from 'index';
 
 export interface Student {
     details: StudentDetails;
@@ -17,6 +18,7 @@ export interface StudentDetails {
     teacher: string;
     allowContactSchool: boolean;
     subtext?: string;
+    schedules?: ActivityGroupDetails[];
 }
 
 export interface StudentBehavior {

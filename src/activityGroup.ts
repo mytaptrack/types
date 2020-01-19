@@ -17,6 +17,7 @@ export interface ActivityGroup {
 export interface ActivityGroupDetails {
     activities: Activity[];
     name: string;
+    applyDays: string[];
 }
 
 export interface ActivityGroupSummary {
