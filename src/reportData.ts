@@ -10,10 +10,10 @@ export interface ReportDetails {
     studentBehavior: string;
     weekStart: string;
     scheduleName?: string;
-    activities: {
+    activities?: {
         [key: string]: Activity[];
     };
-    schedules: {
+    schedules?: {
         [key: string]: {
             scheduleName: string;
             activities: Activity[];
