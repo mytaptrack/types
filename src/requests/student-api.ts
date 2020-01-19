@@ -3,6 +3,7 @@ import { ActivityGroupDetails } from 'activityGroup';
 
 export interface ActivityRequest {
     studentId: string;
+    date: string;
     schedules: ActivityGroupDetails;
 }
 
