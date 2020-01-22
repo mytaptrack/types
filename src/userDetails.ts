@@ -23,10 +23,22 @@ export interface UserDetails {
     mobile: string;
     behaviors: Array<Behavior>;
     students: Array<StudentSummary>;
-    reportNames: {
-        [key: string]: string;
-    };
+    dashboard: {
+        [studentId: string]: BehaviorSettings[];
+    }
 }
+
+export interface BehaviorSettings {
+    id: string;
+    frequency: boolean;
+    expanded: boolean;
+    duration?: {
+      sum: boolean;
+      avg: boolean;
+      max: boolean;
+      min: boolean;
+    }
+  }
 
 export interface StudentSummary {
     studentId: string;
