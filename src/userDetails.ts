@@ -3,11 +3,13 @@ import { TeamRole } from './student';
 
 export interface User {
     notifications: Array<Notification<NotificationDetails>>;
-    reports: Array<ReportDefinition>;
     details: UserDetails;
     terms: string;
     userId: string;
     enterpriseId: string;
+    dashboard: {
+        [studentId: string]: BehaviorSettings[];
+    }
     version: number;
 }
 
@@ -21,17 +23,12 @@ export interface UserDetails {
     state: string;
     zip: string;
     mobile: string;
-    behaviors: Array<Behavior>;
     students: Array<StudentSummary>;
-    dashboard: {
-        [studentId: string]: BehaviorSettings[];
-    }
 }
 
 export interface BehaviorSettings {
     id: string;
     frequency: boolean;
-    expanded: boolean;
     duration?: {
       sum: boolean;
       avg: boolean;
@@ -66,7 +63,6 @@ export interface ReportDefinitionMetric {
     id: string;
     timeline: ReportDefinitionTimeline;
     name: string;
-    data: Array<any>;
     color: string;
     metricType?: MetricType;
 }
