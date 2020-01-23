@@ -1,31 +1,8 @@
-import { Activity, ReportDefinition, NotificationType, UserDetails } from '../index';
-
-export interface UserActivityGroupPutRequest {
-    name: string;
-    id: string;
-    activities: Activity[];
-}
+import { NotificationType, UserDetails, BehaviorSettings } from '../index';
 
 export interface DeleteUserActivityGroupRequest {
     name: string;
     id: string;
-}
-
-export interface ReportDeleteRequest {
-    id: string;
-}
-
-export interface ReportPostRequest {
-    reportIds: string[];
-}
-
-export interface ReportUpdateRequest extends ReportDefinition {
-    name: string;
-}
-
-export interface ReportSharePostRequest {
-    email: string;
-    report: ReportDefinition;
 }
 
 export interface SubscriptionPostRequest {
@@ -41,6 +18,11 @@ export interface SubscriptionDeleteRequest {
 export interface NotificationDeleteRequest {
     date: string;
     type: NotificationType;
+}
+
+export interface PutSettingsRequest {
+    studentId: string;
+    settings: BehaviorSettings[];
 }
 
 export interface UserPutRequest extends UserDetails {
