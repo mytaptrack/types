@@ -2,10 +2,7 @@ import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupS
 import { TeamRole } from './student';
 
 export interface User {
-    notifications: {
-        latest: Array<Notification<NotificationDetails>>;
-        total: number;
-    }
+    notifications: NotificationSummary;
     details: UserDetails;
     terms: string;
     userId: string;
@@ -16,7 +13,12 @@ export interface User {
     version: number;
 }
 
-export const USER_VERSION = 4;
+export interface NotificationSummary {
+    latest: Array<Notification<NotificationDetails>>;
+    total: number;
+}
+
+export const USER_VERSION = 5;
 
 export interface UserDetails {
     email: string;
