@@ -2,7 +2,10 @@ import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupS
 import { TeamRole } from './student';
 
 export interface User {
-    notifications: Array<Notification<NotificationDetails>>;
+    notifications: {
+        latest: Array<Notification<NotificationDetails>>;
+        total: number;
+    }
     details: UserDetails;
     terms: string;
     userId: string;
