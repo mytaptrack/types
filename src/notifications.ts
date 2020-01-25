@@ -3,6 +3,7 @@ export interface Notification<T extends NotificationDetails> {
     version: string;
     date: string;
     email: string;
+    studentId?: string;
     details: T;
 }
 
