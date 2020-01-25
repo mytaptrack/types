@@ -10,6 +10,9 @@ export interface User {
     dashboard: {
         [studentId: string]: BehaviorSettings[];
     }
+    notifyCounts: {
+        [student: string]: number;
+    }
     version: number;
 }
 
