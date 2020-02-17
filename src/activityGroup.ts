@@ -18,6 +18,7 @@ export interface ActivityGroupDetails {
     activities: Activity[];
     name: string;
     applyDays: number[];
+    endDate?: string
 }
 
 export interface ActivityGroupSummary {
