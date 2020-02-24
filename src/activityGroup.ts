@@ -18,7 +18,8 @@ export interface ActivityGroupDetails {
     activities: Activity[];
     name: string;
     applyDays: number[];
-    endDate?: string
+    startDate?: string;
+    deleted?: boolean;
 }
 
 export interface ActivityGroupSummary {
