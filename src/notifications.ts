@@ -1,4 +1,3 @@
-
 export interface Notification<T extends NotificationDetails> {
     version: string;
     date: number;
@@ -28,4 +27,14 @@ export interface NotificationDetailsTeam extends NotificationDetails {
     studentLastName: string;
     role: string;
     studentId: string;
+    admin?: boolean;
+    access: UserSummaryRestrictions;
+}
+
+export interface UserSummaryRestrictions {
+    administrator: boolean;
+    activities: boolean;
+    comments: boolean;
+    viewTeam: boolean;
+    behaviors?: string[];
 }

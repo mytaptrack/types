@@ -1,4 +1,4 @@
-import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary } from './index';
+import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary, UserSummaryRestrictions } from './index';
 import { TeamRole } from './student';
 
 export interface User {
@@ -100,18 +100,12 @@ export interface UserSummary {
         email: string;
         name: string;
         role: TeamRole
-        restrictions: UserSummaryRestrictions;
     };
     enterpriseId?: string;
     studentId: string;
     version: number;
     smallImage?: string;
-}
-
-export interface UserSummaryRestrictions {
-    activities?: boolean;
-    comments?: boolean;
-    behaviors?: string[];
+    restrictions?: UserSummaryRestrictions;
 }
 
 export enum UserSummaryStatus {

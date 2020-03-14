@@ -1,6 +1,6 @@
 {
     "name": "@mytaptrack/types",
-    "version": "1.0.69",
+    "version": "1.0.70",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "build": "tsc -d",
@@ -16,7 +16,7 @@
         "@types/node": "^11.13.5",
         "aws-sdk": "^2.439.0",
         "babel-jest": "24.7.1",
-        "jest": "^24.7.1",
+        "jest": "^24.9.0",
         "tslib": "^1.9.3",
         "tslint": "^5.16.0",
         "typescript": "^3.6.2"
