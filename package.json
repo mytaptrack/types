@@ -13,13 +13,13 @@
         "@babel/preset-react": "7.0.0",
         "@babel/preset-typescript": "7.3.3",
         "@types/jest": "24.0.11",
-        "@types/node": "^11.13.5",
-        "aws-sdk": "^2.439.0",
+        "@types/node": "^11.15.8",
+        "aws-sdk": "^2.648.0",
         "babel-jest": "24.7.1",
         "jest": "^24.9.0",
-        "tslib": "^1.9.3",
-        "tslint": "^5.16.0",
-        "typescript": "^3.6.2"
+        "tslib": "^1.11.1",
+        "tslint": "^5.20.1",
+        "typescript": "^3.8.3"
     },
     "jest": {
         "verbose": true
