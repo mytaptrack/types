@@ -52,7 +52,29 @@ export enum TeamRole {
     parent = 'Parent',
     teacher = 'Teacher',
     doctor = 'Doctor',
-    administrator = 'Administrator'
+    administrator = 'Administrator',
+    ABATherapist = 'ABA Therapist',
+    BCBALABA = 'BCBA/LABA',
+    ClassroomAide  = 'Classroom Aide',
+    DistrictLEAAdmin = 'District/LEA Admin',
+    EdAdvocate = 'Ed Advocate',
+    HigherEdProfessor = 'Higher Ed Professor',
+    InclusionFacilitator = 'Inclusion Facilitator',
+    LCSWLICSW = 'LCSW/LICSW',
+    OccupationalTherapist = 'Occupational Therapist',
+    PersonalCareAideMedical = 'Personal Care Aide (medical)',
+    PhysicalTherapist = 'Physical Therapist',
+    Physician = 'Physician',
+    PreServiceTeacherStudent = 'PreService Teacher/Student',
+    Psychologist = 'Psychologist',
+    RegularEdTeacher = 'Regular Ed Teacher',
+    SchoolAdmin = 'School Admin',
+    SchoolCommitteeBoardMember = 'School Committee/Board Member',
+    SpecialEdTeacher = 'Special Ed Teacher',
+    SPEDCoordinator = 'SPED Coordinator',
+    SpeechTherapist = 'Speech Therapist',
+    StateEdAgencyAdmin = 'State Ed Agency Admin',
+    Other = 'Other'
 }
 
 export function ConvertToRole(input: string): TeamRole {

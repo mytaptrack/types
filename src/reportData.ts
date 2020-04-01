@@ -18,7 +18,7 @@ export interface ReportDetails {
             scheduleName: string;
             activities: Activity[];
         }
-    }
+    };
     lastUpdateDate?: number;
     enterpriseId?: string;
     version: number;

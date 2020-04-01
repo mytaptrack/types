@@ -9,10 +9,10 @@ export interface User {
     enterpriseId: string;
     dashboard: {
         [studentId: string]: BehaviorSettings[];
-    }
+    };
     notifyCounts: {
         [student: string]: number;
-    }
+    };
     version: number;
 }
 
@@ -42,7 +42,7 @@ export interface BehaviorSettings {
       avg: boolean;
       max: boolean;
       min: boolean;
-    }
+    };
   }
 
 export interface StudentSummary {
