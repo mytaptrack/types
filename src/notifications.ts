@@ -43,5 +43,6 @@ export interface UserSummaryRestrictions {
     devices: AccessLevel;
     team: AccessLevel;
     comments: AccessLevel;
+    behavior: AccessLevel;
     behaviors?: string[];
 }
