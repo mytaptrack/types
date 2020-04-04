@@ -31,10 +31,17 @@ export interface NotificationDetailsTeam extends NotificationDetails {
     access: UserSummaryRestrictions;
 }
 
+export enum AccessLevel {
+    admin = 'Admin',
+    read = 'Read',
+    none = 'No Access'
+}
+
 export interface UserSummaryRestrictions {
-    administrator: boolean;
-    activities: boolean;
-    comments: boolean;
-    viewTeam: boolean;
+    data: AccessLevel;
+    schedules: AccessLevel;
+    devices: AccessLevel;
+    team: AccessLevel;
+    comments: AccessLevel;
     behaviors?: string[];
 }
