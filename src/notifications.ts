@@ -45,4 +45,5 @@ export interface UserSummaryRestrictions {
     comments: AccessLevel;
     behavior: AccessLevel;
     behaviors?: string[];
+    milestones: AccessLevel;
 }
