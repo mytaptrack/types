@@ -19,7 +19,7 @@ export interface StudentDetails {
     allowContactSchool: boolean;
     subtext?: string;
     schedules?: ActivityGroupDetails[];
-    milestones?: Milestone[];
+    milestones: Milestone[];
 }
 
 export interface Milestone {
