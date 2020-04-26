@@ -1,4 +1,4 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription } from '../index';
+import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone } from '../index';
 import { ActivityGroupDetails } from '..';
 
 export interface ActivityRequest {
@@ -65,6 +65,7 @@ export interface StudentCreateRequest {
     studentId: string;
     subtext?: string;
     schedules: ActivityGroupDetails[];
+    milestones: Milestone[];
 }
 
 export interface ReportDataRequest {
