@@ -39,6 +39,7 @@ export interface DevicePutRequest {
     dsn: string;
     name: string;
     studentId: string;
+    multiStudent: boolean;
     enterpriseId: string;
     events: DevicePutRequestEvent[];
     subscriptions?: IoTDeviceSubscription[];

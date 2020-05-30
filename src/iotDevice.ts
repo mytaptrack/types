@@ -4,6 +4,17 @@ export interface IoTDevice {
     enterpriseId?: string;
     name: string;
     validated?: boolean;
+    multiStudent: boolean;
+    events: Array<IoTDeviceEvent>;
+    subscriptions?: IoTDeviceSubscription[];
+    commands: {
+        switch: CommandSwitchStudent[];
+    };
+}
+
+export interface CommandSwitchStudent {
+    term: string;
+    studentId: string;
     events: Array<IoTDeviceEvent>;
     subscriptions?: IoTDeviceSubscription[];
 }
