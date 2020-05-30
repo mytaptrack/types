@@ -114,3 +114,9 @@ export interface StudentDataPut {
     behaviorId: string;
     eventDate: string;
 }
+
+export interface StudentNotesPut {
+    studentId: string;
+    date: string;
+    notes: string;
+}
