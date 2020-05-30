@@ -1,6 +1,6 @@
 {
     "name": "@mytaptrack/types",
-    "version": "1.0.78",
+    "version": "1.0.79",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "build": "tsc -d",
