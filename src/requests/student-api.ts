@@ -33,6 +33,7 @@ export interface DeleteDeviceRequest {
 
 export interface DevicePostRequest {
     dsn: string;
+    studentId: string;
 }
 
 export interface DevicePutRequest {
@@ -43,6 +44,7 @@ export interface DevicePutRequest {
     enterpriseId: string;
     events: DevicePutRequestEvent[];
     subscriptions?: IoTDeviceSubscription[];
+    switchTerm?: string;
 }
 
 export interface DeviceResyncPostRequest {
