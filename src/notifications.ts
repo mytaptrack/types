@@ -1,8 +1,5 @@
 export interface Notification<T extends NotificationDetails> {
-    version: string;
     date: number;
-    email: string;
-    studentId?: string;
     details: T;
 }
 
