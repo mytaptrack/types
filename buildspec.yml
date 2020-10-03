@@ -15,10 +15,6 @@ phases:
       - npm ci
   build:
     commands:
-      - git config --global user.email "nikody@mytaptrack.com"
-      - git config --global user.name "nikody-mytaptrack"
-      - npm version patch
-      - git push
       - npm run build
       - npm run release
   post_build:
