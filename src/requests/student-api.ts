@@ -44,7 +44,7 @@ export interface DevicePutRequest {
     enterpriseId: string;
     events: DevicePutRequestEvent[];
     subscriptions?: IoTDeviceSubscription[];
-    switchTerm?: string;
+    switchTerm?: boolean;
 }
 
 export interface DeviceResyncPostRequest {

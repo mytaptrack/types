@@ -7,6 +7,7 @@ export interface IoTDevice {
     multiStudent: boolean;
     events: Array<IoTDeviceEvent>;
     subscriptions?: IoTDeviceSubscription[];
+    termSetup?: boolean;
     commands: {
         switch: CommandSwitchStudent[];
     };
