@@ -28,11 +28,20 @@ export interface Milestone {
     description: string;
 }
 
+export enum MeasurementType {
+    event = 'Event',
+    avg = 'Avg',
+    sum = 'Sum',
+    max = 'Max',
+    min = 'Min'
+}
+
 export interface StudentBehavior {
     id?: string;
     name: string;
     isArchived?: boolean;
     isDuration?: boolean;
+    targets?: { [targetType: string]: { target: number, measurement: MeasurementType } };
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
