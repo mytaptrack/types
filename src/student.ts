@@ -41,6 +41,7 @@ export interface StudentBehavior {
     name: string;
     isArchived?: boolean;
     isDuration?: boolean;
+    desc?: string;
     targets?: { [targetType: string]: { target: number, measurement: MeasurementType } };
 }
 
