@@ -123,3 +123,22 @@ export interface StudentNotesPut {
     date: string;
     notes: string;
 }
+
+export interface StudentTrackStatePost {
+    studentId: string;
+    behaviors: string[];
+}
+
+export interface StudentTrackStatePostResponse {
+    behaviorStates:
+        {
+            behaviorId: string,
+            started: boolean,
+            startDate: string
+        }[];
+}
+
+export interface StudentTrackPut {
+    studentId: string;
+    behaviorId: string;
+}
