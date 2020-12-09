@@ -42,6 +42,7 @@ export interface StudentBehavior {
     isArchived?: boolean;
     isDuration?: boolean;
     desc?: string;
+    daytime?: boolean;
     targets?: { [targetType: string]: { target: number, measurement: MeasurementType } };
 }
 
