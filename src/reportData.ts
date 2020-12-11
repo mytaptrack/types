@@ -10,9 +10,6 @@ export interface ReportDetails {
     studentBehavior: string;
     weekStart: string;
     scheduleName?: string;
-    activities?: {
-        [key: string]: Activity[];
-    };
     schedules?: {
         [key: string]: {
             scheduleName: string;
@@ -21,7 +18,7 @@ export interface ReportDetails {
     };
     notes?: {
         [key: string]: string;
-    }
+    };
     lastUpdateDate?: number;
     enterpriseId?: string;
     version: number;
