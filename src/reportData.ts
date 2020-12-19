@@ -16,9 +16,6 @@ export interface ReportDetails {
             activities: Activity[];
         }
     };
-    notes?: {
-        [key: string]: string;
-    };
     lastUpdateDate?: number;
     enterpriseId?: string;
     version: number;

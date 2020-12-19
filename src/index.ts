@@ -6,3 +6,4 @@ export * from './student';
 export * from './iotDevice';
 export * from './notifications';
 export * from './requests/index';
+export * from './notes';

@@ -120,8 +120,14 @@ export interface StudentDataPut {
 
 export interface StudentNotesPut {
     studentId: string;
+    lastModifiedDate: string;
     date: string;
     notes: string;
+}
+
+export interface StudentNotesPost {
+    studentId: string;
+    date: string;
 }
 
 export interface StudentTrackStatePost {
