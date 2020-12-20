@@ -45,6 +45,7 @@ export interface DevicePutRequest {
     events: DevicePutRequestEvent[];
     subscriptions?: IoTDeviceSubscription[];
     switchTerm?: boolean;
+    timezone: string;
 }
 
 export interface DeviceResyncPostRequest {
