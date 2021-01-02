@@ -29,3 +29,9 @@ export interface PutSettingsRequest {
 export interface UserPutRequest extends UserDetails {
     acceptTerms: boolean;
 }
+
+export interface ApplyLicenseRequest {
+    studentId: string;
+    license: string;
+    fullYear: boolean;
+}

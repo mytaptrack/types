@@ -5,6 +5,11 @@ import { ActivityGroupDetails } from '.';
 export interface Student {
     details: StudentDetails;
     studentId: string;
+    license?: string,
+    licenseDetails?: {
+        fullYear: boolean,
+        expiration: string
+    }
     version: number;
 }
 

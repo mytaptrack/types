@@ -7,3 +7,4 @@ export * from './iotDevice';
 export * from './notifications';
 export * from './requests/index';
 export * from './notes';
+export * from './license';

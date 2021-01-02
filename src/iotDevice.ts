@@ -2,6 +2,8 @@ export interface IoTDevice {
     dsn?: string;
     studentId?: string;
     enterpriseId?: string;
+    license: string;
+    expiration: string;
     name: string;
     validated?: boolean;
     multiStudent: boolean;

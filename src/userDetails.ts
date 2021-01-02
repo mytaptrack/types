@@ -7,6 +7,13 @@ export interface User {
     terms: string;
     userId: string;
     enterpriseId: string;
+    license: {
+        license: string;
+        multiCount: number;
+        singleCount: number;
+        singleUsed: number;
+        expiration: string;
+    }
     dashboard: {
         [studentId: string]: BehaviorSettings[];
     };
