@@ -10,3 +10,11 @@ export interface LicenseDetails {
     admins: string[];
     expiration: string;
 }
+
+export interface LicenseDetailsWithUsage extends LicenseDetails {
+    usage: {
+        month: string;
+        trackedEvents: number;
+        studentsTracked: number;
+    }[];
+}
