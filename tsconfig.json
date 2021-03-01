@@ -18,13 +18,15 @@
       "es2018",
       "dom"
     ],
-    "types":[
+    "types": [
       "node",
       "jest"
     ]
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "./dist/out-tsc/**/*",
+    "node_modules/**/*"
   ]
 }
