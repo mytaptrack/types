@@ -14,6 +14,7 @@ export interface IoTDevice {
         switch: CommandSwitchStudent[];
     };
     timezone: string;
+    isApp?: boolean;
 }
 
 export interface CommandSwitchStudent {

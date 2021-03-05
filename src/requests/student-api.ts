@@ -29,6 +29,7 @@ export interface StudentBehaviorPutRequest {
 export interface DeleteDeviceRequest {
     dsn: string;
     studentId: string;
+    isApp: boolean;
 }
 
 export interface DevicePostRequest {
