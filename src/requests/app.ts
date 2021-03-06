@@ -28,4 +28,5 @@ export interface GenerateQrCodeRequest {
     studentName: string;
     studentId: string;
     behaviorIds: string[];
+    expires: number;
 }
