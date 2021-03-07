@@ -16,6 +16,7 @@ export interface AppRetrieveDataPostResponse {
 export interface AppTrackDataPut {
     token: string;
     id: string;
+    timezone: string;
 }
 
 export interface AppTrackDataResponse {
