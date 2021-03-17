@@ -15,7 +15,7 @@ export interface User {
         expiration: string;
     }
     dashboard: {
-        [studentId: string]: BehaviorSettings[];
+        [studentId: string]: StudentDashboardSettings;
     };
     notifyCounts: {
         [student: string]: number;
@@ -40,6 +40,27 @@ export interface UserDetails {
     students: Array<StudentSummary>;
 }
 
+export enum BehaviorCalculation {
+    Pooled = 'Pooled',
+    Independent = 'Independent',
+    Hidden = 'Hidden'
+}
+
+export interface StudentDashboardSettings {
+    behaviors: BehaviorSettings[];
+    devices: DashboardDeviceSettings[];
+    velocity: {
+        enabled: boolean;
+        trackedEvent?: string;
+    }
+}
+
+export interface DashboardDeviceSettings {
+    id: string;
+    name: string;
+    calculation: BehaviorCalculation;
+}
+
 export interface BehaviorSettings {
     id: string;
     frequency: boolean;
@@ -49,7 +70,7 @@ export interface BehaviorSettings {
       max: boolean;
       min: boolean;
     };
-  }
+}
 
 export interface StudentSummary {
     studentId: string;
@@ -77,6 +98,7 @@ export interface ReportDefinitionMetric {
     id: string;
     timeline: ReportDefinitionTimeline;
     name: string;
+    deviceIds: string[];
     color: string;
     metricType?: MetricType;
 }

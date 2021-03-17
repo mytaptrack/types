@@ -1,4 +1,4 @@
-import { NotificationType, UserDetails, BehaviorSettings } from '../index';
+import { NotificationType, UserDetails, StudentDashboardSettings } from '../index';
 
 export interface DeleteUserActivityGroupRequest {
     name: string;
@@ -23,7 +23,7 @@ export interface NotificationDeleteRequest {
 
 export interface PutSettingsRequest {
     studentId: string;
-    settings: BehaviorSettings[];
+    settings: StudentDashboardSettings;
 }
 
 export interface UserPutRequest extends UserDetails {

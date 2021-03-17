@@ -28,6 +28,14 @@ export interface ReportData {
     reported?: boolean;
     score?: number;
     isManual: boolean;
+    source?: {
+        device: string;
+        rater?: string;
+    };
+    deleted?: {
+        date: string;
+        by: string
+    };
 }
 
 export interface DeviceReports {

@@ -1,5 +1,5 @@
 import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone } from '../index';
-import { ActivityGroupDetails } from '..';
+import { ActivityGroupDetails, StudentDashboardSettings } from '..';
 
 export interface ActivityRequest {
     studentId: string;
@@ -150,4 +150,8 @@ export interface StudentTrackStatePostResponse {
 export interface StudentTrackPut {
     studentId: string;
     behaviorId: string;
+}
+
+export interface StudentDashboardPutRequest extends StudentDashboardSettings {
+    studentId: string;
 }

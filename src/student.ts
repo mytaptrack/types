@@ -1,6 +1,6 @@
 import { UserSummary } from './userDetails';
 import { IoTDevice } from './iotDevice';
-import { ActivityGroupDetails } from '.';
+import { ActivityGroupDetails, StudentDashboardSettings } from '.';
 
 export interface Student {
     details: StudentDetails;
@@ -10,6 +10,7 @@ export interface Student {
         fullYear: boolean,
         expiration: string
     }
+    dashboard?: StudentDashboardSettings;
     version: number;
 }
 
