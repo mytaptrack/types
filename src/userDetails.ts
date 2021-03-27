@@ -46,12 +46,31 @@ export enum BehaviorCalculation {
     Hidden = 'Hidden'
 }
 
+export enum CalculationType {
+    sum = 'sum',
+    avg = 'avg'
+}
+
+export enum SummaryScope {
+    auto = 'Auto',
+    months = 'Months',
+    weeks = 'Weeks',
+    days = 'Days'
+}
+
 export interface StudentDashboardSettings {
     behaviors: BehaviorSettings[];
     devices: DashboardDeviceSettings[];
     velocity: {
         enabled: boolean;
         trackedEvent?: string;
+    },
+    summary: {
+        after45: SummaryScope;
+        after150: SummaryScope;
+        calculationType: CalculationType;
+        showTargets: boolean;
+        averageDays: number;
     }
 }
 
@@ -106,6 +125,7 @@ export interface ReportDefinitionMetric {
 export interface ReportDefinitionTimeline {
     startDate: string | Date;
     scope: string;
+    calculationType: CalculationType;
     duration: number;
 }
 
