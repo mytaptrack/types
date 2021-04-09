@@ -41,6 +41,7 @@ export interface IoTDeviceEvent {
     eventId: string;
     presses: number | string;
     delayDelivery: string;
+    appAlert?: boolean;
 }
 
 export interface IoTDeviceEdit extends IoTDevice {

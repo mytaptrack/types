@@ -59,6 +59,7 @@ export interface DevicePutRequestEvent {
     eventId: string;
     presses: number | string;
     delayDelivery: string;
+    appAlert?: boolean;
 }
 
 export interface StudentCreateRequest {

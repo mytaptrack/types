@@ -3,6 +3,7 @@ export interface TrackedBehavior {
     id: string;
     isDuration: boolean;
     durationOn?: boolean;
+    alert: boolean;
 }
 
 export interface TrackedTarget {

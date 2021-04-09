@@ -6,6 +6,10 @@ export interface AppRetrieveDataPostRequest {
         name: string;
     },
     tokens: string[];
+    notifications: {
+        token: string;
+        os: string;
+    }
 }
 
 export interface AppRetrieveDataPostResponse {
@@ -29,5 +33,6 @@ export interface GenerateQrCodeRequest {
     studentName: string;
     studentId: string;
     behaviorIds: string[];
+    alertIds: string[];
     expires: number;
 }
