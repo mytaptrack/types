@@ -5,11 +5,11 @@ import { ActivityGroupDetails, StudentDashboardSettings } from '.';
 export interface Student {
     details: StudentDetails;
     studentId: string;
-    license?: string,
+    license?: string;
     licenseDetails?: {
-        fullYear: boolean,
-        expiration: string
-    }
+        fullYear: boolean;
+        expiration: string;
+    };
     dashboard?: StudentDashboardSettings;
     version: number;
 }

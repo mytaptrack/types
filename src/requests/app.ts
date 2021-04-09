@@ -4,16 +4,16 @@ export interface AppRetrieveDataPostRequest {
     device: {
         id: string;
         name: string;
-    },
+    };
     tokens: string[];
     notifications: {
         token: string;
         os: string;
-    }
+    };
 }
 
 export interface AppRetrieveDataPostResponse {
-    tokenUpdate: string,
+    tokenUpdate: string;
     targets: TrackedTarget[];
 }
 

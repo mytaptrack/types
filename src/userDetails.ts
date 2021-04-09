@@ -13,7 +13,7 @@ export interface User {
         singleCount: number;
         singleUsed: number;
         expiration: string;
-    }
+    };
     dashboard: {
         [studentId: string]: StudentDashboardSettings;
     };
@@ -64,14 +64,14 @@ export interface StudentDashboardSettings {
     velocity: {
         enabled: boolean;
         trackedEvent?: string;
-    },
+    };
     summary: {
         after45: SummaryScope;
         after150: SummaryScope;
         calculationType: CalculationType;
         showTargets: boolean;
         averageDays: number;
-    }
+    };
 }
 
 export interface DashboardDeviceSettings {
