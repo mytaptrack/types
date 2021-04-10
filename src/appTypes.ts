@@ -4,6 +4,8 @@ export interface TrackedBehavior {
     isDuration: boolean;
     durationOn?: boolean;
     alert: boolean;
+    track: boolean;
+    customMessage?: string;
 }
 
 export interface TrackedTarget {
