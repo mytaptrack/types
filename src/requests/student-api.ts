@@ -1,4 +1,4 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone } from '../index';
+import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone, StudentSupport } from '../index';
 import { ActivityGroupDetails, StudentDashboardSettings } from '..';
 
 export interface ActivityRequest {
@@ -75,6 +75,7 @@ export interface StudentCreateRequest {
     subtext?: string;
     schedules: ActivityGroupDetails[];
     milestones: Milestone[];
+    supports: StudentSupport[];
 }
 
 export interface ReportDataRequest {

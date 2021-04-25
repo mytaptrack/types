@@ -14,10 +14,20 @@ export interface Student {
     version: number;
 }
 
+export interface StudentSupportSetting {
+    behaviorId: string;
+    stopDuration: boolean;
+}
+
+export interface StudentSupport extends StudentBehavior {
+    appliedToBehaviors: StudentSupportSetting[];
+}
+
 export interface StudentDetails {
-    behaviors: Array<StudentBehavior>;
-    users?: Array<UserSummary>;
-    devices?: Array<IoTDevice>;
+    behaviors: StudentBehavior[];
+    supports: StudentSupport[];
+    users?: UserSummary[];
+    devices?: IoTDevice[];
     firstName: string;
     lastName: string;
     schoolDistrict: string;
