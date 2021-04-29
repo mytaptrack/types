@@ -72,6 +72,7 @@ export interface StudentDashboardSettings {
         showTargets: boolean;
         averageDays: number;
     };
+    autoExcludeDays: number[];
 }
 
 export interface DashboardDeviceSettings {
@@ -103,6 +104,8 @@ export interface ReportDefinition {
     studentId: string;
     style: ReportDefinitionStyle;
     metrics: Array<ReportDefinitionMetric>;
+    excludeDates: string[];
+    includeDates: string[];
 }
 
 export enum MetricType {

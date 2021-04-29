@@ -159,3 +159,9 @@ export interface StudentTrackPut {
 export interface StudentDashboardPutRequest extends StudentDashboardSettings {
     studentId: string;
 }
+
+export interface StudentDataExcludeRequest {
+    studentId: string;
+    date: string;
+    action: 'exclude' | 'include' | 'undo'
+}

@@ -18,6 +18,8 @@ export interface ReportDetails {
     };
     lastUpdateDate?: number;
     enterpriseId?: string;
+    excludeDays: string[];
+    includeDays: string[];
     version: number;
 }
 
