@@ -103,9 +103,10 @@ export interface ReportDefinition {
     id?: string;
     studentId: string;
     style: ReportDefinitionStyle;
-    metrics: Array<ReportDefinitionMetric>;
+    metrics: ReportDefinitionMetric[];
     excludeDates: string[];
     includeDates: string[];
+    scheduledExcludes: string[];
 }
 
 export enum MetricType {
@@ -136,7 +137,7 @@ export interface ReportDefinitionStyle {
     type: string;
     width: number;
     fill: boolean;
-    colors: Array<string>;
+    colors: string[];
 }
 
 export interface Behavior {
@@ -168,17 +169,17 @@ export enum UserSummaryStatus {
 
 export interface UserPreferences {
     notifications: {
-        onEvent: Array<string>;
-        onChange: Array<string>;
+        onEvent: string[];
+        onChange: string[];
     };
 }
 
 export interface UserSubscriptionResponse {
     userId: string;
     studentId: string;
-    subscriptions: Array<BehaviorSubscription>;
+    subscriptions: BehaviorSubscription[];
 }
 
 export interface UserContext {
-    activityGroups: Array<ActivityGroupSummary>;
+    activityGroups: ActivityGroupSummary[];
 }
