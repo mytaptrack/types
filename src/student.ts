@@ -14,18 +14,18 @@ export interface Student {
     version: number;
 }
 
-export interface StudentSupportSetting {
+export interface StudentResponseSetting {
     behaviorId: string;
     stopDuration: boolean;
 }
 
-export interface StudentSupport extends StudentBehavior {
-    appliedToBehaviors: StudentSupportSetting[];
+export interface StudentResponse extends StudentBehavior {
+    appliedToBehaviors: StudentResponseSetting[];
 }
 
 export interface StudentDetails {
     behaviors: StudentBehavior[];
-    supports: StudentSupport[];
+    responses: StudentResponse[];
     users?: UserSummary[];
     devices?: IoTDevice[];
     firstName: string;
@@ -59,6 +59,7 @@ export interface StudentBehavior {
     isDuration?: boolean;
     desc?: string;
     daytime?: boolean;
+    requireResponse?: boolean;
     targets?: { [targetType: string]: { target: number, measurement: MeasurementType } };
 }
 
