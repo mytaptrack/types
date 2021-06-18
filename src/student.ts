@@ -60,7 +60,13 @@ export interface StudentBehavior {
     desc?: string;
     daytime?: boolean;
     requireResponse?: boolean;
-    targets?: { [targetType: string]: { target: number, measurement: MeasurementType } };
+    targets?: { 
+        [targetType: string]: { 
+            target: number;
+            progress?: number;
+            measurement: MeasurementType;
+        }
+    };
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
