@@ -31,6 +31,7 @@ export interface AppTrackDataResponse {
 
 export interface GenerateQrCodeRequest {
     studentName: string;
+    deviceName: string;
     studentId: string;
     behaviorIds: string[];
     alertIds: string[];
