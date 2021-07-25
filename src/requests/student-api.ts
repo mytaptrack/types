@@ -165,3 +165,8 @@ export interface StudentDataExcludeRequest {
     date: string;
     action: 'exclude' | 'include' | 'undo'
 }
+
+export interface StudentReportPostRequest {
+    studentId: string;
+    date: string;
+}

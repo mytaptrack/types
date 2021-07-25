@@ -127,3 +127,45 @@ export function ConvertToRole(input: string): TeamRole {
 
     return null;
 }
+
+export interface StudentSummaryReportBehavior {
+    show: boolean;
+    behaviorId: string;
+    displayText: string;
+    faces: {
+        face: string;
+        overwrite?: boolean
+    }[];
+    targets: {
+        [targetType: string]: {
+        target: number;
+        progress?: number;
+        measurement: MeasurementType;
+        };
+    };
+    stats?: {
+        week: {
+        count: number;
+        delta: number;
+        modifier: string;
+        };
+        day: {
+        count: number;
+        delta: number;
+        modifier: string;
+        };
+    };
+}
+
+export interface StudentSummaryReport {
+    studentId: string;
+    lastModified: {
+        userId: string;
+        date: string;
+    }
+    message: Record<string, any>;
+    date: string;
+    type: 'Weekly';
+    behaviors: StudentSummaryReportBehavior[];
+    version: number;
+}
