@@ -17,10 +17,23 @@ export interface User {
     dashboard: {
         [studentId: string]: StudentDashboardSettings;
     };
+    activeNoResponse: {
+        [student: string]: boolean;
+    };
     notifyCounts: {
         [student: string]: number;
     };
     version: number;
+}
+
+export interface UserNotificationsResponse {
+    notifications: UserNotifications;
+    activeNoResponse: {
+        [student: string]: boolean;
+    };
+    notifyCounts: {
+        [student: string]: number;
+    };
 }
 
 export interface UserNotifications {
