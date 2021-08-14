@@ -5,6 +5,7 @@ export interface IoTDevice {
     license: string;
     expiration: string;
     name: string;
+    displayName: string;
     validated?: boolean;
     multiStudent: boolean;
     events: Array<IoTDeviceEvent>;

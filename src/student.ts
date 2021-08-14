@@ -12,6 +12,7 @@ export interface Student {
     };
     dashboard?: StudentDashboardSettings;
     version: number;
+    lastUpdateDate: string;
 }
 
 export interface StudentResponseSetting {

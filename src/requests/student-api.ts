@@ -40,6 +40,7 @@ export interface DevicePostRequest {
 export interface DevicePutRequest {
     dsn: string;
     name: string;
+    displayName: string;
     studentId: string;
     multiStudent: boolean;
     enterpriseId: string;
