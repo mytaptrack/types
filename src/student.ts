@@ -158,6 +158,13 @@ export interface StudentSummaryReportBehavior {
     };
 }
 
+export interface StudentSummaryReportLegend {
+    behavior: string;
+    measurement: MeasurementType;
+    target: number;
+    progress: number;
+}
+
 export interface StudentSummaryReport {
     studentId: string;
     lastModified: {
@@ -168,5 +175,6 @@ export interface StudentSummaryReport {
     date: string;
     type: 'Weekly';
     behaviors: StudentSummaryReportBehavior[];
+    legend?: StudentSummaryReportLegend[];
     version: number;
 }
