@@ -132,6 +132,7 @@ export function ConvertToRole(input: string): TeamRole {
 export interface StudentSummaryReportBehavior {
     show: boolean;
     behaviorId: string;
+    isDuration?: boolean;
     displayText: string;
     faces: {
         face: string;
