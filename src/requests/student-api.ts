@@ -63,6 +63,7 @@ export interface DevicePutRequestEvent {
     alert?: boolean;
     track?: boolean;
     customMessage?: string;
+    order: number;
 }
 
 export interface StudentCreateRequest {

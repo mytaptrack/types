@@ -6,6 +6,7 @@ export interface TrackedBehavior {
     alert: boolean;
     track: boolean;
     customMessage?: string;
+    order: number;
 }
 
 export interface TrackedTarget {
