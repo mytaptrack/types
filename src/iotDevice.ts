@@ -45,6 +45,7 @@ export interface IoTDeviceEvent {
     alert?: boolean;
     track?: boolean;
     customMessage?: string;
+    order: number;
 }
 
 export interface IoTDeviceEdit extends IoTDevice {
