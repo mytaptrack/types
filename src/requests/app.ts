@@ -1,4 +1,4 @@
-import { TrackedTarget } from '../appTypes';
+import { TrackedBehavior, TrackedTarget } from '../appTypes';
 
 export interface AppRetrieveDataPostRequest {
     device: {
@@ -30,10 +30,10 @@ export interface AppTrackDataResponse {
 }
 
 export interface GenerateQrCodeRequest {
+    dsn?: string;
     studentName: string;
     deviceName: string;
     studentId: string;
-    behaviorIds: string[];
-    alertIds: string[];
+    behaviors: TrackedBehavior[];
     expires: number;
 }
