@@ -79,6 +79,7 @@ export interface BehaviorSubscription {
     studentId: string;
     behaviorId: string;
     onEach: boolean;
+    dashboard?: boolean;
     email?: boolean;
     mobile?: boolean;
 }
