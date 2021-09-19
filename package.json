@@ -1,6 +1,6 @@
 {
     "name": "@mytaptrack/types",
-    "version": "1.0.121",
+    "version": "1.0.122",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "build": "tsc -d",
@@ -8,15 +8,14 @@
         "release": "npm publish"
     },
     "devDependencies": {
-        "@babel/core": "7.4.3",
         "@babel/preset-env": "7.4.3",
         "@babel/preset-react": "7.0.0",
         "@babel/preset-typescript": "7.3.3",
-        "@types/jest": "24.0.11",
+        "@types/jest": "^27.0.1",
         "@types/node": "^11.15.8",
         "aws-sdk": "^2.648.0",
-        "babel-jest": "24.7.1",
-        "jest": "^24.9.0",
+        "babel-jest": "^27.0.0",
+        "jest": "^27.0.4",
         "tslib": "^1.11.1",
         "tslint": "^5.20.1",
         "typescript": "^3.8.3"
