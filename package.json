@@ -8,9 +8,6 @@
         "release": "npm publish"
     },
     "devDependencies": {
-        "@babel/preset-env": "7.4.3",
-        "@babel/preset-react": "7.0.0",
-        "@babel/preset-typescript": "7.3.3",
         "@types/jest": "^27.0.1",
         "@types/node": "^11.15.8",
         "aws-sdk": "^2.648.0",
