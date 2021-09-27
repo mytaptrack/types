@@ -1,3 +1,9 @@
+import { TrackedBehavior } from '.';
+
+export interface MobileTemplate {
+    deviceId: string;
+    behaviors: TrackedBehavior[];
+}
 export interface LicenseDetails {
     license?: string;
     customer: string;
@@ -9,6 +15,7 @@ export interface LicenseDetails {
     multiCount: number;
     admins: string[];
     expiration: string;
+    mobileTemplates: MobileTemplate[];
 }
 
 export interface LicenseDetailsWithUsage extends LicenseDetails {
