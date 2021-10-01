@@ -3,6 +3,7 @@
     "version": "1.0.124",
     "main": "dist/out-tsc/index.js",
     "scripts": {
+        "start": "tsc -d --watch",
         "build": "tsc -d",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "release": "npm publish"
