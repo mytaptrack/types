@@ -36,4 +36,5 @@ export interface GenerateQrCodeRequest {
     studentId: string;
     behaviors: TrackedBehavior[];
     expires: number;
+    deviceId?: string;
 }
