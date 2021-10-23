@@ -156,6 +156,7 @@ export interface StudentTrackStatePostResponse {
 export interface StudentTrackPut {
     studentId: string;
     behaviorId: string;
+    date?: string;
 }
 
 export interface StudentDashboardPutRequest extends StudentDashboardSettings {
