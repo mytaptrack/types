@@ -4,6 +4,19 @@ export interface MobileTemplate {
     deviceId: string;
     behaviors: TrackedBehavior[];
 }
+export interface LicenseFeatures {
+    snapshot: boolean;
+    dashboard: boolean;
+    browserTracking: boolean;
+    download: boolean;
+    manage: boolean;
+    supportChanges: boolean;
+    schedule: boolean;
+    devices: boolean;
+    behaviorTargets: boolean;
+    response: boolean;
+    emailTextNotifications: boolean;
+}
 export interface LicenseDetails {
     license?: string;
     customer: string;
@@ -16,6 +29,7 @@ export interface LicenseDetails {
     admins: string[];
     expiration: string;
     mobileTemplates: MobileTemplate[];
+    features?: LicenseFeatures;
 }
 
 export interface LicenseDetailsWithUsage extends LicenseDetails {

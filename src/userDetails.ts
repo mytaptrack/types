@@ -1,4 +1,4 @@
-import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary, UserSummaryRestrictions } from './index';
+import { BehaviorSubscription, Notification, NotificationDetails, ActivityGroupSummary, UserSummaryRestrictions, LicenseFeatures } from './index';
 import { TeamRole } from './student';
 
 export interface User {
@@ -13,6 +13,7 @@ export interface User {
         singleCount: number;
         singleUsed: number;
         expiration: string;
+        features: LicenseFeatures;
     };
     dashboard: {
         [studentId: string]: StudentDashboardSettings;
