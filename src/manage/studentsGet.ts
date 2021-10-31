@@ -16,6 +16,14 @@ export interface ManageStudent {
     };
 }
 
+export interface ManageStatRow {
+    date: string;
+    count: number;
+}
+
 export interface ManageStudentGetResponse {
     students: ManageStudent[];
+    stats: {
+        flexible: ManageStatRow[];
+    }
 }
