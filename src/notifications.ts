@@ -45,4 +45,5 @@ export interface UserSummaryRestrictions {
     milestones: AccessLevel;
     reports: AccessLevel;
     reportsOverride?: boolean;
+    transferLicense?: boolean;
 }
