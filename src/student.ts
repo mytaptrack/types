@@ -12,6 +12,7 @@ export interface Student {
         features: LicenseFeatures;
     };
     dashboard?: StudentDashboardSettings;
+    tags: string[];
     version: number;
     lastUpdateDate: string;
 }

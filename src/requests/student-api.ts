@@ -70,14 +70,11 @@ export interface StudentCreateRequest {
     role?: TeamRole;
     firstName: string;
     lastName: string;
-    schoolDistrict: string;
-    allowContactSchool: boolean;
-    teacher: string;
     studentId: string;
-    subtext?: string;
     schedules: ActivityGroupDetails[];
     milestones: Milestone[];
     responses: StudentResponse[];
+    tags: string[]
 }
 
 export interface ReportDataRequest {

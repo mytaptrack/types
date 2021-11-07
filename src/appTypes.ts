@@ -32,5 +32,6 @@ export interface MobileDevice {
         name: string;
     };
     assignments: MobileDeviceRegistration[];
+    tags: string[];
     template: MobileTemplate;
 }

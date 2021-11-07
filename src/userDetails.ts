@@ -110,7 +110,7 @@ export interface StudentSummary {
     studentId: string;
     firstName: string;
     lastName: string;
-    subtext?: string;
+    tags: string[];
 }
 
 export interface ReportDefinition {

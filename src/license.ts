@@ -17,6 +17,10 @@ export interface LicenseFeatures {
     response: boolean;
     emailTextNotifications: boolean;
 }
+export interface LicenseTagSet {
+    name: string;
+    tags: string[];
+}
 export interface LicenseDetails {
     license?: string;
     customer: string;
@@ -30,6 +34,9 @@ export interface LicenseDetails {
     expiration: string;
     mobileTemplates: MobileTemplate[];
     features?: LicenseFeatures;
+    tags: {
+        devices: LicenseTagSet[];
+    };
 }
 
 export interface LicenseDetailsWithUsage extends LicenseDetails {
