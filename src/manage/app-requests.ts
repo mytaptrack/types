@@ -7,12 +7,12 @@ export interface ManageAppRenamePostRequest {
     tags: string[];
 }
 
-export interface ManageStudentTemplatePostRequest {
+export interface ManageStudentTemplatePutRequest {
     tag: string;
     behaviors: StudentTemplateBehavior[];
 }
 
-export interface ManageDeviceTemplatePostRequest {
+export interface ManageDeviceTemplatePutRequest {
     tag: string;
     behaviors: TrackTemplateBehavior[];
 }
