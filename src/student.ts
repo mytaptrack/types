@@ -13,6 +13,7 @@ export interface Student {
     };
     dashboard?: StudentDashboardSettings;
     tags: string[];
+    managementTags: string[];
     version: number;
     lastUpdateDate: string;
 }
@@ -60,11 +61,12 @@ export interface StudentBehavior {
     name: string;
     isArchived?: boolean;
     isDuration?: boolean;
+    managed?: boolean;
     desc?: string;
     daytime?: boolean;
     requireResponse?: boolean;
-    targets?: { 
-        [targetType: string]: { 
+    targets?: {
+        [targetType: string]: {
             target: number;
             progress?: number;
             measurement: MeasurementType;
@@ -174,7 +176,7 @@ export interface StudentSummaryReport {
     lastModified: {
         userId: string;
         date: string;
-    }
+    };
     message: Record<string, any>;
     date: string;
     type: 'Weekly';

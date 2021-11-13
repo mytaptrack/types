@@ -1,4 +1,4 @@
-import { IoTDevice, UserSummary, StudentBehavior, LicenseDetails } from "..";
+import { IoTDevice, UserSummary, StudentBehavior, LicenseDetails } from '..';
 
 export interface ManageStudent {
     studentId: string;
@@ -8,7 +8,7 @@ export interface ManageStudent {
         behaviors: StudentBehavior[];
         responses: StudentBehavior[];
         users?: UserSummary[];
-        devices?: IoTDevice[];    
+        devices?: IoTDevice[];
     };
     licenseDetails: {
         fullYear: boolean;

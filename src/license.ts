@@ -1,8 +1,8 @@
-import { TrackedBehavior } from '.';
+import { StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
 
-export interface MobileTemplate {
-    deviceId: string;
-    behaviors: TrackedBehavior[];
+export interface LicenseTemplate<T> {
+    tag: string;
+    behaviors: T[];
 }
 export interface LicenseFeatures {
     snapshot: boolean;
@@ -32,7 +32,8 @@ export interface LicenseDetails {
     multiCount: number;
     admins: string[];
     expiration: string;
-    mobileTemplates: MobileTemplate[];
+    mobileTemplates: LicenseTemplate<TrackTemplateBehavior>[];
+    studentTemplates: LicenseTemplate<StudentTemplateBehavior>[];
     features?: LicenseFeatures;
     tags: {
         devices: LicenseTagSet[];

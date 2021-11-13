@@ -74,7 +74,7 @@ export interface StudentCreateRequest {
     schedules: ActivityGroupDetails[];
     milestones: Milestone[];
     responses: StudentResponse[];
-    tags: string[]
+    tags: string[];
 }
 
 export interface ReportDataRequest {
@@ -163,7 +163,7 @@ export interface StudentDashboardPutRequest extends StudentDashboardSettings {
 export interface StudentDataExcludeRequest {
     studentId: string;
     date: string;
-    action: 'exclude' | 'include' | 'undo'
+    action: 'exclude' | 'include' | 'undo';
 }
 
 export interface StudentReportPostRequest {

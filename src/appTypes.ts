@@ -1,5 +1,3 @@
-import { MobileTemplate } from ".";
-
 export interface TrackedBehavior {
     title: string;
     id: string;
@@ -33,5 +31,4 @@ export interface MobileDevice {
     };
     assignments: MobileDeviceRegistration[];
     tags: string[];
-    template: MobileTemplate;
 }

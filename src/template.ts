@@ -1,0 +1,24 @@
+import { MeasurementType } from '.';
+
+export interface TrackTemplateBehavior {
+    name: string;
+    desc: string;
+    track?: boolean;
+    alert?: boolean;
+    order: number;
+}
+
+export interface StudentTemplateBehavior {
+    name: string;
+    desc: string;
+    isDuration?: boolean;
+    order: number;
+    requireResponse?: boolean;
+    targets?: {
+        [targetType: string]: {
+            target: number;
+            progress?: number;
+            measurement: MeasurementType;
+        };
+    };
+}
