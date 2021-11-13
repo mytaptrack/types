@@ -32,8 +32,8 @@ export interface LicenseDetails {
     multiCount: number;
     admins: string[];
     expiration: string;
-    mobileTemplates: LicenseTemplate<TrackTemplateBehavior>[];
-    studentTemplates: LicenseTemplate<StudentTemplateBehavior>[];
+    mobileTemplates?: LicenseTemplate<TrackTemplateBehavior>[];
+    studentTemplates?: LicenseTemplate<StudentTemplateBehavior>[];
     features?: LicenseFeatures;
     tags: {
         devices: LicenseTagSet[];
