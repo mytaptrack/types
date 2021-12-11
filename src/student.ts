@@ -72,6 +72,7 @@ export interface StudentBehavior {
             measurement: MeasurementType;
         }
     };
+    tags: string[];
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {

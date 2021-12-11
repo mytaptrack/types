@@ -1,9 +1,5 @@
-import { StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
+import { LicenseTemplate, StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
 
-export interface LicenseTemplate<T> {
-    tag: string;
-    behaviors: T[];
-}
 export interface LicenseFeatures {
     snapshot: boolean;
     dashboard: boolean;
