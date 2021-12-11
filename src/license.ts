@@ -12,6 +12,8 @@ export interface LicenseFeatures {
     behaviorTargets: boolean;
     response: boolean;
     emailTextNotifications: boolean;
+    manageStudentTemplates?: boolean;
+    manageAppTemplates?: boolean;
 }
 export interface LicenseTagSet {
     name: string;
