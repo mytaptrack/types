@@ -23,25 +23,6 @@ export interface StudentResponseSetting {
     stopDuration: boolean;
 }
 
-export interface StudentResponse extends StudentBehavior {
-    appliedToBehaviors: StudentResponseSetting[];
-}
-
-export interface StudentDetails {
-    behaviors: StudentBehavior[];
-    responses: StudentResponse[];
-    users?: UserSummary[];
-    devices?: IoTDevice[];
-    firstName: string;
-    lastName: string;
-    schoolDistrict: string;
-    teacher: string;
-    allowContactSchool: boolean;
-    subtext?: string;
-    schedules?: ActivityGroupDetails[];
-    milestones: Milestone[];
-}
-
 export interface Milestone {
     date: string;
     title: string;
@@ -78,6 +59,26 @@ export interface StudentBehavior {
 export interface StudentBehaviorEdit extends StudentBehavior {
     editMode: boolean;
     oldData: string;
+}
+
+
+export interface StudentResponse extends StudentBehavior {
+    appliedToBehaviors: StudentResponseSetting[];
+}
+
+export interface StudentDetails {
+    behaviors: StudentBehavior[];
+    responses: StudentResponse[];
+    users?: UserSummary[];
+    devices?: IoTDevice[];
+    firstName: string;
+    lastName: string;
+    schoolDistrict: string;
+    teacher: string;
+    allowContactSchool: boolean;
+    subtext?: string;
+    schedules?: ActivityGroupDetails[];
+    milestones: Milestone[];
 }
 
 export interface BehaviorSubscription {

@@ -25,5 +25,5 @@ export interface ManageStudentGetResponse {
     students: ManageStudent[];
     stats: {
         flexible: ManageStatRow[];
-    }
+    };
 }

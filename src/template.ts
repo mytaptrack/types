@@ -1,7 +1,7 @@
 import { MeasurementType } from '.';
 
 export interface LicenseTemplate<T> {
-    type: 'app' | 'device' | 'student',
+    type: 'app' | 'device' | 'student';
     tag: string;
     desc: string;
     behaviors: T[];

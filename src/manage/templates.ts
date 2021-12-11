@@ -1,4 +1,4 @@
-import { LicenseTemplate, StudentTemplateBehavior, TrackTemplateBehavior } from "..";
+import { LicenseTemplate, StudentTemplateBehavior, TrackTemplateBehavior } from '..';
 
 export interface GetLicenseTemplatesResponse {
     apps: LicenseTemplate<TrackTemplateBehavior>[];
