@@ -25,10 +25,21 @@ export interface MobileDeviceRegistration {
 }
 
 export interface MobileDevice {
+    appId: string;
     device: {
         id: string;
         name: string;
     };
     assignments: MobileDeviceRegistration[];
     tags: string[];
+}
+
+export interface LicenseAppRef {
+    id?: string;
+    name: string;
+    deviceId?: string;
+    license: string;
+    studentApps: { appId: string, studentId: string}[];
+    tags: string[];
+    version: number;
 }
