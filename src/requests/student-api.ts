@@ -139,6 +139,7 @@ export interface StudentNotesPost {
 export interface StudentTrackStatePost {
     studentId: string;
     behaviors: string[];
+    date: string;
 }
 
 export interface StudentTrackStatePostResponse {
