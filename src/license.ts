@@ -1,7 +1,14 @@
 import { LicenseTemplate, StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
 
+export interface SnapshotConfig {
+    low: string;
+    medium: string;
+    high: string;
+}
+
 export interface LicenseFeatures {
     snapshot: boolean;
+    snapshotConfig?: SnapshotConfig;
     dashboard: boolean;
     browserTracking: boolean;
     download: boolean;
