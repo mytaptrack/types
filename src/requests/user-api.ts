@@ -34,4 +34,5 @@ export interface ApplyLicenseRequest {
     studentId: string;
     license: string;
     fullYear: boolean;
+    remove?: boolean;
 }
