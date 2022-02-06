@@ -16,6 +16,7 @@ export interface IoTDevice {
     };
     timezone: string;
     isApp?: boolean;
+    deleted?: boolean;
 }
 
 export interface CommandSwitchStudent {
