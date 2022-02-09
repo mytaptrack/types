@@ -111,6 +111,7 @@ export interface StudentSummary {
     firstName: string;
     lastName: string;
     tags: string[];
+    lastTracked?: string;
 }
 
 export interface ReportDefinition {

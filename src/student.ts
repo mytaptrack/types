@@ -15,6 +15,7 @@ export interface Student {
     tags: string[];
     managementTags: string[];
     version: number;
+    lastTracked: string;
     lastUpdateDate: string;
 }
 
