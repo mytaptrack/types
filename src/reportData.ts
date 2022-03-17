@@ -38,6 +38,10 @@ export interface ReportData {
         date: string;
         by: string
     };
+    abc?: {
+        a: string;
+        c: string;
+    }
 }
 
 export interface DeviceReports {
