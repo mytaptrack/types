@@ -14,6 +14,7 @@ export interface ManageStudent {
         fullYear: boolean;
         expiration: string;
     };
+    tags: string[];
 }
 
 export interface ManageStatRow {

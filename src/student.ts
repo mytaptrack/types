@@ -1,6 +1,6 @@
 import { UserSummary } from './userDetails';
 import { IoTDevice } from './iotDevice';
-import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures } from '.';
+import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection } from '.';
 
 export interface Student {
     details: StudentDetails;
@@ -62,7 +62,6 @@ export interface StudentBehaviorEdit extends StudentBehavior {
     oldData: string;
 }
 
-
 export interface StudentResponse extends StudentBehavior {
     appliedToBehaviors: StudentResponseSetting[];
 }
@@ -80,6 +79,7 @@ export interface StudentDetails {
     subtext?: string;
     schedules?: ActivityGroupDetails[];
     milestones: Milestone[];
+    abc?: AbcCollection;
 }
 
 export interface BehaviorSubscription {

@@ -1,3 +1,5 @@
+import { AbcCollection } from ".";
+
 export interface TrackedBehavior {
     title: string;
     id: string;
@@ -5,6 +7,7 @@ export interface TrackedBehavior {
     durationOn?: boolean;
     alert: boolean;
     track: boolean;
+    abc: boolean;
     customMessage?: string;
     order: number;
 }

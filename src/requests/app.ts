@@ -21,6 +21,8 @@ export interface AppTrackDataPut {
     token: string;
     id: string;
     timezone: string;
+    antecedent?: string;
+    response?: string;
 }
 
 export interface AppTrackDataResponse {

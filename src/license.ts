@@ -22,10 +22,18 @@ export interface LicenseFeatures {
     manageStudentTemplates?: boolean;
     manageAppTemplates?: boolean;
     manageResponses?: boolean;
+    abc?: boolean;
 }
+
 export interface LicenseTagSet {
     name: string;
     tags: string[];
+}
+export interface AbcCollection {
+    name: string;
+    tags: string[];
+    antecedents: string[];
+    consequences: string[];
 }
 export interface LicenseDetails {
     license?: string;
@@ -41,6 +49,7 @@ export interface LicenseDetails {
     mobileTemplates?: LicenseTemplate<TrackTemplateBehavior>[];
     studentTemplates?: LicenseTemplate<StudentTemplateBehavior>[];
     features?: LicenseFeatures;
+    abcCollections?: AbcCollection[];
     tags: {
         devices: LicenseTagSet[];
     };

@@ -62,6 +62,7 @@ export interface DevicePutRequestEvent {
     delayDelivery: string;
     alert?: boolean;
     track?: boolean;
+    abc?: boolean;
     customMessage?: string;
     order: number;
 }
@@ -122,6 +123,10 @@ export interface StudentDataPut {
     studentId: string;
     behaviorId: string;
     eventDate: string;
+    abc?: {
+        a: string;
+        c: string;
+    }
 }
 
 export interface StudentNotesPut {
