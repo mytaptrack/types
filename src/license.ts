@@ -34,6 +34,7 @@ export interface AbcCollection {
     tags: string[];
     antecedents: string[];
     consequences: string[];
+    overwrite?: boolean;
 }
 export interface LicenseDetails {
     license?: string;
