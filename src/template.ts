@@ -13,6 +13,7 @@ export interface TrackTemplateBehavior {
     desc: string;
     track?: boolean;
     alert?: boolean;
+    abc?: boolean;
     order: number;
 }
 
