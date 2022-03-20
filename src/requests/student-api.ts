@@ -1,4 +1,4 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone, StudentResponse } from '../index';
+import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone, StudentResponse, AbcCollection } from '../index';
 import { ActivityGroupDetails, StudentDashboardSettings } from '..';
 
 export interface ActivityRequest {
@@ -117,6 +117,14 @@ export interface TeamPutRequest {
     email: string;
     role: TeamRole;
     restrictions: UserSummaryRestrictions;
+}
+
+export interface StudentAbcPut extends AbcCollection {
+    studentId: string;
+}
+
+export interface StudentAbcDelete {
+    studentId: string;
 }
 
 export interface StudentDataPut {
