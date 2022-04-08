@@ -45,6 +45,7 @@ export interface IoTDeviceEvent {
     delayDelivery: string;
     alert?: boolean;
     track?: boolean;
+    abc?: boolean;
     customMessage?: string;
     order: number;
 }
