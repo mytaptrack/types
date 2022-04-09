@@ -141,6 +141,7 @@ export interface StudentNotesPut {
     studentId: string;
     lastModifiedDate: string;
     date: string;
+    updateDate: string;
     notes: string;
 }
 
