@@ -4,7 +4,7 @@ export interface ManageEfficacyDataPoint {
     count: number;
 }
 export interface ManageEfficacyDataBehavior {
-    behaviorId: string;
+    studentId: string;
     data: ManageEfficacyDataPoint[];
 }
 export interface ManageEfficacyPostResponse {
