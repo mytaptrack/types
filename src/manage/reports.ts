@@ -13,7 +13,7 @@ export interface ManageReportDataStudent<T> {
 }
 export interface ManageReportPostResponse<T> {
     summary: T[];
-    behaviors: ManageReportDataStudent<T>[];
+    students: ManageReportDataStudent<T>[];
 }
 
 export interface EfficacyPostRequest {
