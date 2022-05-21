@@ -134,7 +134,7 @@ export function ConvertToRole(input: string): TeamRole {
         return TeamRole.teacher;
     }
 
-    return null;
+    return TeamRole.Other;
 }
 
 export interface StudentSummaryReportBehavior {
