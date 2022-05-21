@@ -1,13 +1,2 @@
-export * from './encryptable';
-export * from './reportData';
-export * from './activityGroup';
-export * from './userDetails';
-export * from './student';
-export * from './iotDevice';
-export * from './notifications';
-export * from './requests/index';
-export * from './notes';
-export * from './license';
-export * from './appTypes';
-export * from './manage';
-export * from './template';
+export * from './v2';
+export * as typesV2 from './v2';

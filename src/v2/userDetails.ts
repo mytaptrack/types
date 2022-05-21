@@ -1,0 +1,204 @@
+import { Schema } from 'jsonschema';
+import {
+    BehaviorSubscription, Notification, NotificationDetails, 
+    ActivityGroupSummary, UserSummaryRestrictions, 
+    NotificationDetailsTeam, LicenseDetails } from '.';
+import { TeamRole } from './student';
+
+export interface User {
+    userId: string;
+    terms: string;
+    teamInvites: Notification<NotificationDetailsTeam>[]
+    details: UserDetails;
+    license: string;
+    licenseDetails: LicenseDetails;
+    students: Array<StudentSummary>;
+    version: number;
+}
+
+export interface UserNotificationsResponse {
+    notifications: UserNotifications;
+    activeNoResponse: {
+        [student: string]: boolean;
+    };
+    notifyCounts: {
+        [student: string]: number;
+    };
+}
+
+export interface UserNotifications {
+    [studentId: string]: Notification<NotificationDetails>[];
+}
+
+export const USER_VERSION = 5;
+
+export interface UserDetails {
+    email: string;
+    firstName: string;
+    lastName: string;
+    name: string;
+    state: string;
+    zip: string;
+    mobile: string;
+}
+export const UserDetailsSchema: Schema = {
+    type: 'object',
+    properties: {
+        email: { type: 'string', minLength: 4, maxLength: 50 },
+        firstName: { type: 'string', minLength: 1, maxLength: 20 },
+        lastName: { type: 'string', minLength: 1, maxLength: 20 },
+        name: { type: 'string', minLength: 1, maxLength: 20 },
+        state: { type: 'string', minLength: 2, maxLength: 2 },
+        zip: { type: 'string', minLength: 5, maxLength: 10 },
+        mobile: { type: 'string', minLength: 9, maxLength: 10 }
+    },
+    required: ['email', 'firstName', 'lastName', 'name', 'state', 'zip']
+}
+
+export enum BehaviorCalculation {
+    Pooled = 'Pooled',
+    Independent = 'Independent',
+    Hidden = 'Hidden'
+}
+
+export enum CalculationType {
+    sum = 'sum',
+    avg = 'avg'
+}
+
+export enum SummaryScope {
+    auto = 'Auto',
+    months = 'Months',
+    weeks = 'Weeks',
+    days = 'Days'
+}
+
+export interface StudentDashboardSettings {
+    behaviors: BehaviorSettings[];
+    devices: DashboardDeviceSettings[];
+    velocity: {
+        enabled: boolean;
+        trackedEvent?: string;
+    };
+    summary: {
+        after45: SummaryScope;
+        after150: SummaryScope;
+        calculationType: CalculationType;
+        showTargets: boolean;
+        averageDays: number;
+    };
+    autoExcludeDays: number[];
+}
+
+export interface DashboardDeviceSettings {
+    id: string;
+    name: string;
+    calculation: BehaviorCalculation;
+}
+
+export interface BehaviorSettings {
+    id: string;
+    frequency: boolean;
+    duration?: {
+      sum: boolean;
+      avg: boolean;
+      max: boolean;
+      min: boolean;
+    };
+}
+
+export interface StudentSummaryStats {
+    studentId: string;
+    alertCount: number;
+    awaitingResponse: boolean;
+}
+
+export interface StudentSummary extends StudentSummaryStats {
+    firstName: string;
+    lastName: string;
+    tags: string[];
+    lastTracked?: string;
+}
+
+export interface ReportDefinition {
+    id?: string;
+    studentId: string;
+    style: ReportDefinitionStyle;
+    metrics: ReportDefinitionMetric[];
+    excludeDates: string[];
+    includeDates: string[];
+    scheduledExcludes: string[];
+}
+
+export enum MetricType {
+    min = 'min',
+    max = 'max',
+    sum = 'sum',
+    avg = 'avg',
+    occurence = 'occurence'
+}
+
+export interface ReportDefinitionMetric {
+    id: string;
+    timeline: ReportDefinitionTimeline;
+    name: string;
+    deviceIds: string[];
+    color: string;
+    metricType?: MetricType;
+}
+
+export interface ReportDefinitionTimeline {
+    startDate: string | Date;
+    scope: string;
+    calculationType: CalculationType;
+    duration: number;
+}
+
+export interface ReportDefinitionStyle {
+    type: string;
+    width: number;
+    fill: boolean;
+    colors: string[];
+}
+
+export interface Behavior {
+    id: string;
+    name: string;
+}
+
+export interface UserSummary {
+    userId: string;
+    status: UserSummaryStatus;
+    details: {
+        email: string;
+        name: string;
+        role: TeamRole
+    };
+    studentId: string;
+    version: number;
+    restrictions: UserSummaryRestrictions;
+}
+
+export enum UserSummaryStatus {
+    Verified = 'Verified',
+    RemovalPending = 'Removal Pending',
+    PendingVerification = 'pending verification',
+    PendingApproval = 'pending approval'
+}
+
+export interface UserPreferences {
+    notifications: {
+        onEvent: string[];
+        onChange: string[];
+    };
+}
+
+export interface UserSubscriptionResponse {
+    userId: string;
+    studentId: string;
+    subscriptions: BehaviorSubscription[];
+}
+
+export interface UserContext {
+    activityGroups: ActivityGroupSummary[];
+}
