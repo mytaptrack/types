@@ -1,4 +1,5 @@
-import { LicenseTemplate, StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
+import { Schema } from 'jsonschema';
+import { LicenseTemplate, LicenseTemplateStudentSchema, LicenseTemplateTrackSchema, StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
 
 export interface SnapshotConfig {
     low: string;
@@ -24,6 +25,34 @@ export interface LicenseFeatures {
     manageResponses?: boolean;
     abc?: boolean;
 }
+export const LicenseFeaturesSchema: Schema = {
+    type: 'object',
+    properties: {
+        snapshot: { type: 'boolean' },
+        snapshotConfig: {
+            type: 'object',
+            properties: {
+                low: { type: 'string', required: true },
+                medium: { type: 'string', required: true },
+                high: { type: 'string', required: true }
+            }
+        },
+        dashboard: { type: 'boolean' },
+        browserTracking: { type: 'boolean' },
+        download: { type: 'boolean' },
+        manage: { type: 'boolean' },
+        supportChanges: { type: 'boolean' },
+        schedule: { type: 'boolean' },
+        devices: { type: 'boolean' },
+        behaviorTargets: { type: 'boolean' },
+        response: { type: 'boolean' },
+        emailTextNotifications: { type: 'boolean' },
+        manageStudentTemplates: { type: 'boolean' },
+        manageAppTemplates: { type: 'boolean' },
+        manageResponses: { type: 'boolean' },
+        abc: { type: 'boolean' }
+    }
+}
 
 export interface LicenseTagSet {
     name: string;
@@ -35,6 +64,16 @@ export interface AbcCollection {
     antecedents: string[];
     consequences: string[];
     overwrite?: boolean;
+}
+export const AbcCollectionSchema: Schema = {
+    type: 'object',
+    properties: {
+        name: { type: 'string' },
+        tags: { type: 'array', items: { type: 'string' }, required: true},
+        antecedents: { type: 'array', items: { type: 'string' }, required: true},
+        consequences: { type: 'array', items: { type: 'string' }, required: true},
+        overwrite: { type: 'boolean' }
+    }
 }
 export interface LicenseDetails {
     license?: string;
@@ -55,6 +94,19 @@ export interface LicenseDetails {
         devices: LicenseTagSet[];
     };
 }
+
+export const LicenseDetailsPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        license: { type: 'string' },
+        customer: { type: 'string', required: true },
+        singleCount: { type: 'number', required: true },
+        multiCount: { type: 'number', required: true },
+        admins: { type: 'list', items: [{ type: 'string' }], required: true, minimum: 1},
+        expiration: { type: 'date' },
+        features: LicenseFeaturesSchema
+    }
+};
 
 export interface LicenseDetailsWithUsage extends LicenseDetails {
     usage: {

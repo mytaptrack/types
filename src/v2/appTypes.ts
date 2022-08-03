@@ -9,6 +9,7 @@ export interface TrackedBehavior {
     track: boolean;
     abc: boolean;
     customMessage?: string;
+    templates: string[];
     order: number;
 }
 
@@ -22,9 +23,7 @@ export interface MobileDeviceRegistration {
     studentId: string;
     id: string;
     name: string;
-    deviceName: string;
     behaviors: TrackedBehavior[];
-    hasBeenClaimed: boolean;
 }
 
 export interface MobileDevice {

@@ -2,7 +2,7 @@ import { Schema } from 'jsonschema';
 import {
     BehaviorSubscription, Notification, NotificationDetails, 
     ActivityGroupSummary, UserSummaryRestrictions, 
-    NotificationDetailsTeam, LicenseDetails } from '.';
+    NotificationDetailsTeam, LicenseDetails, AccessLevelSchema } from '.';
 import { TeamRole } from './student';
 
 export interface User {
@@ -177,7 +177,41 @@ export interface UserSummary {
     studentId: string;
     version: number;
     restrictions: UserSummaryRestrictions;
+    deleted?: boolean;
 }
+export const UserSummarySchema: Schema = {
+    type: 'object',
+    properties: {
+        userId: { type: 'string' },
+        status: { type: 'string' },
+        details: {
+            type: 'object',
+            properties: {
+                email: { type: 'string', required: true },
+                name: { type: 'string' },
+            }
+        },
+        studentId: { type: 'string', required: true },
+        version: { type: 'number' },
+        restrictions: {
+            type: 'object',
+            properties: {
+                data: AccessLevelSchema,
+                schedules: AccessLevelSchema,
+                devices: AccessLevelSchema,
+                team: AccessLevelSchema,
+                comments: AccessLevelSchema,
+                behavior: AccessLevelSchema,
+                abc: AccessLevelSchema,
+                behaviors: { type: 'array', items: { type: 'string' }},
+                milestones: AccessLevelSchema,
+                reports: AccessLevelSchema,
+                reportsOverride: { type: 'boolean' },
+                transferLicense: { type: 'boolean' }
+            }
+        }
+    }
+};
 
 export enum UserSummaryStatus {
     Verified = 'Verified',

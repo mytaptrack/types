@@ -1,29 +1,41 @@
-export interface IoTDevice {
-    dsn?: string;
-    studentId?: string;
-    enterpriseId?: string;
+export interface TrackDevice {
+    dsn: string;
+    studentId: string;
     license: string;
-    expiration: string;
-    name: string;
-    displayName: string;
+    deviceName: string;
+    events: Array<IoTDeviceEvent>;
+    timezone: string;
+    isApp: boolean;
+    deleted?: boolean;
+}
+
+export interface AppDevice extends TrackDevice {
+    deviceId: string;
+    studentName: string;
+}
+export interface StudentTrackDevice {
+    dsn: string;
+    studentId: string;
+    license: string;
+    deviceName: string;
     validated?: boolean;
     multiStudent: boolean;
-    events: Array<IoTDeviceEvent>;
+    events: IoTDeviceEvent[];
     subscriptions?: IoTDeviceSubscription[];
     termSetup?: boolean;
-    commands: {
-        switch: CommandSwitchStudent[];
-    };
+    commands: CommandSwitchStudent[];
     timezone: string;
-    isApp?: boolean;
     deleted?: boolean;
+}
+export interface IoTDevice extends TrackDevice, StudentTrackDevice {
+}
+
+export interface IoTAppDevice extends AppDevice, StudentTrackDevice {
 }
 
 export interface CommandSwitchStudent {
     term: string;
     studentId: string;
-    events: Array<IoTDeviceEvent>;
-    subscriptions?: IoTDeviceSubscription[];
 }
 
 export enum IoTDeviceEventType {
@@ -41,13 +53,12 @@ export interface IoTDeviceSubscription {
 
 export interface IoTDeviceEvent {
     eventId: string;
-    presses: number | string;
-    delayDelivery: string;
+    presses?: number;
     alert?: boolean;
     track?: boolean;
     abc?: boolean;
     customMessage?: string;
-    order: number;
+    order?: number;
 }
 
 export interface IoTDeviceEdit extends IoTDevice {
@@ -62,5 +73,5 @@ export interface VerifyRegistryResponse {
 
 export interface SetIoTDeviceDetails extends IoTDevice {
     studentId: string;
-    dsn?: string;
+    dsn: string;
 }

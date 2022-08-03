@@ -1,5 +1,11 @@
-import { Activity, StudentBehavior, TeamRole, UserSummaryRestrictions, ReportData, IoTDeviceSubscription, Milestone, StudentResponse, AbcCollection } from '../index';
-import { ActivityGroupDetails, StudentDashboardSettings } from '..';
+import { 
+    StudentBehavior, TeamRole, UserSummaryRestrictions, 
+    ReportData, IoTDeviceSubscription, Milestone, StudentResponse, 
+    AbcCollection, AbcCollectionSchema, ActivityGroupDetails, 
+    StudentDashboardSettings, UserSummary, CommandSwitchStudent
+} from '..';
+import { Schema } from 'jsonschema';
+import { StudentSummaryReport } from 'v1';
 
 export interface ActivityRequest {
     studentId: string;
@@ -12,8 +18,15 @@ export interface ActivityPutResponse {
 }
 
 export interface StudentBehaviorDeleteRequest {
-    behavior: string;
+    behaviorId: string;
     studentId: string;
+}
+export const StudentBehaviorDeleteRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        behaviorId: { type: 'string', required: true },
+        studentId: { type: 'string', required: true }
+    }
 }
 
 export interface StudentBehaviorGetRequest {
@@ -26,40 +39,234 @@ export interface StudentBehaviorPutRequest {
     behavior: StudentBehavior;
 }
 
+export const StudentBehaviorTargetSchema: Schema = {
+    type: 'object',
+    properties: {
+        target: { type: 'number', required: true },
+        progress: { type: 'number' },
+        measurement: { type: 'string', required: true }
+    }
+}
+export const StudentBehaviorSchema: Schema = {
+    type: 'object',
+    properties: {
+        id: { type: 'string' },
+        name: { type: 'string', required: true },
+        isArchived: { type: 'boolean' },
+        isDuration: { type: 'boolean' },
+        managed: { type: 'boolean' },
+        desc: { type: 'string' },
+        daytime: { type: 'boolean' },
+        requireResponse: { type: 'boolean' },
+        targets: {
+            type: 'object',
+            properties: {
+                frequency: StudentBehaviorTargetSchema,
+                duration: StudentBehaviorTargetSchema
+            }
+        },
+        tags: {
+            type: 'array',
+            items: { type: 'string' }
+        }
+    }
+};
+export const StudentBehaviorPutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string' },
+        behavior: StudentBehaviorSchema
+    },
+    required: ['studentId', 'behavior']
+}
+
+export interface StudentResponsePutRequest {
+    studentId: string;
+    response: StudentResponse;
+}
+
+export const StudentResponseSettingSchema: Schema = {
+    type: 'object',
+    properties: {
+        behaviorId: { type: 'string', required: true },
+        stopDuration: { type: 'boolean' }
+    }
+}
+
+export const StudentResponseSchema: Schema = {
+    type: 'object',
+    properties: {
+        ...StudentBehaviorSchema.properties,
+        appliedToBehaviors: {
+            type: 'array',
+            items: StudentResponseSettingSchema,
+            required: true
+        }
+    }
+};
+export const StudentResponsePutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string' },
+        response: StudentResponseSchema
+    },
+    required: ['studentId', 'behavior']
+}
+
 export interface DeleteDeviceRequest {
     dsn: string;
     studentId: string;
-    isApp: boolean;
+}
+export const DeleteDeviceRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string' },
+        studentId: { type: 'string' },
+        isApp: { type: 'boolean' }
+    },
+    required: ['dsn', 'studentId']
 }
 
-export interface DevicePostRequest {
+export interface TrackDeviceTermStatus {
+    termSet: boolean;
+    term: string;
+}
+
+export interface TrackDeviceActionRequest {
     dsn: string;
     studentId: string;
+}
+export const TrackDeviceActionRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string', required: true },
+        studentId: { type: 'string', required: true }
+    }
+}
+
+export interface DeviceRegisterPutRequest {
+    dsn: string;
+    studentId: string;
+    license?: string;
+}
+export const DeviceRegisterPutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string', required: true },
+        studentId: { type: 'string', required: true },
+        license: { type: 'string' }
+    }
 }
 
 export interface DevicePutRequest {
     dsn: string;
-    name: string;
-    displayName: string;
+    deviceName: string;
     studentId: string;
-    multiStudent: boolean;
-    enterpriseId: string;
     events: DevicePutRequestEvent[];
-    subscriptions?: IoTDeviceSubscription[];
-    switchTerm?: boolean;
     timezone: string;
-    isApp: boolean;
 }
+export const DevicePutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string', required: true },
+        deviceName: { type: 'string', required: true },
+        studentId: { type: 'string', required: true },
+        events: {
+            type: 'array',
+            items: [
+                {
+                    type: 'object',
+                    properties: {
+                        eventId: { type: 'string'},
+                        presses: { type: 'number' }  
+                    }
+                }
+            ],
+            required: true
+        },
+        subscriptions: {
+            type: 'array',
+            items: {
+                type: 'object',
+                properties: {
+                    type: { type: 'string' },
+                    userId: { type: 'string' },
+                    email: { type: 'boolean' },
+                    sms: { type: 'boolean' }
+                },
+                required: ['type','userId']
+            }
+        },
+        timezone: { type: 'string', required: true }
+    }
+};
+export interface AppPutRequest {
+    dsn: string;
+    deviceId: string;
+    deviceName: string;
+    studentName: string;
+    studentId: string;
+    events: DevicePutRequestEvent[];
+}
+export const AppPutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string' },
+        deviceId: { type: 'string' },
+        studentName: { type: 'string' },
+        deviceName: { type: 'string' },
+        studentId: { type: 'string' },
+        multiStudent: {type: 'boolean' },
+        events: {
+            type: 'array',
+            items: [
+                {
+                    type: 'object',
+                    properties: {
+                        eventId: { type: 'string'},
+                        alert: { type: 'boolean'},
+                        track: { type: 'boolean'},
+                        abc: { type: 'boolean'},
+                        customMessage: { type: 'string', maxLength: 30 },
+                        order: { type: 'number' }
+                    },
+                    required: ['eventId','alert','track','order']
+                }
+            ]
+        },
+        subscriptions: {
+            type: 'array',
+            items: {
+                type: 'object',
+                properties: {
+                    type: { type: 'string' },
+                    userId: { type: 'string' },
+                    email: { type: 'boolean' },
+                    sms: { type: 'boolean' }
+                },
+                required: ['type','userId']
+            }
+        },
+        switchTerm: { type: 'boolean' },
+        timezone: { type: 'string' },
+    },
+    required: ['dsn', 'studentId', 'events', 'studentName', 'deviceName']
+};
 
 export interface DeviceResyncPostRequest {
     dsn: string;
     studentId: string;
 }
+export const DeviceResyncPostRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        dsn: { type: 'string', required: true },
+        studentId: { type: 'string', required: true }
+    }
+}
 
 export interface DevicePutRequestEvent {
     eventId: string;
-    presses: number | string;
-    delayDelivery: string;
     alert?: boolean;
     track?: boolean;
     abc?: boolean;
@@ -72,7 +279,6 @@ export interface StudentCreateRequest {
     firstName: string;
     lastName: string;
     studentId: string;
-    schedules: ActivityGroupDetails[];
     milestones: Milestone[];
     responses: StudentResponse[];
     tags: string[];
@@ -105,6 +311,13 @@ export interface TeamDeleteRequest {
     studentId: string;
     userId: string;
 }
+export const TeamDeleteRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        userId: { type: 'string', required: true }
+    }
+}
 
 export interface TeamPostRequest {
     studentId: string;
@@ -112,19 +325,34 @@ export interface TeamPostRequest {
     accepted: boolean;
 }
 
-export interface TeamPutRequest {
-    studentId: string;
-    email: string;
-    role: TeamRole;
-    restrictions: UserSummaryRestrictions;
+export interface TeamPutRequest extends UserSummary {
 }
+
+
 
 export interface StudentAbcPut extends AbcCollection {
     studentId: string;
 }
+export const StudentAbcPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        name: { type: 'string' },
+        tags: { type: 'array', items: { type: 'string' }, required: true},
+        antecedents: { type: 'array', items: { type: 'string' }, required: true},
+        consequences: { type: 'array', items: { type: 'string' }, required: true},
+        overwrite: { type: 'boolean' },
+        studentId: { type: 'string', required: true }
+    }
+}
 
 export interface StudentAbcDelete {
     studentId: string;
+}
+export const StudentAbcDeleteSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true }
+    }
 }
 
 export interface StudentDataPut {
@@ -150,13 +378,17 @@ export interface StudentNotesPost {
     date: string;
 }
 
-export interface StudentTrackStatePost {
+export interface StudentTrackStateGet {
     studentId: string;
-    behaviors: string[];
-    date: string;
+}
+export const StudentTrackStateGetSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+    }
 }
 
-export interface StudentTrackStatePostResponse {
+export interface StudentTrackStateGetResponse {
     behaviorStates:
         {
             behaviorId: string,
@@ -169,6 +401,15 @@ export interface StudentTrackPut {
     studentId: string;
     behaviorId: string;
     date?: string;
+}
+
+export const StudentTrackPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        behaviorId: { type: 'string', required: true },
+        date: { type: 'string', format: 'date-time' }
+    }
 }
 
 export interface StudentDashboardPutRequest extends StudentDashboardSettings {
@@ -184,4 +425,11 @@ export interface StudentDataExcludeRequest {
 export interface StudentReportPostRequest {
     studentId: string;
     date: string;
+}
+export const StudentReportPostRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        date: { type: 'string', format: 'date', required: true }
+    }
 }

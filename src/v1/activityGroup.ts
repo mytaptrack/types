@@ -1,6 +1,8 @@
+import { Moment } from "moment-timezone";
+
 export interface Activity {
-    startTime: Date | string;
-    endTime: Date | string;
+    startTime: Moment | string;
+    endTime: Moment | string;
     title: string;
     comments?: string;
     id?: string;

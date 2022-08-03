@@ -1,6 +1,7 @@
 import { UserSummary } from './userDetails';
 import { IoTDevice } from './iotDevice';
 import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection } from '.';
+import { Schema } from 'jsonschema';
 
 export interface Student {
     details: StudentDetails;
@@ -166,12 +167,65 @@ export interface StudentSummaryReportBehavior {
         };
     };
 }
+export const StudentSummaryReportBehaviorSchema: Schema = {
+    type: 'object',
+    properties: {
+        show: { type: 'boolean', required: true },
+        behaviorId: { type: 'string', required: true },
+        isDuration: { type: 'boolean' },
+        displayText: { type: 'string', required: true },
+        faces: {
+            type: 'list',
+            items: [
+                {
+                    type: 'object',
+                    properties: {
+                        face: { type: 'string', required: true },
+                        overwrite: { type: 'boolean' }
+                    }        
+                }
+            ]
+        },
+        targets: {},
+        stats: {
+            type: 'object',
+            properties: {
+                week: {
+                    type: 'object',
+                    properties: {
+                        count: { type: 'number', required: true },
+                        delta: { type: 'number', required: true },
+                        modifier: { type: 'string', required: true }
+                    },
+                    required: true
+                },
+                day: {
+                    type: 'object',
+                    properties: {
+                        count: { type: 'number', required: true },
+                        delta: { type: 'number', required: true },
+                        modifier: { type: 'string', required: true }
+                    }
+                }
+            }
+        }
+    }
+}
 
 export interface StudentSummaryReportLegend {
     behavior: string;
     measurement: MeasurementType;
     target: number;
     progress: number;
+}
+export const StudentSummaryReportLegendSchema: Schema = {
+    type: 'object',
+    properties: {
+        behavior: { type: 'string', required: true },
+        measurement: { type: 'string', required: true },
+        target: { type: 'number', required: true },
+        progress: { type: 'number', required: true }
+    }
 }
 
 export interface StudentSummaryReport {
@@ -186,4 +240,31 @@ export interface StudentSummaryReport {
     behaviors: StudentSummaryReportBehavior[];
     legend?: StudentSummaryReportLegend[];
     version: number;
+}
+
+export const StudentSummaryReportSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        lastModified: {
+            type: 'object',
+            properties: {
+                userId: { type: 'string', required: true },
+                date: { type: 'date-time', required: true }
+            }
+        },
+        message: { },
+        date: { type: 'date', required: true },
+        type: { type: 'string' },
+        behaviors: {
+            type: 'list',
+            items: [StudentSummaryReportBehaviorSchema],
+            required: true
+        },
+        legend: {
+            type: 'list',
+            items: [StudentSummaryReportLegendSchema]
+        },
+        version: { type: 'number' }
+    }
 }

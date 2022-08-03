@@ -1,32 +1,20 @@
 import { Activity } from './index';
 
-export interface ReportResponse {
-    available: ReportDetails;
-    private?: ReportDetails;
-}
-
 export interface ReportDetails {
     data: Array<ReportData>;
-    studentBehavior: string;
-    weekStart: string;
-    scheduleName?: string;
-    schedules?: {
-        [key: string]: {
-            scheduleName: string;
-            activities: Activity[];
-        }
+    startMillis: number;
+    schedules: {
+        [date: string]: string;
     };
-    lastUpdateDate?: number;
-    enterpriseId?: string;
+    lastUpdateDate: number;
     excludeDays: string[];
     includeDays: string[];
     version: number;
 }
 
 export interface ReportData {
-    date: string;
+    dateEpoc: number;
     behavior: string;
-    enterpriseId: string;
     reported?: boolean;
     score?: number;
     isManual: boolean;
