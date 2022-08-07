@@ -42,6 +42,7 @@ export interface StudentBehaviorPutRequest {
 export const StudentBehaviorTargetSchema: Schema = {
     type: 'object',
     properties: {
+        targetType: { type: 'string', required: true },
         target: { type: 'number', required: true },
         progress: { type: 'number' },
         measurement: { type: 'string', required: true }
@@ -59,11 +60,8 @@ export const StudentBehaviorSchema: Schema = {
         daytime: { type: 'boolean' },
         requireResponse: { type: 'boolean' },
         targets: {
-            type: 'object',
-            properties: {
-                frequency: StudentBehaviorTargetSchema,
-                duration: StudentBehaviorTargetSchema
-            }
+            type: 'list',
+            items: [StudentBehaviorTargetSchema]
         },
         tags: {
             type: 'array',
