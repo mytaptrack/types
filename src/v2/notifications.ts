@@ -57,8 +57,11 @@ export interface UserSummaryRestrictions {
 }
 
 
-export interface StudentSubscriptionsBehavior {
-    behaviorId: string;
+export interface StudentSubscriptionsGroup {
+    name: string;
+    behaviorIds: string[];
+    responseIds: string[];
+    notifyUntilResponse: boolean;
     userIds: string[]
     emails: string[];
     mobiles: string[];
@@ -70,10 +73,12 @@ export interface StudentSubscriptionsBehavior {
         app?: string;
     }
 }
-const StudentSubscriptionsBehaviorSchema: Schema = {
+const StudentSubscriptionsGroupSchema: Schema = {
     type: 'object',
     properties: {
-        behaviorId: { type: 'string' },
+        name: { type: 'string' },
+        behaviorIds: {type: 'list', items: [{ type: 'string' }], required: true, minLength: 1 },
+        responseIds: {type: 'list', items: [{ type: 'string' }], required: true },
         userIds: {
             type: 'list',
             items: [{ type: 'string' }],
@@ -109,7 +114,7 @@ const StudentSubscriptionsBehaviorSchema: Schema = {
 export interface StudentSubscriptions {
     studentId: string;
     license: string;
-    behaviors: StudentSubscriptionsBehavior[];
+    notifications: StudentSubscriptionsGroup[];
     updateEpoc?: number;
 }
 
@@ -121,7 +126,7 @@ export const StudentSubscriptionsSchema: Schema = {
         updateEpoc: { type: 'number', required: true },
         behaviors: {
             type: 'list',
-            items: [StudentSubscriptionsBehaviorSchema]
+            items: [StudentSubscriptionsGroupSchema]
         }
     }
 }
