@@ -1,3 +1,4 @@
+import { Schema } from "jsonschema";
 import { AbcCollection } from ".";
 
 export interface TrackedBehavior {
@@ -5,12 +6,10 @@ export interface TrackedBehavior {
     id: string;
     isDuration: boolean;
     durationOn?: boolean;
-    alert: boolean;
     track: boolean;
     abc: boolean;
-    customMessage?: string;
-    templates: string[];
     order: number;
+    managed?: boolean;
 }
 
 export interface TrackedTarget {
@@ -24,6 +23,7 @@ export interface MobileDeviceRegistration {
     id: string;
     name: string;
     behaviors: TrackedBehavior[];
+    timezone: string;
 }
 
 export interface MobileDevice {
@@ -45,3 +45,30 @@ export interface LicenseAppRef {
     tags: string[];
     version: number;
 }
+
+export const LicenseAppRefSchema: Schema = {
+    type: "object",
+    properties: {
+        id: { type: "string" },
+        name: { type: "string", required: true },
+        deviceId: { type: "string" },
+        license: { type: "string", required: true },
+        studentApps: {
+            type: "array",
+            items: {
+                type: "object",
+                properties: {
+                    appId: { type: "string", required: true },
+                    studentId: { type: "string", required: true },
+                }
+            },
+            required: true
+        },
+        tags: {
+            type: "array",
+            items: { type: "string" },
+            required: true
+        },
+        version: { type: "number", required: true }
+    }
+};

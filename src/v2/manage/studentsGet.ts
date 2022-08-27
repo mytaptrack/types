@@ -1,4 +1,4 @@
-import { IoTDevice, UserSummary, StudentBehavior, LicenseDetails } from '..';
+import { IoTDevice, UserSummary, StudentBehavior, Student } from '..';
 
 export interface ManageStudent {
     studentId: string;
@@ -23,8 +23,5 @@ export interface ManageStatRow {
 }
 
 export interface ManageStudentGetResponse {
-    students: ManageStudent[];
-    stats: {
-        flexible: ManageStatRow[];
-    };
+    students: Student[];
 }

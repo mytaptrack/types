@@ -5,7 +5,6 @@ export interface TrackTemplateBehavior {
     name: string;
     desc: string;
     track?: boolean;
-    alert?: boolean;
     abc?: boolean;
     order: number;
 }
@@ -25,8 +24,7 @@ export interface StudentTemplateBehavior {
     name: string;
     desc: string;
     isDuration?: boolean;
-    order: number;
-    requireResponse?: boolean;
+    daytime?: boolean;
     targets?: {
         targetType: string;
         target: number;
@@ -40,8 +38,7 @@ export const StudentTemplateBehaviorSchema: Schema = {
         name: { type: 'string', required: true },
         desc: { type: 'string' },
         isDuration: { type: 'boolean' },
-        order: { type: 'number', required: true },
-        requireResponse: { type: 'boolean' },
+        daytime: { type: 'boolean' },
         targets: {
             type: 'list',
             items: [
@@ -59,11 +56,12 @@ export const StudentTemplateBehaviorSchema: Schema = {
     }
 };
 
-export interface LicenseTemplate<T> {
-    type: 'app' | 'device' | 'student';
+export interface LicenseStudentTemplate {
     name: string;
     desc: string;
-    behaviors: T[];
+    behaviors: StudentTemplateBehavior[];
+    responses: StudentTemplateBehavior[];
+    appTemplates: LicenseAppTemplate[];
     tags: string[];
 }
 export const LicenseTemplateSchema: Schema = {
@@ -75,7 +73,14 @@ export const LicenseTemplateSchema: Schema = {
         studentTags: { type: 'list', items: [{ type: 'string' }]}
     }
 };
-export const LicenseTemplateTrackSchema: Schema = {
+export interface LicenseAppTemplate {
+    name: string;
+    desc: string;
+    events: TrackTemplateBehavior[];
+    tags: string[];
+    parentTemplate: string;
+}
+export const LicenseAppTemplateSchema: Schema = {
     type: 'object',
     properties: {
         ...LicenseTemplateSchema.properties,

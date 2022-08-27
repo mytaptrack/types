@@ -211,44 +211,39 @@ export const AppPutRequestSchema: Schema = {
     properties: {
         dsn: { type: 'string' },
         deviceId: { type: 'string' },
-        studentName: { type: 'string' },
-        deviceName: { type: 'string' },
-        studentId: { type: 'string' },
-        multiStudent: {type: 'boolean' },
+        studentName: { type: 'string', required: true },
+        deviceName: { type: 'string', required: true },
+        studentId: { type: 'string', required: true },
         events: {
             type: 'array',
             items: [
                 {
                     type: 'object',
                     properties: {
-                        eventId: { type: 'string'},
-                        alert: { type: 'boolean'},
-                        track: { type: 'boolean'},
+                        eventId: { type: 'string', required: true},
+                        track: { type: 'boolean', required: true},
                         abc: { type: 'boolean'},
-                        customMessage: { type: 'string', maxLength: 30 },
-                        order: { type: 'number' }
-                    },
-                    required: ['eventId','alert','track','order']
+                        order: { type: 'number', required: true }
+                    }
                 }
-            ]
+            ],
+            required: true
         },
         subscriptions: {
             type: 'array',
             items: {
                 type: 'object',
                 properties: {
-                    type: { type: 'string' },
-                    userId: { type: 'string' },
+                    type: { type: 'string', required: true },
+                    userId: { type: 'string', required: true },
                     email: { type: 'boolean' },
                     sms: { type: 'boolean' }
-                },
-                required: ['type','userId']
+                }
             }
         },
         switchTerm: { type: 'boolean' },
-        timezone: { type: 'string' },
-    },
-    required: ['dsn', 'studentId', 'events', 'studentName', 'deviceName']
+        timezone: { type: 'string' }
+    }
 };
 
 export interface DeviceResyncPostRequest {
@@ -265,10 +260,8 @@ export const DeviceResyncPostRequestSchema: Schema = {
 
 export interface DevicePutRequestEvent {
     eventId: string;
-    alert?: boolean;
     track?: boolean;
     abc?: boolean;
-    customMessage?: string;
     order: number;
 }
 

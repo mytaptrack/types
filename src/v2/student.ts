@@ -1,17 +1,19 @@
-import { UserSummary } from './userDetails';
-import { IoTDevice } from './iotDevice';
 import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection } from '.';
-import { Notification, NotificationDetailsBehavior, UserSummaryRestrictions } from './notifications';
+import { UserSummaryRestrictions } from './notifications';
 import { Schema } from 'jsonschema';
+
+export interface LicenseSummary {
+    fullYear: boolean;
+    flexible: boolean;
+    transferable?: boolean;
+    expiration: string;
+    features: LicenseFeatures;
+}
 
 export interface Student {
     studentId: string;
     license?: string;
-    licenseDetails?: {
-        fullYear: boolean;
-        expiration: string;
-        features: LicenseFeatures;
-    };
+    licenseDetails?: LicenseSummary;
     details: StudentDetails;
     behaviors: StudentBehavior[];
     responses: StudentResponse[];
@@ -24,6 +26,7 @@ export interface Student {
     lastTracked: string;
     lastUpdateDate: string;
     tags: string[];
+    partial?: boolean;
 }
 
 export interface StudentResponseSetting {
@@ -69,7 +72,6 @@ export interface StudentBehaviorEdit extends StudentBehavior {
 }
 
 export interface StudentResponse extends StudentBehavior {
-    appliedToBehaviors: StudentResponseSetting[];
 }
 
 export interface StudentDetails {

@@ -1,5 +1,5 @@
 import { Schema } from 'jsonschema';
-import { LicenseTemplate, LicenseTemplateStudentSchema, LicenseTemplateTrackSchema, StudentTemplateBehavior, TrackedBehavior, TrackTemplateBehavior } from '.';
+import { LicenseAppTemplate, LicenseStudentTemplate, ManageStatRow } from '.';
 
 export interface SnapshotConfig {
     low: string;
@@ -21,7 +21,6 @@ export interface LicenseFeatures {
     response: boolean;
     emailTextNotifications: boolean;
     manageStudentTemplates?: boolean;
-    manageAppTemplates?: boolean;
     manageResponses?: boolean;
     abc?: boolean;
 }
@@ -85,9 +84,10 @@ export interface LicenseDetails {
     singleUsed: number;
     multiCount: number;
     admins: string[];
+    emailDomain: string;
     expiration: string;
-    mobileTemplates?: LicenseTemplate<TrackTemplateBehavior>[];
-    studentTemplates?: LicenseTemplate<StudentTemplateBehavior>[];
+    mobileTemplates?: LicenseAppTemplate[];
+    studentTemplates?: LicenseStudentTemplate[];
     features?: LicenseFeatures;
     abcCollections?: AbcCollection[];
     tags: {
@@ -114,4 +114,11 @@ export interface LicenseDetailsWithUsage extends LicenseDetails {
         trackedEvents: number;
         studentsTracked: number;
     }[];
+}
+
+export interface LicenseStats {
+    stats: {
+        single: number,
+        flexible: ManageStatRow[];
+    }
 }

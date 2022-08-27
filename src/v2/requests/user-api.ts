@@ -1,5 +1,6 @@
 import { Schema } from 'jsonschema';
-import { NotificationType, UserDetails, StudentDashboardSettings, UserDetailsSchema } from '../index';
+import { LicenseDetails } from 'v1';
+import { NotificationType, UserDetails, StudentDashboardSettings, UserDetailsSchema, LicenseFeatures, LicenseFeaturesSchema } from '../index';
 
 export interface SubscriptionPostRequest {
     studentId: string;
@@ -38,6 +39,27 @@ export const UserPutRequestSchema: Schema = {
 export interface ApplyLicenseRequest {
     studentId: string;
     license: string;
-    fullYear: boolean;
-    remove?: boolean;
+    licenseDetails: {
+        fullYear: boolean;
+        flexible: boolean;
+        expiration: string;
+        features: LicenseFeatures;
+    };
+}
+
+export const ApplyLicenseRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        license: { type: 'string', required: true },
+        licenseDetails: {
+            type: 'object',
+            properties: {
+                fullYear: { type: 'boolean', required: true },
+                flexible: { type: 'boolean', required: true },
+                expiration: { type: 'string', required: true },
+                features: LicenseFeaturesSchema
+            }
+        }
+    }
 }
