@@ -42,8 +42,6 @@ export interface ApplyLicenseRequest {
     licenseDetails: {
         fullYear: boolean;
         flexible: boolean;
-        expiration: string;
-        features: LicenseFeatures;
     };
 }
 
@@ -56,9 +54,7 @@ export const ApplyLicenseRequestSchema: Schema = {
             type: 'object',
             properties: {
                 fullYear: { type: 'boolean', required: true },
-                flexible: { type: 'boolean', required: true },
-                expiration: { type: 'string', required: true },
-                features: LicenseFeaturesSchema
+                flexible: { type: 'boolean', required: true }
             }
         }
     }

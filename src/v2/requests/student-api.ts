@@ -2,7 +2,8 @@ import {
     StudentBehavior, TeamRole, UserSummaryRestrictions, 
     ReportData, IoTDeviceSubscription, Milestone, StudentResponse, 
     AbcCollection, AbcCollectionSchema, ActivityGroupDetails, 
-    StudentDashboardSettings, UserSummary, CommandSwitchStudent
+    StudentDashboardSettings, UserSummary, CommandSwitchStudent,
+    MilestoneSchema
 } from '..';
 import { Schema } from 'jsonschema';
 import { StudentSummaryReport } from 'v1';
@@ -271,8 +272,26 @@ export interface StudentCreateRequest {
     lastName: string;
     studentId: string;
     milestones: Milestone[];
-    responses: StudentResponse[];
     tags: string[];
+}
+export const StudentCreateRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        role: { type: 'string' },
+        firstName: { type: 'string', required: true },
+        lastName: { type: 'string', required: true },
+        studentId: { type: 'string' },
+        milestones: {
+            type: 'array',
+            items: MilestoneSchema,
+            required: true
+        },
+        tags: {
+            type: 'array',
+            items: { type: 'string' },
+            required: true
+        }
+    }
 }
 
 export interface ReportDataRequest {

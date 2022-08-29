@@ -37,8 +37,21 @@ export interface StudentResponseSetting {
 export interface Milestone {
     date: string;
     title: string;
-    description: string;
+    description?: string;
 }
+
+export const MilestoneSchema: Schema = {
+    type: 'object',
+    properties: {
+        date: {
+            type: 'string',
+            format: 'date-time',
+            required: true
+        },
+        title: { type: 'string', required: true},
+        description: { type: 'string' }
+    }
+};
 
 export enum MeasurementType {
     event = 'Event',
