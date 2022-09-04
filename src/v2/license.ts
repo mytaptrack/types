@@ -23,6 +23,7 @@ export interface LicenseFeatures {
     manageStudentTemplates?: boolean;
     manageResponses?: boolean;
     abc?: boolean;
+    notifications?: boolean;
 }
 export const LicenseFeaturesSchema: Schema = {
     type: 'object',
@@ -103,7 +104,7 @@ export const LicenseDetailsPutSchema: Schema = {
         singleCount: { type: 'number', required: true },
         multiCount: { type: 'number', required: true },
         admins: { type: 'list', items: [{ type: 'string' }], required: true, minimum: 1},
-        expiration: { type: 'date' },
+        expiration: { type: 'string', format: 'date' },
         features: LicenseFeaturesSchema
     }
 };

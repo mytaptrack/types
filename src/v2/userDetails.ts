@@ -202,6 +202,7 @@ export const UserSummarySchema: Schema = {
                 team: AccessLevelSchema,
                 comments: AccessLevelSchema,
                 behavior: AccessLevelSchema,
+                notifications: AccessLevelSchema,
                 abc: AccessLevelSchema,
                 behaviors: { type: 'array', items: { type: 'string' }},
                 milestones: AccessLevelSchema,

@@ -9,7 +9,8 @@ export enum NotificationType {
     BehaviorChange = 'behavior-change',
     ShareReport = 'share-report',
     TeamInvite = 'invite',
-    Behavior = 'behavior'
+    Behavior = 'behavior',
+    All = 'all'
 }
 
 export interface NotificationDetails {
@@ -21,10 +22,24 @@ export interface NotificationDetailsBehavior extends NotificationDetails {
     studentId: string;
 }
 
+export const NotificationDetailsDeleteSchema: Schema = {
+    type: 'object',
+    properties: {
+        date: { type: 'number', required: true },
+        details: {
+            type: 'object',
+            properties: {
+                type: { type: 'string', required: true },
+                behaviorId: { type: 'string', required: true },
+                studentId: { type: 'string', required: true }
+            }
+        }
+    }
+};
+
 export interface NotificationDetailsTeam extends NotificationDetails {
-    studentFirstName: string;
-    studentLastName: string;
-    role: string;
+    firstName: string;
+    lastName: string;
     studentId: string;
     admin?: boolean;
     access: UserSummaryRestrictions;
@@ -52,6 +67,7 @@ export interface UserSummaryRestrictions {
     behaviors?: string[];
     milestones: AccessLevel;
     reports: AccessLevel;
+    notifications: AccessLevel;
     reportsOverride?: boolean;
     transferLicense?: boolean;
 }

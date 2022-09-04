@@ -84,6 +84,7 @@ export interface StudentResponsePutRequest {
     response: StudentResponse;
 }
 
+
 export const StudentResponseSettingSchema: Schema = {
     type: 'object',
     properties: {
@@ -96,11 +97,6 @@ export const StudentResponseSchema: Schema = {
     type: 'object',
     properties: {
         ...StudentBehaviorSchema.properties,
-        appliedToBehaviors: {
-            type: 'array',
-            items: StudentResponseSettingSchema,
-            required: true
-        }
     }
 };
 export const StudentResponsePutRequestSchema: Schema = {
@@ -109,7 +105,7 @@ export const StudentResponsePutRequestSchema: Schema = {
         studentId: { type: 'string' },
         response: StudentResponseSchema
     },
-    required: ['studentId', 'behavior']
+    required: ['studentId', 'response']
 }
 
 export interface DeleteDeviceRequest {
@@ -331,8 +327,17 @@ export const TeamDeleteRequestSchema: Schema = {
 
 export interface TeamPostRequest {
     studentId: string;
-    inviteDate: string;
+    inviteDate: number;
     accepted: boolean;
+}
+
+export const TeamPostRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        inviteDate: { type: 'number', required: true },
+        accepted: { type: 'boolean', required: true }
+    }
 }
 
 export interface TeamPutRequest extends UserSummary {

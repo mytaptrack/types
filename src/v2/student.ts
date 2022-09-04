@@ -45,7 +45,7 @@ export const MilestoneSchema: Schema = {
     properties: {
         date: {
             type: 'string',
-            format: 'date-time',
+            format: 'date',
             required: true
         },
         title: { type: 'string', required: true},
