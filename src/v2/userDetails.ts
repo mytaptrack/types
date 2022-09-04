@@ -39,7 +39,6 @@ export interface UserDetails {
     name: string;
     state: string;
     zip: string;
-    mobile: string;
 }
 export const UserDetailsSchema: Schema = {
     type: 'object',
@@ -49,10 +48,9 @@ export const UserDetailsSchema: Schema = {
         lastName: { type: 'string', minLength: 1, maxLength: 20 },
         name: { type: 'string', minLength: 1, maxLength: 20 },
         state: { type: 'string', minLength: 2, maxLength: 2 },
-        zip: { type: 'string', minLength: 5, maxLength: 10 },
-        mobile: { type: 'string', minLength: 9, maxLength: 10 }
+        zip: { type: 'string', minLength: 5, maxLength: 10 }
     },
-    required: ['email', 'firstName', 'lastName', 'name', 'state', 'zip']
+    required: ['firstName', 'lastName', 'name', 'state', 'zip']
 }
 
 export enum BehaviorCalculation {
