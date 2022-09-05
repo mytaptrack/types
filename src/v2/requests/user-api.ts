@@ -20,8 +20,73 @@ export interface NotificationDeleteRequest {
 
 export interface PutSettingsRequest {
     studentId: string;
+    overwriteStudent: boolean;
     settings: StudentDashboardSettings;
 }
+export const PutSettingsRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        overwriteStudent: { type: 'boolean', required: true },
+        settings: {
+            type: 'object',
+            required: true,
+            properties: {
+                behaviors: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: { type: 'string', required: true },
+                            frequency: { type: 'boolean' },
+                            duration: {
+                                type: 'object',
+                                properties: {
+                                    sum: { type: 'boolean' },
+                                    avg: { type: 'boolean' },
+                                    max: { type: 'boolean' },
+                                    min: { type: 'boolean' }
+                                }
+                            }
+                        }
+                    }
+                },
+                devices: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: { type: 'string' },
+                            name: { type: 'string' },
+                            calculation: { type: 'string' }
+                        }
+                    }
+                },
+                velocity: {
+                    type: 'object',
+                    properties: {
+                        enabled: { type: 'boolean' },
+                        trackedEvent: { type: 'string' }
+                    }
+                },
+                summary: {
+                    type: 'object',
+                    properties: {
+                        after45: { type: 'string' },
+                        after150: { type: 'string' },
+                        calculationType: { type: 'string' },
+                        showTargets: { type: 'boolean' },
+                        averageDays: { type: 'number' }
+                    }
+                },
+                autoExcludeDays: {
+                    type: 'array',
+                    items: { type: 'number' }
+                }
+            }
+        }
+    }
+};
 
 export interface UserPutRequest extends UserDetails {
     acceptTerms: boolean;
