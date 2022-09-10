@@ -170,7 +170,6 @@ export interface UserSummary {
     details: {
         email: string;
         name: string;
-        role: TeamRole
     };
     studentId: string;
     version: number;
