@@ -389,6 +389,21 @@ export interface StudentDataPut {
         c: string;
     }
 }
+export const StudentDataPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        behaviorId: { type: 'string', required: true },
+        eventDate: { type: 'string', required: true },
+        abc: {
+            type: 'object',
+            properties: {
+                a: { type: 'string' },
+                c: { type: 'string' }
+            }
+        }
+    }
+};
 
 export interface StudentNotesPut {
     studentId: string;
