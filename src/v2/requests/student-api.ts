@@ -3,7 +3,8 @@ import {
     ReportData, IoTDeviceSubscription, Milestone, StudentResponse, 
     AbcCollection, AbcCollectionSchema, ActivityGroupDetails, 
     StudentDashboardSettings, UserSummary, CommandSwitchStudent,
-    MilestoneSchema
+    MilestoneSchema,
+    UserSummarySchema
 } from '..';
 import { Schema } from 'jsonschema';
 import { StudentSummaryReport } from 'v1';
@@ -341,6 +342,15 @@ export const TeamPostRequestSchema: Schema = {
 }
 
 export interface TeamPutRequest extends UserSummary {
+    sendEmail: boolean;
+}
+
+export const TeamPutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+       ...UserSummarySchema.properties,
+       sendEmail: { type: 'boolean', required: true }
+    }
 }
 
 
