@@ -24,6 +24,7 @@ export interface LicenseFeatures {
     manageResponses?: boolean;
     abc?: boolean;
     notifications?: boolean;
+    appGroups?: boolean;
 }
 export const LicenseFeaturesSchema: Schema = {
     type: 'object',
@@ -50,7 +51,9 @@ export const LicenseFeaturesSchema: Schema = {
         manageStudentTemplates: { type: 'boolean' },
         manageAppTemplates: { type: 'boolean' },
         manageResponses: { type: 'boolean' },
-        abc: { type: 'boolean' }
+        abc: { type: 'boolean' },
+        appGroups: { type: 'boolean' },
+        notifications: { type: 'boolean' }
     }
 }
 

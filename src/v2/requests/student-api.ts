@@ -203,6 +203,7 @@ export interface AppPutRequest {
     studentName: string;
     studentId: string;
     events: DevicePutRequestEvent[];
+    groups: string[];
 }
 export const AppPutRequestSchema: Schema = {
     type: 'object',
@@ -240,7 +241,8 @@ export const AppPutRequestSchema: Schema = {
             }
         },
         switchTerm: { type: 'boolean' },
-        timezone: { type: 'string' }
+        timezone: { type: 'string' },
+        groups: { type: 'array', items: { type: 'string' } }
     }
 };
 

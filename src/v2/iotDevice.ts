@@ -12,6 +12,7 @@ export interface TrackDevice {
 export interface AppDevice extends TrackDevice {
     deviceId: string;
     studentName: string;
+    groups: string[];
 }
 export interface StudentTrackDevice {
     dsn: string;

@@ -15,6 +15,8 @@ export interface TrackedBehavior {
 export interface TrackedTarget {
     token: string;
     name: string;
+    groups: string[];
+    abc: AbcCollection;
     behaviors: TrackedBehavior[];
 }
 
@@ -23,6 +25,7 @@ export interface MobileDeviceRegistration {
     id: string;
     name: string;
     behaviors: TrackedBehavior[];
+    groups: string[];
     timezone: string;
 }
 
