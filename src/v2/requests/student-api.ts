@@ -269,6 +269,7 @@ export interface StudentCreateRequest {
     role?: TeamRole;
     firstName: string;
     lastName: string;
+    subtext?: string;
     studentId: string;
     milestones: Milestone[];
     tags: string[];
@@ -279,6 +280,7 @@ export const StudentCreateRequestSchema: Schema = {
         role: { type: 'string' },
         firstName: { type: 'string', required: true },
         lastName: { type: 'string', required: true },
+        subtext: { type: 'string' },
         studentId: { type: 'string' },
         milestones: {
             type: 'array',
