@@ -273,6 +273,7 @@ export interface StudentCreateRequest {
     studentId: string;
     milestones: Milestone[];
     tags: string[];
+    archived?: boolean;
 }
 export const StudentCreateRequestSchema: Schema = {
     type: 'object',
@@ -291,7 +292,8 @@ export const StudentCreateRequestSchema: Schema = {
             type: 'array',
             items: { type: 'string' },
             required: true
-        }
+        },
+        archived: { type: 'boolean' }
     }
 }
 

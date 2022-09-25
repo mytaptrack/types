@@ -25,6 +25,7 @@ export interface Student {
     version: number;
     lastTracked: string;
     lastUpdateDate: string;
+    archived?: boolean;
     tags: string[];
     partial?: boolean;
 }
