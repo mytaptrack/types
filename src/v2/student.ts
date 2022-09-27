@@ -10,6 +10,17 @@ export interface LicenseSummary {
     features: LicenseFeatures;
 }
 
+export interface StudentDocument {
+    name: string;
+    timerange: {
+        start: number;
+        stop: number;
+    };
+    size: number;
+    uploadDate: number;
+    complete: boolean;
+}
+
 export interface Student {
     studentId: string;
     license?: string;
@@ -17,6 +28,7 @@ export interface Student {
     details: StudentDetails;
     behaviors: StudentBehavior[];
     responses: StudentResponse[];
+    documents: StudentDocument[];
     restrictions: UserSummaryRestrictions;
     schedules?: ActivityGroupDetails[];
     milestones: Milestone[];

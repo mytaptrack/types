@@ -70,6 +70,7 @@ export interface UserSummaryRestrictions {
     notifications: AccessLevel;
     reportsOverride?: boolean;
     transferLicense?: boolean;
+    documents: AccessLevel;
 }
 
 

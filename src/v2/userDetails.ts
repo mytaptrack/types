@@ -205,7 +205,8 @@ export const UserSummarySchema: Schema = {
                 milestones: AccessLevelSchema,
                 reports: AccessLevelSchema,
                 reportsOverride: { type: 'boolean' },
-                transferLicense: { type: 'boolean' }
+                transferLicense: { type: 'boolean' },
+                documents: AccessLevelSchema,
             }
         }
     }
