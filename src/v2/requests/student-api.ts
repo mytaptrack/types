@@ -479,3 +479,37 @@ export const StudentReportPostRequestSchema: Schema = {
         date: { type: 'string', format: 'date', required: true }
     }
 }
+
+export interface StudentBulkPut { 
+    license: string, 
+    students: { 
+        firstName: string, 
+        lastName: string, 
+        licenseType: string, 
+        tags: string[] 
+    }[]
+}
+
+export const StudentBulkPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        license: { type: 'string', required: true },
+        students: {
+            type: 'array',
+            items: [{
+                type: 'object',
+                properties: {
+                    firstName: { type: 'string', required: true },
+                    lastName: { type: 'string', required: true },
+                    licenseType: { type: 'string', required: true },
+                    tags: {
+                        type: 'array',
+                        items: [{ type: 'string' }],
+                        required: true
+                    }
+                }
+            }],
+            required: true
+        }
+    }
+};
