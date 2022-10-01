@@ -108,6 +108,7 @@ export interface ApplyLicenseRequest {
         fullYear: boolean;
         flexible: boolean;
     };
+    archive: boolean;
 }
 
 export const ApplyLicenseRequestSchema: Schema = {
@@ -115,6 +116,7 @@ export const ApplyLicenseRequestSchema: Schema = {
     properties: {
         studentId: { type: 'string', required: true },
         license: { type: 'string', required: true },
+        archive: { type: 'boolean', required: true },
         licenseDetails: {
             type: 'object',
             properties: {
