@@ -11,6 +11,7 @@ export interface LicenseSummary {
 }
 
 export interface StudentDocument {
+    id: string;
     name: string;
     timerange: {
         start: number;
