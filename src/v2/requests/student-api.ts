@@ -485,7 +485,8 @@ export interface StudentBulkPut {
     students: { 
         firstName: string, 
         lastName: string, 
-        licenseType: string, 
+        licenseType: string,
+        invites: string[],
         tags: string[] 
     }[]
 }
@@ -502,6 +503,7 @@ export const StudentBulkPutSchema: Schema = {
                     firstName: { type: 'string', required: true },
                     lastName: { type: 'string', required: true },
                     licenseType: { type: 'string', required: true },
+                    invites: { type: 'array', items: { type: 'string' }, required: true },
                     tags: {
                         type: 'array',
                         items: [{ type: 'string' }],
