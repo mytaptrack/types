@@ -334,6 +334,7 @@ export const TeamDeleteRequestSchema: Schema = {
 
 export interface TeamPostRequest {
     studentId: string;
+    all: boolean;
     inviteDate: number;
     accepted: boolean;
 }
@@ -341,8 +342,9 @@ export interface TeamPostRequest {
 export const TeamPostRequestSchema: Schema = {
     type: 'object',
     properties: {
-        studentId: { type: 'string', required: true },
-        inviteDate: { type: 'number', required: true },
+        studentId: { type: 'string' },
+        all: { type: 'boolean' },
+        inviteDate: { type: 'number' },
         accepted: { type: 'boolean', required: true }
     }
 }
