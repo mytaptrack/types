@@ -26,3 +26,15 @@ export const PutDocumentRequestSchema: Schema = {
         complete: { type: 'boolean' }
     }
 }
+
+export interface DeleteDocumentRequest {
+    studentId: string;
+    id: string;
+}
+export const DeleteDocumentRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        id: { type: 'string', required: true }
+    }
+}
