@@ -5,7 +5,6 @@ export interface PutDocumentRequest {
     name: string;
     timerange: {
         start: string;
-        end: string;
     },
     size: number;
     complete: boolean;
@@ -18,8 +17,7 @@ export const PutDocumentRequestSchema: Schema = {
             type: 'object',
             required: true,
             properties: {
-                start: { type: 'string', format: 'date', required: true },
-                end: { type: 'string', format: 'date', required: true }
+                start: { type: 'string', format: 'date', required: true }
             }
         },
         size: { type: 'number', required: true },
