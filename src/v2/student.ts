@@ -15,7 +15,6 @@ export interface StudentDocument {
     name: string;
     timerange: {
         start: number;
-        stop: number;
     };
     size: number;
     uploadDate: number;
