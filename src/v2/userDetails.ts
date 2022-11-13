@@ -5,6 +5,12 @@ import {
     NotificationDetailsTeam, LicenseDetails, AccessLevelSchema } from '.';
 import { TeamRole } from './student';
 
+export interface MttTag {
+    tag: string;
+    type: string;
+    order: number;
+}
+
 export interface User {
     userId: string;
     terms: string;
@@ -115,6 +121,7 @@ export interface StudentSummary extends StudentSummaryStats {
     firstName: string;
     lastName: string;
     tags: string[];
+    displayTags: string[];
     lastTracked?: string;
 }
 

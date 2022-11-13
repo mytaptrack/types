@@ -7,6 +7,11 @@ export interface SnapshotConfig {
     high: string;
 }
 
+export interface LicenseDisplayTags {
+    order: number;
+    tagName: string;
+}
+
 export interface LicenseFeatures {
     snapshot: boolean;
     snapshotConfig?: SnapshotConfig;
@@ -26,6 +31,7 @@ export interface LicenseFeatures {
     notifications?: boolean;
     appGroups?: boolean;
     documents?: boolean;
+    displayTags?: LicenseDisplayTags[];
 }
 export const LicenseFeaturesSchema: Schema = {
     type: 'object',
@@ -55,7 +61,14 @@ export const LicenseFeaturesSchema: Schema = {
         abc: { type: 'boolean' },
         appGroups: { type: 'boolean' },
         notifications: { type: 'boolean' },
-        documents: { type: 'boolean' }
+        documents: { type: 'boolean' },
+        displayTags: {
+            type: 'array',
+            items: [
+                { type: 'string' }
+            ],
+            required: false
+        }
     }
 }
 
@@ -128,3 +141,27 @@ export interface LicenseStats {
         flexible: ManageStatRow[];
     }
 }
+
+export interface LicenseDisplayTagsPut {
+    license: string;
+    displayTags: LicenseDisplayTags[];
+}
+
+export const LicenseDisplayTagsPutSchema: Schema = {
+    type: 'object',
+    properties: {
+        license: { type: 'string', required: true },
+        displayTags: {
+            type: 'array',
+            items: [
+                {
+                    type: 'object',
+                    properties: {
+                        order: { type: 'number', required: true },
+                        tagName: { type: 'string', required: true }
+                    }
+                }
+            ]
+        }
+    }
+};
