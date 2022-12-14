@@ -79,6 +79,7 @@ export enum SummaryScope {
 
 export interface StudentDashboardSettings {
     behaviors: BehaviorSettings[];
+    antecedents: AntecedentSettings[];
     devices: DashboardDeviceSettings[];
     velocity: {
         enabled: boolean;
@@ -109,6 +110,11 @@ export interface BehaviorSettings {
       max: boolean;
       min: boolean;
     };
+}
+
+export interface AntecedentSettings {
+    name: string;
+    display: boolean;
 }
 
 export interface StudentSummaryStats {
