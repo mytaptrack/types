@@ -14,7 +14,7 @@ export interface SubscriptionDeleteRequest {
 
 export interface NotificationDeleteRequest {
     date: string;
-    type: NotificationType | 'all';
+    type: NotificationType | 'all' | 'pending';
     studentId?: string;
 }
 
