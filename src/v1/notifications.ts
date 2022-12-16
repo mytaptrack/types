@@ -7,7 +7,8 @@ export enum NotificationType {
     BehaviorChange = 'behavior-change',
     ShareReport = 'share-report',
     TeamInvite = 'invite',
-    Behavior = 'behavior'
+    Behavior = 'behavior',
+    Pending = 'pending';
 }
 
 export interface NotificationDetails {
