@@ -7,7 +7,6 @@ import {
     UserSummarySchema
 } from '..';
 import { Schema } from 'jsonschema';
-import { StudentSummaryReport } from 'v1';
 
 export interface ActivityRequest {
     studentId: string;

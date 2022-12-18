@@ -32,6 +32,6 @@
     "homepage": "https://bitbucket.org/inspiredfuturesai/lib#readme",
     "dependencies": {
         "jsonschema": "^1.4.0",
-        "moment-timezone": "^0.5.38"
+        "moment-timezone": "^0.5.40"
     }
 }

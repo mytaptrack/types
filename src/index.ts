@@ -1,2 +1,2 @@
-export * from './v1';
+export * from './v2';
 export * as typesV2 from './v2';

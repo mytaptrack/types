@@ -1,5 +1,3 @@
-import { AbcCollection } from ".";
-
 export interface TrackedBehavior {
     title: string;
     id: string;

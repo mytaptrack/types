@@ -1,5 +1,4 @@
 import { Schema } from 'jsonschema';
-import { LicenseDetails } from 'v1';
 import { NotificationType, UserDetails, StudentDashboardSettings, UserDetailsSchema, LicenseFeatures, LicenseFeaturesSchema } from '../index';
 
 export interface SubscriptionPostRequest {
