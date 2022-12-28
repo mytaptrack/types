@@ -201,6 +201,7 @@ export interface AppPutRequest {
     deviceName: string;
     studentName: string;
     studentId: string;
+    textAlerts?: boolean;
     events: DevicePutRequestEvent[];
     groups: string[];
 }
@@ -211,6 +212,7 @@ export const AppPutRequestSchema: Schema = {
         deviceId: { type: 'string' },
         studentName: { type: 'string', required: true },
         deviceName: { type: 'string', required: true },
+        textAlerts: { type: 'boolean', required: false},
         studentId: { type: 'string', required: true },
         events: {
             type: 'array',

@@ -13,6 +13,7 @@ export interface AppDevice extends TrackDevice {
     deviceId: string;
     studentName: string;
     groups: string[];
+    textAlerts?: boolean;
 }
 export interface StudentTrackDevice {
     dsn: string;

@@ -16,6 +16,7 @@ export interface TrackedTarget {
     token: string;
     name: string;
     groups: string[];
+    textAlerts?: boolean;
     abc: AbcCollection;
     behaviors: TrackedBehavior[];
 }
