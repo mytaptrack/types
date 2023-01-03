@@ -77,11 +77,13 @@ export enum MeasurementType {
 export interface StudentBehavior {
     id?: string;
     name: string;
+    abbreviation?: string;
     isArchived?: boolean;
     isDuration?: boolean;
     managed?: boolean;
     desc?: string;
     daytime?: boolean;
+    baseline?: boolean;
     requireResponse?: boolean;
     targets?: {
         targetType: string;

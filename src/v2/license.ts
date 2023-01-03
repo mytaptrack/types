@@ -31,6 +31,7 @@ export interface LicenseFeatures {
     notifications?: boolean;
     appGroups?: boolean;
     documents?: boolean;
+    intervalWBaseline?: boolean;
     displayTags?: LicenseDisplayTags[];
 }
 export const LicenseFeaturesSchema: Schema = {
@@ -62,6 +63,7 @@ export const LicenseFeaturesSchema: Schema = {
         appGroups: { type: 'boolean' },
         notifications: { type: 'boolean' },
         documents: { type: 'boolean' },
+        intervalWBaseline: { type: 'boolean' },
         displayTags: {
             type: 'array',
             items: [

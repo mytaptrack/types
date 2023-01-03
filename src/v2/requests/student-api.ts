@@ -54,11 +54,13 @@ export const StudentBehaviorSchema: Schema = {
     properties: {
         id: { type: 'string' },
         name: { type: 'string', required: true },
+        abbreviation: { type: 'string' },
         isArchived: { type: 'boolean' },
         isDuration: { type: 'boolean' },
         managed: { type: 'boolean' },
         desc: { type: 'string' },
         daytime: { type: 'boolean' },
+        baseline: { type: 'boolean' },
         requireResponse: { type: 'boolean' },
         targets: {
             type: 'list',
