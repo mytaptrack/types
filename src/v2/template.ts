@@ -25,6 +25,7 @@ export interface StudentTemplateBehavior {
     desc: string;
     isDuration?: boolean;
     daytime?: boolean;
+    baseline?: boolean;
     targets?: {
         targetType: string;
         target: number;
@@ -39,6 +40,7 @@ export const StudentTemplateBehaviorSchema: Schema = {
         desc: { type: 'string' },
         isDuration: { type: 'boolean' },
         daytime: { type: 'boolean' },
+        baseline: { type: 'boolean' },
         targets: {
             type: 'list',
             items: [
