@@ -67,7 +67,13 @@ export const LicenseFeaturesSchema: Schema = {
         displayTags: {
             type: 'array',
             items: [
-                { type: 'string' }
+                {
+                    type: 'object',
+                    properties: {
+                        order: { type: 'number' },
+                        tagName: { type: 'string' }
+                    }
+                }
             ],
             required: false
         }
