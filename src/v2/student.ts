@@ -74,6 +74,9 @@ export enum MeasurementType {
     min = 'Min'
 }
 
+export const StudentBehaviorTargetMax = 30000;
+export const StudentBehaviorTargetMin = 0;
+
 export interface StudentBehavior {
     id?: string;
     name: string;
@@ -89,6 +92,10 @@ export interface StudentBehavior {
         targetType: string;
         target: number;
         progress?: number;
+        measurements: {
+            name: string;
+            value: number;
+        }[];
         measurement: MeasurementType;
     }[];
     tags: string[];
@@ -174,9 +181,13 @@ export interface StudentSummaryReportBehavior {
     }[];
     targets: {
         [targetType: string]: {
-        target: number;
-        progress?: number;
-        measurement: MeasurementType;
+            target: number;
+            progress?: number;
+            measurement: MeasurementType;
+            measurements: {
+                name: string;
+                value: number
+            }[];
         };
     };
     stats?: {
@@ -241,6 +252,12 @@ export interface StudentSummaryReportLegend {
     measurement: MeasurementType;
     target: number;
     progress: number;
+    measurements: {
+        name: string;
+        value: number;
+        color: string;
+        order: number;
+    }[];
 }
 export const StudentSummaryReportLegendSchema: Schema = {
     type: 'object',

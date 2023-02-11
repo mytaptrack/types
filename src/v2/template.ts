@@ -30,6 +30,10 @@ export interface StudentTemplateBehavior {
         targetType: string;
         target: number;
         progress?: number;
+        measurements: {
+            name: string;
+            value: number;
+        }[];
         measurement: MeasurementType;
     }[];
 }

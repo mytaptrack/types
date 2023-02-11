@@ -1,10 +1,16 @@
 import { Schema } from 'jsonschema';
 import { LicenseAppTemplate, LicenseStudentTemplate, ManageStatRow } from '.';
 
+export interface SnapshotConfigMeasurement {
+    name: string;
+    order: number;
+}
+
 export interface SnapshotConfig {
     low: string;
     medium: string;
     high: string;
+    measurements: SnapshotConfigMeasurement[];
 }
 
 export interface LicenseDisplayTags {
@@ -43,7 +49,17 @@ export const LicenseFeaturesSchema: Schema = {
             properties: {
                 low: { type: 'string', required: true },
                 medium: { type: 'string', required: true },
-                high: { type: 'string', required: true }
+                high: { type: 'string', required: true },
+                measurements: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            name: { type: 'string', required: true },
+                            order: { type: 'number', required: true }
+                        }
+                    }
+                }
             }
         },
         dashboard: { type: 'boolean' },

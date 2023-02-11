@@ -46,7 +46,18 @@ export const StudentBehaviorTargetSchema: Schema = {
         targetType: { type: 'string', required: true },
         target: { type: 'number', required: true },
         progress: { type: 'number' },
-        measurement: { type: 'string', required: true }
+        measurement: { type: 'string', required: true },
+        measurements: {
+            type: 'array',
+            items: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', required: true },
+                    value: { type: 'number', required: true }
+                }
+            },
+            required: true
+        }
     }
 }
 export const StudentBehaviorSchema: Schema = {
