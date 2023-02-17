@@ -6,6 +6,7 @@ export interface ManageAppRenamePostRequest {
     license: string;
     name: string;
     tags: string[];
+    reassign: boolean;
 }
 
 export const ManageAppRenamePostRequestSchema: Schema = {
@@ -18,7 +19,8 @@ export const ManageAppRenamePostRequestSchema: Schema = {
             type: "array",
             items: { type: "string" },
             required: true
-        }
+        },
+        reassign: { type: 'boolean', required: true }
     }
 }
 
