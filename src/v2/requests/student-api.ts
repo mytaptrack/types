@@ -531,3 +531,18 @@ export const StudentBulkPutSchema: Schema = {
         }
     }
 };
+
+export interface StudentExcludeIntervalPutRequest {
+    studentId: string;
+    date: string;
+    include: boolean;
+}
+
+export const StudentExcludeIntervalPutRequestSchema: Schema = {
+    type: 'object',
+    properties: {
+        studentId: { type: 'string', required: true },
+        date: { type: 'string', format: 'date-time', required: true },
+        include: { type: 'boolean', required: true }
+    }
+};

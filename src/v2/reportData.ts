@@ -9,6 +9,7 @@ export interface ReportDetails {
     lastUpdateDate: number;
     excludeDays: string[];
     includeDays: string[];
+    excludedIntervals: string[];
     version: number;
 }
 
