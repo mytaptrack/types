@@ -29,6 +29,7 @@ export interface Student {
     behaviors: StudentBehavior[];
     responses: StudentResponse[];
     documents: StudentDocument[];
+    services: StudentService[];
     restrictions: UserSummaryRestrictions;
     schedules?: ActivityGroupDetails[];
     milestones: Milestone[];
@@ -99,6 +100,25 @@ export interface StudentBehavior {
         measurement: MeasurementType;
     }[];
     tags: string[];
+}
+
+export interface StudentService {
+    id: string;
+    name: string;
+    description: string;
+    isArchived?: boolean;
+    isDuration?: boolean;
+
+    durationRounding: number;
+    measurementUnit: 'min' | 'hr';
+    target: number;
+    detailedTargets: StudentServiceDetailedTarget[]
+
+}
+
+export interface StudentServiceDetailedTarget {
+    day: number;
+    target: number;
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
