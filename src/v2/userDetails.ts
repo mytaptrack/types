@@ -129,6 +129,8 @@ export interface StudentSummary extends StudentSummaryStats {
     tags: string[];
     displayTags: string[];
     lastTracked?: string;
+    service?: boolean;
+    behavior?: boolean;
 }
 
 export interface ReportDefinition {
