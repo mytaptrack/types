@@ -11,3 +11,4 @@ export * from './license';
 export * from './appTypes';
 export * from './manage';
 export * from './template';
+export * from './services';

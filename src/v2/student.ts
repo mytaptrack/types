@@ -8,6 +8,7 @@ export interface LicenseSummary {
     transferable?: boolean;
     expiration: string;
     features: LicenseFeatures;
+    services?: boolean;
 }
 
 export interface StudentDocument {
@@ -23,6 +24,7 @@ export interface StudentDocument {
 
 export interface Student {
     studentId: string;
+    schoolStudentId?: string;
     license?: string;
     licenseDetails?: LicenseSummary;
     details: StudentDetails;
