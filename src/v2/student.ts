@@ -107,7 +107,7 @@ export interface StudentBehavior {
 export interface StudentService {
     id: string;
     name: string;
-    description: string;
+    desc: string;
     isArchived?: boolean;
     isDuration?: boolean;
 

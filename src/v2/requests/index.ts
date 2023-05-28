@@ -3,3 +3,4 @@ export * from './user-api';
 export * from './app';
 export * from './schedule-api';
 export * from './documents';
+export * from './graphql';

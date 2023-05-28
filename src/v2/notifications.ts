@@ -74,6 +74,24 @@ export interface UserSummaryRestrictions {
     documents: AccessLevel;
 }
 
+export interface UserSummaryRestrictionsApiPermissions {
+    data?: AccessLevel;
+    schedules?: AccessLevel;
+    devices?: AccessLevel;
+    team?: AccessLevel;
+    comments?: AccessLevel;
+    behavior?: AccessLevel;
+    abc?: AccessLevel;
+    behaviors?: string[];
+    milestones?: AccessLevel;
+    reports?: AccessLevel;
+    notifications?: AccessLevel;
+    reportsOverride?: boolean;
+    transferLicense?: boolean;
+    documents?: AccessLevel;
+}
+
+
 
 export interface StudentSubscriptionsGroup {
     name: string;
