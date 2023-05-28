@@ -58,6 +58,7 @@ export const AccessLevelSchema: Schema = {
 }
 
 export interface UserSummaryRestrictions {
+    info: AccessLevel;
     data: AccessLevel;
     schedules: AccessLevel;
     devices: AccessLevel;
@@ -75,6 +76,7 @@ export interface UserSummaryRestrictions {
 }
 
 export interface UserSummaryRestrictionsApiPermissions {
+    info?: AccessLevel;
     data?: AccessLevel;
     schedules?: AccessLevel;
     devices?: AccessLevel;
