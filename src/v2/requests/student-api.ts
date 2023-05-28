@@ -1,8 +1,8 @@
 import { 
-    StudentBehavior, TeamRole, UserSummaryRestrictions, 
-    ReportData, IoTDeviceSubscription, Milestone, StudentResponse, 
-    AbcCollection, AbcCollectionSchema, ActivityGroupDetails, 
-    StudentDashboardSettings, UserSummary, CommandSwitchStudent,
+    StudentBehavior, TeamRole, 
+    ReportData, Milestone, StudentResponse, 
+    AbcCollection, ActivityGroupDetails, 
+    StudentDashboardSettings, UserSummary,
     MilestoneSchema,
     UserSummarySchema
 } from '..';

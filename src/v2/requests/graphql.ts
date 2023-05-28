@@ -99,8 +99,8 @@ export interface QLStudentUpdateLicenseInput {
 
 export interface QLStudentUpdateInput {
     studentId?: string;
-    license?: string;
-    licenseDetails?: QLStudentUpdateLicenseInput;
+    license: string;
+    licenseDetails: QLStudentUpdateLicenseInput;
     schoolStudentId?: string;
     details: QLStudentDetails;
     archived?: boolean;
