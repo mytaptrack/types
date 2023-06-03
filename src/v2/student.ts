@@ -113,9 +113,9 @@ export interface StudentService {
 
     durationRounding: number;
     measurementUnit: 'min' | 'hr';
+    period: 'week' | 'month' | 'schoolYear';
     target: number;
     detailedTargets: StudentServiceDetailedTarget[]
-
 }
 
 export interface StudentServiceDetailedTarget {

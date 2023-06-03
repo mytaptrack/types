@@ -72,6 +72,17 @@ export interface QLAbcCollection {
     // Add ABC collection fields here
 }
 
+export interface QLStudentDocument {
+    id: string;
+    name: string;
+    timerange: {
+        start: number;
+    };
+    size: number;
+    uploadDate: number;
+    complete: boolean;
+}
+
 export interface QLStudent {
     studentId?: string;
     license?: string;
@@ -86,6 +97,7 @@ export interface QLStudent {
     behaviors?: QLTrackable[];
     responses?: QLTrackable[];
     services?: QLService[];
+    documents?: QLStudentDocument[];
     futureExclusions?: number[];
     version?: number;
 }
