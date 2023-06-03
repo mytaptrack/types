@@ -134,7 +134,7 @@ export interface StudentResponse extends StudentBehavior {
 export interface StudentDetails {
     firstName: string;
     lastName: string;
-    subtext?: string;
+    nickname?: string;
 }
 
 export interface BehaviorSubscription {

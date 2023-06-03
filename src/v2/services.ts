@@ -7,6 +7,7 @@ export interface ServiceReportStudentData {
     measurementUnit: string;
     target: number;
     lastUpdateDate: number;
+    mediation: string[];
 }
 
 export interface ServiceReportStudentSummary {
@@ -24,5 +25,10 @@ export interface GlobalServiceReport {
     }[];
     outOfComp: ServiceReportStudentSummary[];
     atRisk: ServiceReportStudentSummary[];
-    students: StudentSummary[];
+    students: ServiceReportStudentSummary[];
+    schedule: {
+        studentId: string;
+        date: number;
+        serviceId: string;
+    }[];
 }
