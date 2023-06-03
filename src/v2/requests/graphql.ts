@@ -269,11 +269,19 @@ export interface QLGlobalServiceReport {
     serviceMinutes?: number[];
 }
 
+
+export interface QLGlobalServicesReportSchedule {
+    serviceId: string;
+    date: number;
+    studentId: string;
+}
+
 export interface QLGlobalServicesReport {
     services?: QLGlobalServiceReport[];
     outOfComp?: QLServiceReportStudentSummary[];
     atRisk?: QLServiceReportStudentSummary[];
-    students?: QLStudentSummary[];
+    students?: QLServiceReportStudentSummary[];
+    schedule?: QLGlobalServicesReportSchedule[];
 }
 
 export interface QLReportDataSource {
@@ -597,7 +605,8 @@ export interface QLGlobalServicesReport {
     services?: QLGlobalServiceReport[];
     outOfComp?: QLServiceReportStudentSummary[];
     atRisk?: QLServiceReportStudentSummary[];
-    students?: QLStudentSummary[];
+    students?: QLServiceReportStudentSummary[];
+    schedule?: QLGlobalServicesReportSchedule[];
 }
 
 export interface QLTrackTemplateBehavior {
