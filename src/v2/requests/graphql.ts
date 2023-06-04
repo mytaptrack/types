@@ -1,3 +1,5 @@
+import { Measurement, MeasurementPeriod } from "..";
+
 export interface QLUser {
     id: string | undefined;
     firstName: string | undefined;
@@ -59,9 +61,14 @@ export interface QLTrackable {
     daytime: boolean | undefined;
     id: string;
     name: string;
+    description?: string;
     isArchived: boolean | undefined;
     isDuration: boolean | undefined;
     targets: QLTrackableTarget[] | undefined;
+    baseline?: boolean;
+    managed?: boolean;
+    requireResponse?: boolean;
+    tags: QLTag[];
 }
 
 export interface QLService {
@@ -99,7 +106,6 @@ export interface QLStudent {
     services?: QLService[];
     documents?: QLStudentDocument[];
     futureExclusions?: number[];
-    version?: number;
 }
 
 export interface QLStudentUpdateLicenseInput {
@@ -112,10 +118,17 @@ export interface QLStudentUpdateLicenseInput {
 export interface QLStudentUpdateInput {
     studentId?: string;
     license: string;
-    licenseDetails: QLStudentUpdateLicenseInput;
+    licenseDetails?: QLStudentUpdateLicenseInput;
     schoolStudentId?: string;
-    details: QLStudentDetails;
+    details?: QLStudentDetails;
     archived?: boolean;
+
+    milestones?: QLMilestone[];
+    abc?: QLAbcCollection;
+    behaviors?: QLTrackable[];
+    responses?: QLTrackable[];
+    services?: QLServiceInput[];
+    futureExclusions?: number[];
 }
 
 export interface QLTrackTemplateBehavior {
@@ -224,16 +237,6 @@ export interface QLServicesInput {
     services: QLServiceInput[];
 }
 
-export interface QLServiceInput {
-    id: string;
-    name: string;
-    description?: string;
-    measurementUnit?: string;
-    durationRounding?: number;
-    target?: number;
-    detailedTargets?: QLServiceInputDetailedTarget[];
-}
-
 export interface QLServiceInputDetailedTarget {
     day?: number;
     target?: number;
@@ -244,7 +247,8 @@ export interface QLService {
     name: string;
     startDate: number;
     description?: string;
-    measurementUnit?: string;
+    measurementUnit?: Measurement;
+    period: MeasurementPeriod;
     durationRounding?: number;
     isDuration?: boolean;
     isArchived?: boolean;
@@ -263,7 +267,7 @@ export interface QLServiceReportStudentData {
     serviceId: string;
     serviceName: string;
     currentBalance?: number;
-    measurementUnit?: string;
+    measurementUnit?: Measurement;
     target?: number;
     lastUpdateDate?: number;
 }
@@ -560,10 +564,14 @@ export interface QLServiceInput {
     id: string;
     name: string;
     description?: string;
-    measurementUnit?: string;
     durationRounding?: number;
     target?: number;
     detailedTargets?: QLServiceInputDetailedTarget[];
+    startDate: number;
+    endDate: number;
+    measurementUnit: Measurement;
+    period: MeasurementPeriod;
+    isArchived: boolean;
 }
 
 export interface QLServiceInputDetailedTarget {
@@ -576,7 +584,7 @@ export interface QLService {
     name: string;
     startDate: number;
     description?: string;
-    measurementUnit?: string;
+    measurementUnit?: Measurement;
     durationRounding?: number;
     isDuration?: boolean;
     isArchived?: boolean;
@@ -595,7 +603,7 @@ export interface QLServiceReportStudentData {
     serviceId: string;
     serviceName: string;
     currentBalance?: number;
-    measurementUnit?: string;
+    measurementUnit?: Measurement;
     target?: number;
     lastUpdateDate?: number;
 }
