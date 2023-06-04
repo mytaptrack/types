@@ -65,8 +65,10 @@ export interface UserSummaryRestrictions {
     team: AccessLevel;
     comments: AccessLevel;
     behavior: AccessLevel;
-    abc: AccessLevel;
     behaviors?: string[];
+    abc: AccessLevel;
+    service: AccessLevel;
+    services?: string[];
     milestones: AccessLevel;
     reports: AccessLevel;
     notifications: AccessLevel;

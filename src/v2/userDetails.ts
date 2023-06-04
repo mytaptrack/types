@@ -70,6 +70,17 @@ export enum CalculationType {
     avg = 'avg'
 }
 
+export enum Measurement {
+    min = 'min',
+    hr = 'hr'
+}
+
+export enum MeasurementPeriod {
+    week = 'week',
+    month = 'month',
+    schoolYear = 'schoolYear'
+}
+
 export enum SummaryScope {
     auto = 'Auto',
     months = 'Months',

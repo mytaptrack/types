@@ -1,4 +1,4 @@
-import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection } from '.';
+import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection, MeasurementPeriod } from '.';
 import { UserSummaryRestrictions } from './notifications';
 import { Schema } from 'jsonschema';
 
@@ -112,8 +112,8 @@ export interface StudentService {
     isDuration?: boolean;
 
     durationRounding: number;
-    measurementUnit: 'min' | 'hr';
-    period: 'week' | 'month' | 'schoolYear';
+    measurementUnit: MeasurementType;
+    period: MeasurementPeriod;
     target: number;
     detailedTargets: StudentServiceDetailedTarget[]
 }
