@@ -18,10 +18,10 @@ export interface QLDeleteDetails {
 }
 
 export interface QLStudentDetails {
-    firstName: string | undefined;
-    lastName: string | undefined;
-    nickname: string | undefined;
-    tags: QLTag[] | undefined;
+    firstName: string;
+    lastName: string;
+    nickname?: string;
+    tags?: QLTag[];
 }
 
 export interface QLStudentSummary {
@@ -58,13 +58,13 @@ export interface QLTrackableTarget {
 }
 
 export interface QLTrackable {
-    daytime: boolean | undefined;
+    daytime: boolean;
     id: string;
     name: string;
     description?: string;
-    isArchived: boolean | undefined;
-    isDuration: boolean | undefined;
-    targets: QLTrackableTarget[] | undefined;
+    isArchived: boolean;
+    isDuration: boolean;
+    targets: QLTrackableTarget[];
     baseline?: boolean;
     managed?: boolean;
     requireResponse?: boolean;
