@@ -238,8 +238,8 @@ export interface QLServicesInput {
 }
 
 export interface QLServiceInputDetailedTarget {
-    day?: number;
-    target?: number;
+    day: number;
+    target: number;
 }
 
 export interface QLService {
@@ -572,11 +572,6 @@ export interface QLServiceInput {
     measurementUnit: Measurement;
     period: MeasurementPeriod;
     isArchived: boolean;
-}
-
-export interface QLServiceInputDetailedTarget {
-    day?: number;
-    target?: number;
 }
 
 export interface QLService {
