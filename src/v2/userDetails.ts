@@ -140,8 +140,8 @@ export interface StudentSummary extends StudentSummaryStats {
     tags: string[];
     displayTags: string[];
     lastTracked?: string;
-    service?: boolean;
-    behavior?: boolean;
+    serviceTracking?: boolean;
+    behaviorTracking?: boolean;
 }
 
 export interface ReportDefinition {
@@ -201,6 +201,8 @@ export interface UserSummary {
     version: number;
     restrictions: UserSummaryRestrictions;
     deleted?: boolean;
+    serviceTracking?: boolean;
+    behaviorTracking?: boolean;
 }
 export const UserSummarySchema: Schema = {
     type: 'object',
