@@ -77,8 +77,7 @@ export enum Measurement {
 
 export enum MeasurementPeriod {
     week = 'week',
-    month = 'month',
-    schoolYear = 'schoolYear'
+    month = 'month'
 }
 
 export enum SummaryScope {
@@ -203,6 +202,7 @@ export interface UserSummary {
     deleted?: boolean;
     serviceTracking?: boolean;
     behaviorTracking?: boolean;
+    license?: string;
 }
 export const UserSummarySchema: Schema = {
     type: 'object',

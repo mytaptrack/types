@@ -1,20 +1,26 @@
-import { StudentSummary } from '.';
+import { StudentServiceMinuteDetailedTarget } from '.';
+
+export interface CalculatedServiceStat {
+    provided: number;
+    projected: number;
+    removed: number;
+    goalPercent: number;
+}
 
 export interface ServiceReportStudentData {
     serviceId: string;
     serviceName: string;
-    currentBalance: number;
-    measurementUnit: string;
-    target: number;
+    currentWeek: CalculatedServiceStat;
+    yearToDate: CalculatedServiceStat;
     lastUpdateDate: number;
-    mediation: string[];
+    percentGoal: number;
+    mitigations: StudentServiceMinuteDetailedTarget[];
 }
 
 export interface ServiceReportStudentSummary {
     studentId: string;
     studentName: string;
-    weekly: ServiceReportStudentData[];
-    balance: ServiceReportStudentData[];
+    services: ServiceReportStudentData[];
 }
 
 export interface GlobalServiceReport {

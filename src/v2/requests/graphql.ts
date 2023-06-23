@@ -1,4 +1,4 @@
-import { Measurement, MeasurementPeriod } from "..";
+import { CalculatedServiceStat, Measurement, MeasurementPeriod, ScheduleItemType, ServiceReportStudentData, StudentServiceGoals } from "..";
 
 export interface QLUser {
     id: string | undefined;
@@ -27,7 +27,13 @@ export interface QLStudentDetails {
 export interface QLStudentSummary {
     studentId: string | undefined;
     details: QLStudentDetails | undefined;
+    tracking: {
+        service: boolean;
+        behavior: boolean;
+    }
     lastTracked: string | undefined;
+    awaitingResponse: boolean;
+    alertCount: number;
 }
 
 export interface QLLicenseSummary {
@@ -61,7 +67,7 @@ export interface QLTrackable {
     daytime: boolean;
     id: string;
     name: string;
-    description?: string;
+    desc?: string;
     isArchived: boolean;
     isDuration: boolean;
     targets: QLTrackableTarget[];
@@ -69,10 +75,6 @@ export interface QLTrackable {
     managed?: boolean;
     requireResponse?: boolean;
     tags: QLTag[];
-}
-
-export interface QLService {
-    // Add service fields here
 }
 
 export interface QLAbcCollection {
@@ -131,66 +133,6 @@ export interface QLStudentUpdateInput {
     futureExclusions?: number[];
 }
 
-export interface QLTrackTemplateBehavior {
-    name: string;
-    desc?: string;
-    track?: boolean;
-    abc?: boolean;
-    order: number;
-}
-
-export interface QLTrackTemplateBehaviorInput {
-    name: string;
-    desc?: string;
-    track?: boolean;
-    abc?: boolean;
-    order: number;
-}
-
-export interface QLStudentTemplateBehavior {
-    name: string;
-    desc?: string;
-    isDuration?: boolean;
-    daytime?: boolean;
-    baseline?: boolean;
-    targets: QLStudentTemplateBehaviorTarget[];
-}
-
-export interface QLStudentTemplateBehaviorInput {
-    name: string;
-    desc?: string;
-    isDuration?: boolean;
-    daytime?: boolean;
-    baseline?: boolean;
-    targets: QLStudentTemplateBehaviorTargetInput[];
-}
-
-export interface QLStudentTemplateBehaviorTarget {
-    targetType: string;
-    target: number;
-    progress?: number;
-    measurements: QLStudentTemplateBehaviorMeasurement[];
-    measurement?: QLMeasurementType;
-}
-
-export interface QLStudentTemplateBehaviorTargetInput {
-    targetType: string;
-    target: number;
-    progress?: number;
-    measurements: QLStudentTemplateBehaviorMeasurementInput[];
-    measurement?: QLMeasurementType;
-}
-
-export interface QLStudentTemplateBehaviorMeasurement {
-    name: string;
-    value: number;
-}
-
-export interface QLStudentTemplateBehaviorMeasurementInput {
-    name: string;
-    value: number;
-}
-
 export enum QLMeasurementType {
     Event = "Event",
     Avg = "Avg",
@@ -199,105 +141,21 @@ export enum QLMeasurementType {
     Min = "Min",
 }
 
-export interface QLLicenseStudentTemplate {
-    name: string;
-    desc?: string;
-    behaviors: QLStudentTemplateBehavior[];
-    responses: QLStudentTemplateBehavior[];
-    appTemplates: QLLicenseAppTemplate[];
-    tags: string[];
-}
-
-export interface QLLicenseStudentTemplateInput {
-    name: string;
-    desc?: string;
-    behaviors: QLStudentTemplateBehaviorInput[];
-    responses: QLStudentTemplateBehaviorInput[];
-    appTemplates: QLLicenseAppTemplateInput[];
-    tags: string[];
-}
-
-export interface QLLicenseAppTemplate {
-    name: string;
-    desc?: string;
-    events: QLTrackTemplateBehavior[];
-    tags: string[];
-    parentTemplate?: string;
-}
-
-export interface QLLicenseAppTemplateInput {
-    name: string;
-    desc?: string;
-    events: QLTrackTemplateBehaviorInput[];
-    tags: string[];
-    parentTemplate?: string;
-}
-
 export interface QLServicesInput {
     services: QLServiceInput[];
 }
 
 export interface QLServiceInputDetailedTarget {
-    day: number;
+    date: number;
     target: number;
+    groupId: number;
+    type: ScheduleItemType;
 }
-
-export interface QLService {
-    id: string;
-    name: string;
-    startDate: number;
-    description?: string;
-    measurementUnit?: Measurement;
-    period: MeasurementPeriod;
-    durationRounding?: number;
-    isDuration?: boolean;
-    isArchived?: boolean;
-    target?: number;
-    detailedTargets?: QLServiceDetailedTarget[];
-    currentBalance?: number;
-    lastUpdateDate?: number;
-}
-
-export interface QLServiceDetailedTarget {
-    day?: number;
-    target?: number;
-}
-
-export interface QLServiceReportStudentData {
-    serviceId: string;
-    serviceName: string;
-    currentBalance?: number;
-    measurementUnit?: Measurement;
-    target?: number;
-    lastUpdateDate?: number;
-}
-
-export interface QLServiceReportStudentSummary {
-    studentId: string;
-    studentName: string;
-    weekly?: QLServiceReportStudentData[];
-    balance?: QLServiceReportStudentData[];
-}
-
-export interface QLGlobalServiceReport {
-    serviceId: string;
-    serviceName: string;
-    serviceMinutes?: number[];
-}
-
 
 export interface QLGlobalServicesReportSchedule {
     serviceId: string;
     date: number;
     studentId: string;
-}
-
-export interface QLGlobalServicesReport {
-    services?: QLGlobalServiceReport[];
-    outOfComp?: QLServiceReportStudentSummary[];
-    atRisk?: QLServiceReportStudentSummary[];
-    students?: QLServiceReportStudentSummary[];
-    schedule?: QLGlobalServicesReportSchedule[];
 }
 
 export interface QLReportDataSource {
@@ -563,51 +421,48 @@ export interface QLServicesInput {
 export interface QLServiceInput {
     id: string;
     name: string;
-    description?: string;
+    desc?: string;
     durationRounding?: number;
-    target?: number;
+    target: number;
     detailedTargets?: QLServiceInputDetailedTarget[];
+    modifications: string[];
+    goals: QLServiceGoal;
     startDate: number;
     endDate: number;
-    measurementUnit: Measurement;
-    period: MeasurementPeriod;
     isArchived: boolean;
+}
+
+export interface QLServiceGoal extends StudentServiceGoals {
 }
 
 export interface QLService {
     id: string;
     name: string;
     startDate: number;
-    description?: string;
+    desc?: string;
     measurementUnit?: Measurement;
     durationRounding?: number;
     isDuration?: boolean;
     isArchived?: boolean;
+    goals: QLServiceGoal;
     target?: number;
-    detailedTargets?: QLServiceDetailedTarget[];
+    detailedTargets?: QLServiceDetailedMinuteTarget[];
     currentBalance?: number;
     lastUpdateDate?: number;
 }
 
-export interface QLServiceDetailedTarget {
+export interface QLServiceDetailedMinuteTarget {
     day?: number;
     target?: number;
 }
 
-export interface QLServiceReportStudentData {
-    serviceId: string;
-    serviceName: string;
-    currentBalance?: number;
-    measurementUnit?: Measurement;
-    target?: number;
-    lastUpdateDate?: number;
+export interface QLServiceReportStudentData extends ServiceReportStudentData {
 }
 
 export interface QLServiceReportStudentSummary {
     studentId: string;
     studentName: string;
-    weekly?: QLServiceReportStudentData[];
-    balance?: QLServiceReportStudentData[];
+    services: QLServiceReportStudentData[]
 }
 
 export interface QLGlobalServiceReport {

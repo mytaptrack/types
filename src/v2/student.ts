@@ -9,6 +9,10 @@ export interface LicenseSummary {
     expiration: string;
     features: LicenseFeatures;
     services?: boolean;
+    schoolYear?: {
+        start: string;
+        end: string;
+    }
 }
 
 export interface StudentDocument {
@@ -20,6 +24,12 @@ export interface StudentDocument {
     size: number;
     uploadDate: number;
     complete: boolean;
+}
+
+export interface StudentAbsence {
+    start: number;
+    end: number;
+    note: string;
 }
 
 export interface Student {
@@ -43,6 +53,7 @@ export interface Student {
     archived?: boolean;
     tags: string[];
     partial?: boolean;
+    absences: StudentAbsence[];
 }
 
 export interface StudentResponseSetting {
@@ -112,15 +123,36 @@ export interface StudentService {
     isDuration?: boolean;
 
     durationRounding: number;
-    measurementUnit: Measurement;
-    period: MeasurementPeriod;
     target: number;
-    detailedTargets: StudentServiceDetailedTarget[]
+    detailedTargets: StudentServiceMinuteDetailedTarget[];
+    goals: StudentServiceGoals;
+    modifications: string[];
+
+    startDate: number;
+    endDate: number;
 }
 
-export interface StudentServiceDetailedTarget {
-    day: number;
+export interface StudentServiceGoalTarget {
+    name: string;
+    startAt: number;
+    goal: number;
+}
+export interface StudentServiceGoals {
+    trackGoalPercent: boolean;
+    goalTargets: StudentServiceGoalTarget[];
+}
+
+
+export enum ScheduleItemType {
+    Scheduled = 'Scheduled',
+    Makeup = 'Makeup'
+}
+
+export interface StudentServiceMinuteDetailedTarget {
+    date: number;
     target: number;
+    groupId: number;
+    type: ScheduleItemType;
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
