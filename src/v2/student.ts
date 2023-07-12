@@ -1,4 +1,4 @@
-import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection, MeasurementPeriod, Measurement } from '.';
+import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection, MeasurementPeriod, Measurement, ScheduleCategory } from '.';
 import { UserSummaryRestrictions } from './notifications';
 import { Schema } from 'jsonschema';
 
@@ -43,7 +43,7 @@ export interface Student {
     documents: StudentDocument[];
     services: StudentService[];
     restrictions: UserSummaryRestrictions;
-    schedules?: ActivityGroupDetails[];
+    scheduleCategoriess?: ScheduleCategory[];
     milestones: Milestone[];
     abc?: AbcCollection;
     dashboard?: StudentDashboardSettings;
