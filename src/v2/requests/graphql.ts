@@ -1,11 +1,4 @@
-import { ActivityGroupDetails, BehaviorSettings, CalculatedServiceStat, Measurement, MeasurementPeriod, ScheduleCategory, ScheduleItemType, ServiceReportStudentData, StudentDashboardSettings, StudentServiceGoals, UserSummaryRestrictions, UserSummaryStatus } from "..";
-
-export interface QLUser {
-    id: string | undefined;
-    firstName: string | undefined;
-    lastName: string | undefined;
-    terms: string | undefined;
-}
+import { ActivityGroupDetails, BehaviorSettings, CalculatedServiceStat, LicenseDetails, Measurement, MeasurementPeriod, ScheduleCategory, ScheduleItemType, ServiceReportStudentData, StudentDashboardSettings, StudentServiceGoals, StudentSummaryReport, StudentSummaryReportBehavior, StudentSummaryReportLegend, UserSummaryRestrictions, UserSummaryStatus } from "..";
 
 export interface QLTag {
     tag: string | undefined;
@@ -21,6 +14,7 @@ export interface QLStudentDetails {
     firstName: string;
     lastName: string;
     nickname?: string;
+    schoolId?: string;
     tags?: QLTag[];
 }
 
@@ -37,11 +31,15 @@ export interface QLStudentSummary {
 }
 
 export interface QLLicenseSummary {
-    fullYear: boolean | undefined;
-    flexible: boolean | undefined;
+    fullYear?: boolean;
+    flexible?: boolean;
     services: boolean;
     transferable: boolean;
-    expiration: string | undefined;
+    expiration?: string;
+    schoolYear?: {
+        start: string;
+        end: string;
+    }
 }
 
 export interface QLMilestone {
@@ -71,11 +69,12 @@ export interface QLTrackable {
     isArchived: boolean;
     isDuration: boolean;
     targets: QLTrackableTarget[];
+    trackAbc?: boolean;
     baseline?: boolean;
     managed?: boolean;
     requireResponse?: boolean;
     tags: QLTag[];
-    graphs: BehaviorSettings;
+    graphs?: BehaviorSettings;
 }
 
 export interface QLStudentDocument {
@@ -134,6 +133,7 @@ export interface QLStudentUpdateInput {
     services?: QLServiceInput[];
     futureExclusions?: number[];
     dashboard?: StudentDashboardSettings;
+    scheduleCategories?: ScheduleCategory[];
 }
 
 export enum QLMeasurementType {
@@ -171,29 +171,55 @@ export interface QLReportDataAbc {
     c: string;
 }
 
+export interface QLReportDataProgress {
+    progress?: number;
+    measurements?: {
+        name: string;
+        value: number;
+    }[];
+}
+
 export interface QLReportData {
     dateEpoc: number;
     behavior: string;
     duration?: number;
-    reported: boolean;
+    reported?: boolean;
+    score?: number;
     isManual?: boolean;
     notStopped?: boolean;
     source: QLReportDataSource;
     deleted?: QLDeleteDetails;
     abc?: QLReportDataAbc;
+    serviceProgress?: QLReportDataProgress;
 }
 
 export interface QLReportService {
     dateEpoc: number;
     service: string;
-    duration: number;
-    reported: boolean;
+    duration?: number;
+    reported?: boolean;
     isManual?: boolean;
     notStopped?: boolean;
     source: QLReportDataSource;
     deleted?: QLDeleteDetails;
     modifications: string[];
-    progress: { name: string, value: number }[];
+    serviceProgress: QLReportDataProgress;
+}
+
+export interface QLReportDataInput {
+    dateEpoc: number;
+    behavior?: string;
+    service?: string;
+    duration?: number;
+    reported?: boolean;
+    score?: number;
+    isManual?: boolean;
+    notStopped?: boolean;
+    source?: QLReportDataSource;
+    deleted?: QLDeleteDetails;
+    abc?: QLReportDataAbc;
+    serviceProgress?: QLReportDataProgress;
+    modifications?: string[];
 }
 
 export interface QLReportDetailsSchedule {
@@ -217,11 +243,6 @@ export interface QLReportDetails {
 export interface QLDataSourceSummary {
     id: string;
     name: string;
-}
-
-export interface QLAppSummary {
-    name: string;
-    id: string;
 }
 
 export interface QLTrackSummary {
@@ -315,6 +336,48 @@ export interface QLLicenseFeaturesInput {
     displayTags?: QLLicenseDisplayTagsInput[];
 }
 
+
+export interface QLSubscriptionStudentConfigNameId {
+    id: string;
+    name: string;
+}
+
+export interface QLSubscriptionStudentConfig {
+    studentId: string;
+    name: string;
+    behaviors: QLSubscriptionStudentConfigNameId[];
+    responses: QLSubscriptionStudentConfigNameId[];
+    notifyUntilResponse: boolean;
+    users: QLSubscriptionStudentConfigNameId[]
+    emails: string[];
+    mobiles: string[];
+    devices: QLSubscriptionStudentConfigNameId[];
+    messages: {
+        default?: string;
+        email?: string;
+        text?: string;
+        app?: string;
+    }
+}
+
+export interface QLSubscriptionStudentConfigInput {
+    studentId: string;
+    name: string;
+    behaviorIds: string[];
+    responseIds: string[];
+    notifyUntilResponse: boolean;
+    userIds: string[]
+    emails: string[];
+    mobiles: string[];
+    deviceIds: string[];
+    messages: {
+        default?: string;
+        email?: string;
+        text?: string;
+        app?: string;
+    }
+}
+
 export interface QLLicenseTagSet {
     name: string;
     tags: string[];
@@ -354,6 +417,7 @@ export interface QLLicenseDetails {
     studentTemplates: QLLicenseStudentTemplate[];
     features: QLLicenseFeatures;
     abcCollections: QLAbcCollection[];
+    serviceSampleStudents: boolean;
     tags: QLLicenseTags;
 }
 
@@ -427,17 +491,6 @@ export interface QLReportDataAbc {
     c: string;
 }
 
-export interface QLReportData {
-    dateEpoc: number;
-    behavior: string;
-    reported: boolean;
-    score?: number;
-    isManual?: boolean;
-    source: QLReportDataSource;
-    deleted?: QLDeleteDetails;
-    abc?: QLReportDataAbc;
-}
-
 export interface QLReportDetailsSchedule {
     date: string;
     schedule: string;
@@ -477,6 +530,7 @@ export interface QLService {
     id: string;
     name: string;
     startDate: number;
+    endDate: number;
     desc?: string;
     measurementUnit?: Measurement;
     durationRounding?: number;
@@ -484,14 +538,16 @@ export interface QLService {
     isArchived?: boolean;
     goals: QLServiceGoal;
     target?: number;
-    detailedTargets?: QLServiceDetailedMinuteTarget[];
+    detailedTargets?: QLServiceDetailedTarget[];
     currentBalance?: number;
     lastUpdateDate?: number;
 }
 
-export interface QLServiceDetailedMinuteTarget {
-    day?: number;
-    target?: number;
+export interface QLServiceDetailedTarget {
+    date: number;
+    target: number;
+    groupId: number;
+    type: ScheduleItemType;
 }
 
 export interface QLServiceReportStudentData extends ServiceReportStudentData {
@@ -609,4 +665,47 @@ export interface QLLicenseAppTemplateInput {
     events: QLTrackTemplateBehaviorInput[];
     tags: string[];
     parentTemplate?: string;
+}
+
+export interface QLStudentNote {
+    studentId: string;
+    product: string;
+    date: string;
+    source?: QLReportDataSource;
+    notes: string;
+}
+
+export interface QLStudentNoteRequest {
+    studentId: string;
+    startDate: string;
+    endDate: string;
+}
+
+export interface QLSnapshotReport {
+    studentId: string;
+    lastModified: {
+        userId: string;
+        date: string;
+    };
+    message: string;
+    date: string;
+    type: 'Weekly' | 'Range';
+    behaviors: StudentSummaryReportBehavior[];
+    legend?: StudentSummaryReportLegend[];
+}
+
+export interface QLSnapshotReportsKey {
+    date: string;
+    type: 'Weekly' | 'Range';
+}
+
+export interface QLSnapshotReportRequest {
+    studentId: string;
+    date: string;
+    reportType: 'Weekly' | 'Range';
+}
+
+export interface QLSnapshotReports {
+    reports: QLSnapshotReportsKey[];
+    latest?: QLSnapshotReport;
 }

@@ -224,6 +224,16 @@ export function ConvertToRole(input: string): TeamRole {
     return TeamRole.Other;
 }
 
+export interface StudentSummaryReportBehaviorTarget {
+    target: number;
+    progress?: number;
+    measurement: MeasurementType;
+    measurements: {
+        name: string;
+        value: number
+    }[];
+}
+
 export interface StudentSummaryReportBehavior {
     show: boolean;
     behaviorId: string;
@@ -233,30 +243,27 @@ export interface StudentSummaryReportBehavior {
         face: string;
         overwrite?: boolean
     }[];
-    targets: {
-        [targetType: string]: {
-            target: number;
-            progress?: number;
-            measurement: MeasurementType;
-            measurements: {
-                name: string;
-                value: number
-            }[];
-        };
+    targets?: {
+        frequency?: StudentSummaryReportBehaviorTarget;
+        sum?: StudentSummaryReportBehaviorTarget;
+        avg?: StudentSummaryReportBehaviorTarget;
+        max?: StudentSummaryReportBehaviorTarget;
+        min?: StudentSummaryReportBehaviorTarget;
     };
     stats?: {
         week: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
         day: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
     };
 }
+
 export const StudentSummaryReportBehaviorSchema: Schema = {
     type: 'object',
     properties: {

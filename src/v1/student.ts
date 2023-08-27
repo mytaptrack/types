@@ -156,14 +156,14 @@ export interface StudentSummaryReportBehavior {
     };
     stats?: {
         week: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
         day: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
     };
 }

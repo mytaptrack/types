@@ -1,3 +1,5 @@
+import { QLService, QLStudent, QLTag, QLTrackable, UserSummaryRestrictions } from '..';
+
 export interface GraphQLAppBehaviorItem {
     id: string;
     abc?: boolean;
@@ -9,16 +11,25 @@ export interface GraphQLAppBehaviorItemInput {
     id: string;
     abc?: boolean;
     order: number;
+    name: string;
 }
 
 export interface GraphQLAppServiceItem {
     id: string;
     order: number;
+    name: string;
 }
 
 export interface GraphQLAppServiceItemInput {
     id: string;
     order: number;
+    name: string;
+}
+
+export interface QLAppSummary {
+    deviceId: string;
+    name: string;
+    tags: string[];
 }
 
 export interface GraphQLAppStudent {
@@ -26,6 +37,7 @@ export interface GraphQLAppStudent {
     studentName: string;
     groups: string[];
     behaviors: GraphQLAppBehaviorItem[];
+    responses: GraphQLAppBehaviorItem[];
     services: GraphQLAppServiceItem[];
 }
 export interface GraphQLAppStudentInput {
@@ -33,30 +45,55 @@ export interface GraphQLAppStudentInput {
     studentName: string;
     groups: string[];
     behaviors: GraphQLAppBehaviorItemInput[];
+    responses: GraphQLAppBehaviorItemInput[];
     services: GraphQLAppServiceItemInput[];
+    delete?: boolean;
 }
 
-export interface GraphQLApp {
+export interface QLAppStudentSummaryTrackable {
+    id: string;
+    name: string;
+    baseline?: boolean;
+    isDuration?: boolean;
+    trackAbc?: boolean;
+}
+
+export interface QLAppStudentSummary {
+    studentId: string;
+    nickname: string;
+    abcAvailable?: boolean;
+    restrictions: UserSummaryRestrictions;
+    behaviors: QLAppStudentSummaryTrackable[];
+    responses: QLAppStudentSummaryTrackable[];
+    services: QLAppStudentSummaryTrackable[];
+}
+
+export interface QLApp {
     deviceId?: string;
     license: string;
-    deviceName: string;
+    name: string;
     textAlerts: boolean;
     timezone: string;
-    students: GraphQLAppStudent[];
+    studentConfigs: GraphQLAppStudent[];
     qrExpiration?: number;
-    tags?: string[];
+    tags?: QLTag[];
+    students: QLAppStudentSummary[];
 }
 
 export interface GraphQLAppInput {
     deviceId?: string;
     license: string;
-    deviceName: string;
+    name: string;
     textAlerts: boolean;
     timezone: string;
-    students: GraphQLAppStudentInput[];
+    studentConfigs: GraphQLAppStudentInput[];
     qrExpiration?: number;
-    tags?: string[];
+    tags?: QLTag[];
     deleted?: boolean;
+}
+
+export interface GraphQLAppOutput {
+    deviceId: string;
 }
 
 export interface GraphQLIoTClickerBehaviorItem {
@@ -80,6 +117,6 @@ export interface GraphQLIoTClicker {
 }
 
 export interface GraphQLDeviceCollection {
-    apps: GraphQLApp[];
+    apps: QLApp[];
     clickers: GraphQLIoTClicker[];
 }
