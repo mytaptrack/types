@@ -1,0 +1,122 @@
+import { QLService, QLStudent, QLTag, QLTrackable, UserSummaryRestrictions } from '..';
+
+export interface GraphQLAppBehaviorItem {
+    id: string;
+    abc?: boolean;
+    order: number;
+    name: string;
+}
+
+export interface GraphQLAppBehaviorItemInput {
+    id: string;
+    abc?: boolean;
+    order: number;
+    name: string;
+}
+
+export interface GraphQLAppServiceItem {
+    id: string;
+    order: number;
+    name: string;
+}
+
+export interface GraphQLAppServiceItemInput {
+    id: string;
+    order: number;
+    name: string;
+}
+
+export interface QLAppSummary {
+    deviceId: string;
+    name: string;
+    tags: string[];
+}
+
+export interface GraphQLAppStudent {
+    studentId: string;
+    studentName: string;
+    groups: string[];
+    behaviors: GraphQLAppBehaviorItem[];
+    responses: GraphQLAppBehaviorItem[];
+    services: GraphQLAppServiceItem[];
+}
+export interface GraphQLAppStudentInput {
+    studentId: string;
+    studentName: string;
+    groups: string[];
+    behaviors: GraphQLAppBehaviorItemInput[];
+    responses: GraphQLAppBehaviorItemInput[];
+    services: GraphQLAppServiceItemInput[];
+    delete?: boolean;
+}
+
+export interface QLAppStudentSummaryTrackable {
+    id: string;
+    name: string;
+    baseline?: boolean;
+    isDuration?: boolean;
+    trackAbc?: boolean;
+}
+
+export interface QLAppStudentSummary {
+    studentId: string;
+    nickname: string;
+    abcAvailable?: boolean;
+    restrictions: UserSummaryRestrictions;
+    behaviors: QLAppStudentSummaryTrackable[];
+    responses: QLAppStudentSummaryTrackable[];
+    services: QLAppStudentSummaryTrackable[];
+}
+
+export interface QLApp {
+    deviceId?: string;
+    license: string;
+    name: string;
+    textAlerts: boolean;
+    timezone: string;
+    studentConfigs: GraphQLAppStudent[];
+    qrExpiration?: number;
+    tags?: QLTag[];
+    students: QLAppStudentSummary[];
+}
+
+export interface GraphQLAppInput {
+    deviceId?: string;
+    license: string;
+    name: string;
+    textAlerts: boolean;
+    timezone: string;
+    studentConfigs: GraphQLAppStudentInput[];
+    qrExpiration?: number;
+    tags?: QLTag[];
+    deleted?: boolean;
+}
+
+export interface GraphQLAppOutput {
+    deviceId: string;
+}
+
+export interface GraphQLIoTClickerBehaviorItem {
+    behaviorId: string;
+    presses: number;
+}
+
+export interface GraphQLIoTClickerSwitchCommand {
+    term: string;
+    studentId: string;
+}
+
+export interface GraphQLIoTClicker {
+    dsn: string;
+    deviceName: string;
+    validated: boolean;
+    events: GraphQLIoTClickerBehaviorItem[];
+    termSetup?: boolean;
+    commands: GraphQLIoTClickerSwitchCommand[];
+    timezone: string;
+}
+
+export interface GraphQLDeviceCollection {
+    apps: QLApp[];
+    clickers: GraphQLIoTClicker[];
+}

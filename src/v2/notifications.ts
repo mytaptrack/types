@@ -95,8 +95,6 @@ export interface UserSummaryRestrictionsApiPermissions {
     documents?: AccessLevel;
 }
 
-
-
 export interface StudentSubscriptionsGroup {
     name: string;
     behaviorIds: string[];

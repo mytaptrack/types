@@ -1,4 +1,4 @@
-import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection, MeasurementPeriod, Measurement } from '.';
+import { ActivityGroupDetails, StudentDashboardSettings, LicenseFeatures, AbcCollection, MeasurementPeriod, Measurement, ScheduleCategory } from '.';
 import { UserSummaryRestrictions } from './notifications';
 import { Schema } from 'jsonschema';
 
@@ -9,6 +9,10 @@ export interface LicenseSummary {
     expiration: string;
     features: LicenseFeatures;
     services?: boolean;
+    schoolYear?: {
+        start: string;
+        end: string;
+    }
 }
 
 export interface StudentDocument {
@@ -22,6 +26,12 @@ export interface StudentDocument {
     complete: boolean;
 }
 
+export interface StudentAbsence {
+    start: number;
+    end: number;
+    note: string;
+}
+
 export interface Student {
     studentId: string;
     schoolStudentId?: string;
@@ -33,7 +43,7 @@ export interface Student {
     documents: StudentDocument[];
     services: StudentService[];
     restrictions: UserSummaryRestrictions;
-    schedules?: ActivityGroupDetails[];
+    scheduleCategoriess?: ScheduleCategory[];
     milestones: Milestone[];
     abc?: AbcCollection;
     dashboard?: StudentDashboardSettings;
@@ -43,6 +53,7 @@ export interface Student {
     archived?: boolean;
     tags: string[];
     partial?: boolean;
+    absences: StudentAbsence[];
 }
 
 export interface StudentResponseSetting {
@@ -112,15 +123,36 @@ export interface StudentService {
     isDuration?: boolean;
 
     durationRounding: number;
-    measurementUnit: Measurement;
-    period: MeasurementPeriod;
     target: number;
-    detailedTargets: StudentServiceDetailedTarget[]
+    detailedTargets: StudentServiceMinuteDetailedTarget[];
+    goals: StudentServiceGoals;
+    modifications: string[];
+
+    startDate: number;
+    endDate: number;
 }
 
-export interface StudentServiceDetailedTarget {
-    day: number;
+export interface StudentServiceGoalTarget {
+    name: string;
+    startAt: number;
+    goal: number;
+}
+export interface StudentServiceGoals {
+    trackGoalPercent: boolean;
+    goalTargets: StudentServiceGoalTarget[];
+}
+
+
+export enum ScheduleItemType {
+    Scheduled = 'Scheduled',
+    Makeup = 'Makeup'
+}
+
+export interface StudentServiceMinuteDetailedTarget {
+    date: number;
     target: number;
+    groupId: number;
+    type: ScheduleItemType;
 }
 
 export interface StudentBehaviorEdit extends StudentBehavior {
@@ -192,6 +224,16 @@ export function ConvertToRole(input: string): TeamRole {
     return TeamRole.Other;
 }
 
+export interface StudentSummaryReportBehaviorTarget {
+    target: number;
+    progress?: number;
+    measurement: MeasurementType;
+    measurements: {
+        name: string;
+        value: number
+    }[];
+}
+
 export interface StudentSummaryReportBehavior {
     show: boolean;
     behaviorId: string;
@@ -201,30 +243,27 @@ export interface StudentSummaryReportBehavior {
         face: string;
         overwrite?: boolean
     }[];
-    targets: {
-        [targetType: string]: {
-            target: number;
-            progress?: number;
-            measurement: MeasurementType;
-            measurements: {
-                name: string;
-                value: number
-            }[];
-        };
+    targets?: {
+        frequency?: StudentSummaryReportBehaviorTarget;
+        sum?: StudentSummaryReportBehaviorTarget;
+        avg?: StudentSummaryReportBehaviorTarget;
+        max?: StudentSummaryReportBehaviorTarget;
+        min?: StudentSummaryReportBehaviorTarget;
     };
     stats?: {
         week: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
         day: {
-        count: number;
-        delta: number;
-        modifier: string;
+            count: number;
+            delta: number;
+            modifier: string;
         };
     };
 }
+
 export const StudentSummaryReportBehaviorSchema: Schema = {
     type: 'object',
     properties: {

@@ -1,7 +1,8 @@
 import { Activity } from './index';
 
 export interface ReportDetails {
-    data: Array<ReportData>;
+    data: ReportData[];
+    services?: ReportServiceData[];
     startMillis: number;
     schedules: {
         [date: string]: string;
@@ -11,6 +12,23 @@ export interface ReportDetails {
     includeDays: string[];
     excludedIntervals: string[];
     version: number;
+}
+
+export interface ReportServiceData {
+    dateEpoc: number;
+    endEpoc: number;
+    service: string;
+    isManual: boolean;
+    source?: {
+        device: string;
+        rater?: string;
+    };
+    deleted?: {
+        date: string;
+        rater?: string;
+    };
+    progressPercent: number;
+    progress: [{ name: string, value: number }];
 }
 
 export interface ReportData {
