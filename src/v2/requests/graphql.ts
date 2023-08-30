@@ -1,4 +1,4 @@
-import { ActivityGroupDetails, BehaviorSettings, CalculatedServiceStat, LicenseDetails, Measurement, MeasurementPeriod, ScheduleCategory, ScheduleItemType, ServiceReportStudentData, StudentDashboardSettings, StudentServiceGoals, StudentSummaryReport, StudentSummaryReportBehavior, StudentSummaryReportLegend, UserSummaryRestrictions, UserSummaryStatus } from "..";
+import { ActivityGroupDetails, BehaviorSettings, CalculatedServiceStat, LicenseDetails, LicenseStats, Measurement, MeasurementPeriod, ScheduleCategory, ScheduleItemType, ServiceReportStudentData, StudentDashboardSettings, StudentServiceGoals, StudentSummaryReport, StudentSummaryReportBehavior, StudentSummaryReportLegend, UserSummaryRestrictions, UserSummaryStatus } from "..";
 
 export interface QLTag {
     tag: string | undefined;
@@ -410,6 +410,8 @@ export interface QLLicenseDetails {
     singleCount: number;
     singleUsed: number;
     multiCount: number;
+    serviceCount: number;
+    serviceUsed: number;
     admins: string[];
     emailDomain?: string;
     expiration: string;
@@ -465,15 +467,6 @@ export interface QLLicenseUsage {
     month: string;
     trackedEvents: number;
     studentsTracked: number;
-}
-
-export interface QLManageStatRow {
-    single: number;
-    flexible: QLManageStatRow[];
-}
-
-export interface QLLicenseStats {
-    stats: QLManageStatRow;
 }
 
 export interface QLLicenseDisplayTagsPutInput {
@@ -708,4 +701,8 @@ export interface QLSnapshotReportRequest {
 export interface QLSnapshotReports {
     reports: QLSnapshotReportsKey[];
     latest?: QLSnapshotReport;
+}
+
+export interface QLLicenseStats extends LicenseStats {
+    license: QLLicenseDetails;
 }

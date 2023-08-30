@@ -1,20 +1,27 @@
-import { QLLicenseSummary, UserSummaryRestrictions } from '..';
+import { QLLicenseSummary, UserSummaryRestrictions, UserSummaryStatus } from '..';
 
 export interface QLUserUpdate extends QLUserSummary {
-    students: {
-        studentId: string;
-        restrictions: UserSummaryRestrictions;
-        delete: boolean;
-        services: boolean;
-        behaviors: boolean;
-    }[];
+    students: QLUserUpdateStudent[];
 }
 
 export interface QLUser {
-    id: string | undefined;
-    firstName: string | undefined;
-    lastName: string | undefined;
-    terms: string | undefined;
+    id?: string;
+    firstName?: string;
+    lastName?: string;
+    name?: string;
+    terms?: string;
+    email?: string;
+}
+
+export interface QLUserSummaryStudent {
+    studentId: string;
+    restrictions: UserSummaryRestrictions
+    services: boolean;
+    behaviors: boolean;
+    teamStatus: UserSummaryStatus;
+}
+export interface QLUserUpdateStudent extends QLUserSummaryStudent {
+    deleted?: boolean;
 }
 
 export interface QLUserSummary {
@@ -23,12 +30,7 @@ export interface QLUserSummary {
     lastName: string;
     name: string;
     email: string;
-    students: {
-        studentId: string;
-        restrictions: UserSummaryRestrictions
-        services: boolean;
-        behaviors: boolean;
-    }[];
+    students: QLUserSummaryStudent[];
 }
 
 export interface LicenseStudentSummary {

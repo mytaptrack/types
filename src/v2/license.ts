@@ -126,6 +126,7 @@ export interface LicenseDetails {
      */
     singleUsed: number;
     multiCount: number;
+    serviceCount?: number;
     admins: string[];
     emailDomain: string;
     expiration: string;
