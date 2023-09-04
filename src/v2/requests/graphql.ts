@@ -88,6 +88,11 @@ export interface QLStudentDocument {
     complete: boolean;
 }
 
+export interface QLStudentNotification {
+    dateEpoc: number;
+    behavior: string;
+}
+
 export interface QLStudent {
     studentId?: string;
     license?: string;
@@ -109,6 +114,7 @@ export interface QLStudent {
     restrictions: UserSummaryRestrictions;
     features: QLLicenseFeatures;
     scheduleCategories?: ScheduleCategory[];
+    notifications: QLStudentNotification[];
 }
 
 export interface QLStudentUpdateLicenseInput {

@@ -66,15 +66,19 @@ export interface UserSummaryRestrictions {
     comments: AccessLevel;
     behavior: AccessLevel;
     behaviors?: string[];
-    abc: AccessLevel;
-    service: AccessLevel;
-    services?: string[];
+    abc: AccessLevel;    
     milestones: AccessLevel;
     reports: AccessLevel;
     notifications: AccessLevel;
     reportsOverride?: boolean;
     transferLicense?: boolean;
     documents: AccessLevel;
+
+    service: AccessLevel;
+    services?: string[];
+    serviceData: AccessLevel;
+    serviceGoals: AccessLevel;
+    serviceSchedule: AccessLevel;
 }
 
 export interface UserSummaryRestrictionsApiPermissions {
