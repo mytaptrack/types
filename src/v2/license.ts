@@ -39,6 +39,9 @@ export interface LicenseFeatures {
     documents?: boolean;
     intervalWBaseline?: boolean;
     displayTags?: LicenseDisplayTags[];
+    serviceTracking: boolean;
+    behaviorTracking: boolean;
+    serviceProgress: boolean;
 }
 export const LicenseFeaturesSchema: Schema = {
     type: 'object',
