@@ -4,6 +4,12 @@ export interface QLUserUpdate extends QLUserSummary {
     students: QLUserUpdateStudent[];
 }
 
+export interface QLUserMajorFeatures {
+    license: string;
+    behaviorTracking: boolean;
+    serviceTracking: boolean;
+}
+
 export interface QLUser {
     id?: string;
     firstName?: string;
@@ -11,6 +17,7 @@ export interface QLUser {
     name?: string;
     terms?: string;
     email?: string;
+    majorFeatures: QLUserMajorFeatures;
 }
 
 export interface QLUserSummaryStudent {

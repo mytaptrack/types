@@ -61,6 +61,9 @@ export interface IoTDeviceEvent {
     abc?: boolean;
     customMessage?: string;
     order?: number;
+    isDuration?: boolean;
+    notStopped?: boolean;
+    lastStart?: number;
 }
 
 export interface IoTDeviceEdit extends IoTDevice {

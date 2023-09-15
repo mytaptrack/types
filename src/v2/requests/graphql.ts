@@ -196,7 +196,6 @@ export interface QLReportData {
     source: QLReportDataSource;
     deleted?: QLDeleteDetails;
     abc?: QLReportDataAbc;
-    serviceProgress?: QLReportDataProgress;
 }
 
 export interface QLReportService {

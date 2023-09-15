@@ -1,10 +1,16 @@
-import { QLService, QLStudent, QLTag, QLTrackable, UserSummaryRestrictions } from '..';
+import { QLAbcCollection, QLService, QLServiceGoal, QLStudent, QLTag, QLTrackable, UserSummaryRestrictions } from '..';
 
 export interface GraphQLAppBehaviorItem {
     id: string;
     abc?: boolean;
     order: number;
     name: string;
+}
+
+export interface GraphQLAppBehaviorItemEx extends GraphQLAppBehaviorItem {
+    isDuration: boolean;
+    notStopped?: boolean;
+    lastStart?: number;
 }
 
 export interface GraphQLAppBehaviorItemInput {
@@ -18,6 +24,9 @@ export interface GraphQLAppServiceItem {
     id: string;
     order: number;
     name: string;
+    trackedItems: string[];
+    percentage: boolean;
+    modifications: string[];
 }
 
 export interface GraphQLAppServiceItemInput {
@@ -40,6 +49,13 @@ export interface GraphQLAppStudent {
     responses: GraphQLAppBehaviorItem[];
     services: GraphQLAppServiceItem[];
 }
+
+export interface GraphQLAppStudentEx extends  GraphQLAppStudent {
+    abc: QLAbcCollection;
+    behaviors: GraphQLAppBehaviorItemEx[];
+    responses: GraphQLAppBehaviorItemEx[];
+}
+
 export interface GraphQLAppStudentInput {
     studentId: string;
     studentName: string;
@@ -78,6 +94,13 @@ export interface QLApp {
     qrExpiration?: number;
     tags?: QLTag[];
     students: QLAppStudentSummary[];
+}
+
+export interface QLAppDeviceConfiguration {
+    deviceId: string;
+    name: string;
+    timezone: string;
+    studentConfigs: GraphQLAppStudentEx[];
 }
 
 export interface GraphQLAppInput {
