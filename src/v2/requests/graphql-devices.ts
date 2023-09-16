@@ -99,6 +99,7 @@ export interface QLApp {
 export interface QLAppDeviceConfiguration {
     deviceId: string;
     name: string;
+    identity?: string;
     timezone: string;
     studentConfigs: GraphQLAppStudentEx[];
 }
