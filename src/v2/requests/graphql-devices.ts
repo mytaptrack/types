@@ -98,6 +98,8 @@ export interface QLApp {
 
 export interface QLAppDeviceConfiguration {
     deviceId: string;
+    license: string;
+    textAlerts?: boolean;
     name: string;
     identity?: string;
     timezone: string;
