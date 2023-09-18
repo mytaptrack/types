@@ -535,6 +535,7 @@ export interface QLService {
     isDuration?: boolean;
     isArchived?: boolean;
     goals: QLServiceGoal;
+    modifications: string[];
     target?: number;
     detailedTargets?: QLServiceDetailedTarget[];
     currentBalance?: number;
