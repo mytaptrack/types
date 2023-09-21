@@ -39,6 +39,13 @@ export interface QLAppSummary {
     deviceId: string;
     name: string;
     tags: string[];
+    groups?: string[];
+    studentId?: string;
+    studentName?: string;
+    behaviors?: GraphQLAppBehaviorItem[];
+    responses?: GraphQLAppBehaviorItem[];
+    services?: GraphQLAppServiceItem[];
+    textAlerts?: boolean;
 }
 
 export interface GraphQLAppStudent {
