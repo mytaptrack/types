@@ -104,6 +104,7 @@ export interface StudentDashboardSettings {
         averageDays: number;
     };
     autoExcludeDays: number[];
+    user?: boolean;
 }
 
 export interface DashboardDeviceSettings {

@@ -89,8 +89,8 @@ export interface QLStudentDocument {
 }
 
 export interface QLStudentNotification {
-    dateEpoc: number;
-    behavior: string;
+    epoch: number;
+    behaviorId: string;
 }
 
 export interface QLStudent {
@@ -140,6 +140,14 @@ export interface QLStudentUpdateInput {
     futureExclusions?: number[];
     dashboard?: StudentDashboardSettings;
     scheduleCategories?: ScheduleCategory[];
+}
+
+export interface QLNotificationDelete {
+    studentId: string;
+    events: {
+        behaviorId: string;
+        epoch: number;
+    }[];
 }
 
 export enum QLMeasurementType {
