@@ -123,6 +123,7 @@ export interface GraphQLAppInput {
     qrExpiration?: number;
     tags?: QLTag[];
     deleted?: boolean;
+    reassign?: boolean;
 }
 
 export interface GraphQLAppOutput {
