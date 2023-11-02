@@ -233,6 +233,7 @@ export interface QLReportDataInput {
     abc?: QLReportDataAbc;
     serviceProgress?: QLReportDataProgress;
     modifications?: string[];
+    redoDurations?: boolean;
 }
 
 export interface QLReportDetailsSchedule {
