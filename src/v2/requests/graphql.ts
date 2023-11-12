@@ -244,6 +244,7 @@ export interface QLReportDetailsSchedule {
 export interface QLReportDetails {
     data: QLReportData[];
     services: QLReportService[];
+    raters?: { rater: string; name: string}[];
     startMillis: number;
     endMillis: number;
     schedules?: QLReportDetailsSchedule[];
