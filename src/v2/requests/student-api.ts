@@ -235,7 +235,7 @@ export const AppPutRequestSchema: Schema = {
                     properties: {
                         eventId: { type: 'string', required: true},
                         track: { type: 'boolean', required: true},
-                        abc: { type: 'boolean'},
+                        abc: { type: 'boolean' },
                         order: { type: 'number', required: true }
                     }
                 }
