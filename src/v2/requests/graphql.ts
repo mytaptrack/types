@@ -701,6 +701,7 @@ export interface QLSnapshotReport {
     type: 'Weekly' | 'Range';
     behaviors: StudentSummaryReportBehavior[];
     legend?: StudentSummaryReportLegend[];
+    published: boolean;
 }
 
 export interface QLSnapshotReportsKey {
