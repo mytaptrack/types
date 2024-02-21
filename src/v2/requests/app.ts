@@ -4,6 +4,7 @@ export interface AppRetrieveDataPostRequest {
     device: {
         id: string;
         name: string;
+        version?: number;
     };
     tokens: string[];
     notifications: {
