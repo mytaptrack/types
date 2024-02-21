@@ -15,6 +15,7 @@ export interface AppRetrieveDataPostRequest {
 
 export interface AppRetrieveDataPostResponse {
     tokenUpdate: string;
+    name?: string;
     targets: TrackedTarget[];
 }
 
