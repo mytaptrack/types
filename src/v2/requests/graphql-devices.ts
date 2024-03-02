@@ -51,6 +51,7 @@ export interface QLAppSummary {
 export interface GraphQLAppStudent {
     studentId: string;
     studentName: string;
+    license?: string;
     groups: string[];
     behaviors: GraphQLAppBehaviorItem[];
     responses: GraphQLAppBehaviorItem[];
