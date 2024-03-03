@@ -132,7 +132,10 @@ export interface LicenseDetails {
     serviceCount?: number;
     admins: string[];
     emailDomain: string;
+    start: string;
     expiration: string;
+    free?: boolean;
+    personal?: boolean;
     mobileTemplates?: LicenseAppTemplate[];
     studentTemplates?: LicenseStudentTemplate[];
     features?: LicenseFeatures;
