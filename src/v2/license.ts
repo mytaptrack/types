@@ -38,6 +38,8 @@ export interface LicenseFeatures {
     appGroups?: boolean;
     documents?: boolean;
     intervalWBaseline?: boolean;
+    free?: boolean;
+    personal?: boolean;
     displayTags?: LicenseDisplayTags[];
     serviceTracking: boolean;
     behaviorTracking: boolean;

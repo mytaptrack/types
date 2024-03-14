@@ -8,6 +8,7 @@ export interface QLUserMajorFeatures {
     license: string;
     behaviorTracking: boolean;
     serviceTracking: boolean;
+    manage: boolean;
 }
 
 export interface QLUser {

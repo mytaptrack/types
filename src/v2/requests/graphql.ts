@@ -325,6 +325,8 @@ export interface QLLicenseFeatures {
     appGroups: boolean;
     documents: boolean;
     intervalWBaseline: boolean;
+    free: boolean;
+    personal: boolean;
     displayTags?: QLLicenseDisplayTags[];
 }
 
@@ -348,6 +350,8 @@ export interface QLLicenseFeaturesInput {
     appGroups: boolean;
     documents: boolean;
     intervalWBaseline: boolean;
+    free: boolean;
+    personal: boolean;
     displayTags?: QLLicenseDisplayTagsInput[];
 }
 
