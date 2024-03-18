@@ -18,6 +18,8 @@ export interface QLUser {
     name?: string;
     terms?: string;
     email?: string;
+    state?: string;
+    zip?: string;
     majorFeatures: QLUserMajorFeatures;
 }
 
@@ -38,6 +40,8 @@ export interface QLUserSummary {
     lastName: string;
     name: string;
     email: string;
+    state?: string;
+    zip?: string;
     students: QLUserSummaryStudent[];
 }
 
