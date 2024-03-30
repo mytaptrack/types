@@ -8,6 +8,7 @@ export interface QLUserMajorFeatures {
     license: string;
     behaviorTracking: boolean;
     serviceTracking: boolean;
+    tracking: boolean;
     manage: boolean;
 }
 
@@ -42,6 +43,7 @@ export interface QLUserSummary {
     email: string;
     state?: string;
     zip?: string;
+    terms?: string;
     students: QLUserSummaryStudent[];
 }
 

@@ -355,7 +355,6 @@ export interface QLLicenseFeaturesInput {
     displayTags?: QLLicenseDisplayTagsInput[];
 }
 
-
 export interface QLSubscriptionStudentConfigNameId {
     id: string;
     name: string;
@@ -726,4 +725,10 @@ export interface QLSnapshotReports {
 
 export interface QLLicenseStats extends LicenseStats {
     license: QLLicenseDetails;
+}
+
+export interface QLLicenseUpdate {
+    license: string;
+    admins?: string[];
+    cancel?: boolean;
 }

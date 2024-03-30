@@ -145,6 +145,9 @@ export interface LicenseDetails {
     tags: {
         devices: LicenseTagSet[];
     };
+    stripe?: {
+        id: string;
+    }
 }
 
 export const LicenseDetailsPutSchema: Schema = {
