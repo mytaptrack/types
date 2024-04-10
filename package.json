@@ -32,7 +32,7 @@
     "license": "",
     "homepage": "https://bitbucket.org/inspiredfuturesai/lib#readme",
     "dependencies": {
-        "jsonschema": "^1.4.0",
+        "jsonschema": "^1.4.1",
         "moment-timezone": "^0.5.43"
     }
 }
