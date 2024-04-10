@@ -731,4 +731,5 @@ export interface QLLicenseUpdate {
     license: string;
     admins?: string[];
     cancel?: boolean;
+    fullCancel?: boolean;
 }
