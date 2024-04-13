@@ -37,14 +37,14 @@ export const PutSettingsRequestSchema: Schema = {
                         type: 'object',
                         properties: {
                             id: { type: 'string', required: true },
-                            frequency: { type: 'boolean' },
+                            frequency: { type: ['string', 'boolean'] },
                             duration: {
                                 type: 'object',
                                 properties: {
-                                    sum: { type: 'boolean' },
-                                    avg: { type: 'boolean' },
-                                    max: { type: 'boolean' },
-                                    min: { type: 'boolean' }
+                                    sum: { type: ['string', 'boolean'] },
+                                    avg: { type: ['string', 'boolean'] },
+                                    max: { type: ['string', 'boolean'] },
+                                    min: { type: ['string', 'boolean'] }
                                 }
                             }
                         }
