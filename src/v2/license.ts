@@ -1,5 +1,5 @@
 import { Schema } from 'jsonschema';
-import { LicenseAppTemplate, LicenseStudentTemplate, ManageStatRow } from '.';
+import { LicenseAppTemplate, LicenseStudentTemplate, ManageStatRow, PersonalSubscriptionType } from '.';
 
 export interface SnapshotConfigMeasurement {
     name: string;
@@ -28,6 +28,7 @@ export interface LicenseFeatures {
     supportChanges: boolean;
     schedule: boolean;
     devices: boolean;
+    duration: boolean;
     behaviorTargets: boolean;
     response: boolean;
     emailTextNotifications: boolean;
@@ -38,8 +39,7 @@ export interface LicenseFeatures {
     appGroups?: boolean;
     documents?: boolean;
     intervalWBaseline?: boolean;
-    free?: boolean;
-    personal?: boolean;
+    personal?: PersonalSubscriptionType;
     displayTags?: LicenseDisplayTags[];
     serviceTracking: boolean;
     behaviorTracking: boolean;
@@ -131,6 +131,7 @@ export interface LicenseDetails {
      */
     singleUsed: number;
     multiCount: number;
+    appLimit?: number;
     serviceCount?: number;
     admins: string[];
     emailDomain: string;
@@ -157,6 +158,7 @@ export const LicenseDetailsPutSchema: Schema = {
         customer: { type: 'string', required: true },
         singleCount: { type: 'number', required: true },
         multiCount: { type: 'number', required: true },
+        appLimit: { type: 'number' },
         admins: { type: 'list', items: [{ type: 'string' }], required: true, minimum: 1},
         expiration: { type: 'string', format: 'date' },
         features: LicenseFeaturesSchema

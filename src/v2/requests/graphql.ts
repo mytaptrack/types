@@ -305,12 +305,20 @@ export interface QLLicenseDisplayTagsInput {
     tagName: string;
 }
 
+export enum PersonalSubscriptionType {
+    free = 'free',
+    bronze = 'bronze',
+    silver = 'silver',
+    gold = 'gold'
+}
+
 export interface QLLicenseFeatures {
     snapshot: boolean;
     snapshotConfig?: QLSnapshotConfig;
     dashboard: boolean;
     browserTracking: boolean;
     download: boolean;
+    duration: boolean;
     manage: boolean;
     supportChanges: boolean;
     schedule: boolean;
@@ -325,8 +333,7 @@ export interface QLLicenseFeatures {
     appGroups: boolean;
     documents: boolean;
     intervalWBaseline: boolean;
-    free: boolean;
-    personal: boolean;
+    personal?: PersonalSubscriptionType;
     displayTags?: QLLicenseDisplayTags[];
 }
 
@@ -350,8 +357,7 @@ export interface QLLicenseFeaturesInput {
     appGroups: boolean;
     documents: boolean;
     intervalWBaseline: boolean;
-    free: boolean;
-    personal: boolean;
+    personal?: PersonalSubscriptionType;
     displayTags?: QLLicenseDisplayTagsInput[];
 }
 
@@ -428,6 +434,7 @@ export interface QLLicenseDetails {
     singleCount: number;
     singleUsed: number;
     multiCount: number;
+    appLimit?: number;
     serviceCount: number;
     serviceUsed: number;
     admins: string[];
@@ -446,6 +453,7 @@ export interface QLLicenseDetailsInput {
     customer: string;
     singleCount: number;
     multiCount: number;
+    appLimit?: number;
     admins: string[];
     emailDomain?: string;
     expiration: string;
