@@ -741,3 +741,8 @@ export interface QLLicenseUpdate {
     cancel?: boolean;
     fullCancel?: boolean;
 }
+
+export interface QLEmailSupport {
+    url: string;
+    problem: string;
+}
