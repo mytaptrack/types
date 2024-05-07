@@ -105,6 +105,9 @@ export interface StudentDashboardSettings {
     };
     autoExcludeDays: number[];
     user?: boolean;
+    measurementUnit?: 'minute' | 'second';
+    chartType?: 'Line' | 'Bar';
+    showExcludedChartGaps?: boolean;
 }
 
 export interface DashboardDeviceSettings {
