@@ -106,7 +106,7 @@ export interface StudentDashboardSettings {
     autoExcludeDays: number[];
     user?: boolean;
     measurementUnit?: 'minute' | 'second';
-    chartType?: 'Line' | 'Bar';
+    chartType?: 'line' | 'bar';
     showExcludedChartGaps?: boolean;
 }
 
@@ -187,6 +187,8 @@ export interface ReportDefinitionStyle {
     width: number;
     fill: boolean;
     colors: string[];
+    useBarCharts?: boolean;
+    measurementUnit?: 'minute' | 'second';
 }
 
 export interface Behavior {
