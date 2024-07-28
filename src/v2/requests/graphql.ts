@@ -687,12 +687,23 @@ export interface QLLicenseAppTemplateInput {
     parentTemplate?: string;
 }
 
+export interface QLStudentNoteSource {
+    id: string;
+    name: string;
+    type: 'track' | 'app' | 'user' | 'unknown';
+}
+
 export interface QLStudentNote {
     studentId: string;
+    noteDate: number;
+    noteId?: string;
+    dateEpoc: number;
+    date?: string;
+    note: string;
     product: string;
-    date: string;
-    source?: QLReportDataSource;
-    notes: string;
+    source?: QLStudentNoteSource;
+    threadId?: string;
+    remove?: boolean;
 }
 
 export interface QLStudentNoteRequest {
