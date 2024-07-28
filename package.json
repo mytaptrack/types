@@ -1,6 +1,6 @@
 {
     "name": "@mytaptrack/types",
-    "version": "2.0.28",
+    "version": "2.0.29",
     "main": "dist/out-tsc/index.js",
     "scripts": {
         "start": "tsc -d --watch",
