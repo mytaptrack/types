@@ -72,6 +72,7 @@ export const StudentBehaviorSchema: Schema = {
         desc: { type: 'string' },
         daytime: { type: 'boolean' },
         baseline: { type: 'boolean' },
+        trackAbc: { type: 'boolean' },
         requireResponse: { type: 'boolean' },
         targets: {
             type: 'list',
