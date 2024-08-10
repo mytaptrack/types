@@ -43,7 +43,7 @@ export interface Student {
     documents: StudentDocument[];
     services: StudentService[];
     restrictions: UserSummaryRestrictions;
-    scheduleCategoriess?: ScheduleCategory[];
+    scheduleCategories?: ScheduleCategory[];
     milestones: Milestone[];
     abc?: AbcCollection;
     dashboard?: StudentDashboardSettings;
