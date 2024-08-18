@@ -418,6 +418,7 @@ export interface QLAbcCollection {
     antecedents: string[];
     consequences: string[];
     overwrite?: boolean;
+    remove?: boolean;
 }
 
 export interface QLAbcCollectionInput {
