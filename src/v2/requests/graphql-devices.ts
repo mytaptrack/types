@@ -17,7 +17,6 @@ export interface GraphQLAppBehaviorItemInput {
     id: string;
     abc?: boolean;
     order: number;
-    name: string;
 }
 
 export interface GraphQLAppServiceItem {
