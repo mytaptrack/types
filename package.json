@@ -9,16 +9,12 @@
         "release": "npm publish"
     },
     "devDependencies": {
-        "@types/jest": "^27.0.1",
         "@types/jsonschema": "^1.1.1",
         "@types/moment-timezone": "^0.5.30",
         "@types/node": "^11.15.8",
-        "aws-sdk": "^2.648.0",
-        "babel-jest": "^27.0.0",
-        "jest": "^27.0.4",
-        "tslib": "^1.11.1",
+        "tslib": "^2.6.3",
         "tslint": "^5.20.1",
-        "typescript": "^3.8.3"
+        "typescript": "^5.5.4"
     },
     "jest": {
         "verbose": true
