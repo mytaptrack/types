@@ -488,6 +488,7 @@ export interface StudentDataExcludeRequest {
 export interface StudentReportPostRequest {
     studentId: string;
     date: string;
+    timezone: string;
 }
 export const StudentReportPostRequestSchema: Schema = {
     type: 'object',
