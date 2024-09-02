@@ -4,18 +4,18 @@
     "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
-    "module": "CommonJS",
+    "declaration": true,
+    "module": "es2022",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "ES2018",
+    "target": "es2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "ES2018",
+      "es2022",
       "dom"
     ],
     "types": [
