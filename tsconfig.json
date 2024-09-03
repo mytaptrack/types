@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./src",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./esm",
     "sourceMap": true,
     "declaration": true,
     "module": "es2022",

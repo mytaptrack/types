@@ -1,10 +1,16 @@
 {
     "name": "@mytaptrack/types",
     "version": "2.0.37",
-    "main": "dist/out-tsc/index.js",
+    "type": "module",
+    "main": "./cjs/index.js",
+    "exports": {
+        "require": "./cjs/index.js",
+        "import": "./esm/index.js"
+    },
     "scripts": {
         "start": "tsc -d --watch",
-        "build": "tsc -d",
+        "startjs": "tsc -d --watch --module commonjs",
+        "build": "sh ./build.sh",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "release": "npm publish"
     },
