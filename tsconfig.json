@@ -2,20 +2,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./src",
-    "outDir": "./esm",
+    "outDir": "./cjs",
     "sourceMap": true,
     "declaration": true,
-    "module": "es2022",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2022",
+    "target": "ES6",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2022",
+      "ES2022",
       "dom"
     ],
     "types": [
@@ -25,6 +25,8 @@
   "exclude": [
     "node_modules",
     "dist",
+    "esm",
+    "cjs",
     "./dist/out-tsc/**/*",
     "node_modules/**/*"
   ]

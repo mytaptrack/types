@@ -1,4 +1,4 @@
-import { QLLicenseSummary, UserSummaryRestrictions, UserSummaryStatus } from '..';
+import { QLLicenseSummary, QLStudentSummary, UserSummaryRestrictions, UserSummaryStatus } from '..';
 
 export interface QLUserUpdate extends QLUserSummary {
     students: QLUserUpdateStudent[];
@@ -12,6 +12,12 @@ export interface QLUserMajorFeatures {
     manage: boolean;
 }
 
+export interface QLUserInvite {
+    name: string;
+    studentId: string;
+    status: UserSummaryStatus;
+}
+
 export interface QLUser {
     id?: string;
     firstName?: string;
@@ -22,6 +28,7 @@ export interface QLUser {
     state?: string;
     zip?: string;
     majorFeatures: QLUserMajorFeatures;
+    invites: QLUserInvite[];
 }
 
 export interface QLUserSummaryStudent {

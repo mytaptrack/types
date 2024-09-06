@@ -1,15 +1,10 @@
 {
     "name": "@mytaptrack/types",
     "version": "2.0.38",
-    "type": "module",
     "main": "./cjs/index.js",
-    "exports": {
-        "require": "./cjs/index.js",
-        "import": "./esm/index.js"
-    },
     "scripts": {
         "start": "tsc -d --watch",
-        "startjs": "tsc -d --watch --module commonjs",
+        "startesm": "tsc -d --watch --module es2022 --outDir esm/",
         "build": "sh ./build.sh",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "release": "npm publish"
@@ -19,8 +14,7 @@
         "@types/moment-timezone": "^0.5.30",
         "@types/node": "^11.15.8",
         "tslib": "^2.6.3",
-        "tslint": "^5.20.1",
-        "typescript": "^4.9.5"
+        "typescript": "~5.3.3"
     },
     "jest": {
         "verbose": true
