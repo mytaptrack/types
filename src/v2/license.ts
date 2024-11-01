@@ -44,6 +44,7 @@ export interface LicenseFeatures {
     serviceTracking: boolean;
     behaviorTracking: boolean;
     serviceProgress: boolean;
+    intensity?: number;
 }
 export const LicenseFeaturesSchema: Schema = {
     type: 'object',

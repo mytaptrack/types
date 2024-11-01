@@ -102,6 +102,7 @@ export interface StudentBehavior {
     daytime?: boolean;
     baseline?: boolean;
     trackAbc?: boolean;
+    intensity?: number;
     requireResponse?: boolean;
     targets?: {
         targetType: string;

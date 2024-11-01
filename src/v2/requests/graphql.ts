@@ -75,6 +75,7 @@ export interface QLTrackable {
     requireResponse?: boolean;
     tags: QLTag[];
     graphs?: BehaviorSettings;
+    intensity?: number;
 }
 
 export interface QLStudentDocument {
@@ -204,6 +205,7 @@ export interface QLReportData {
     source: QLReportDataSource;
     deleted?: QLDeleteDetails;
     abc?: QLReportDataAbc;
+    intensity?: number;
 }
 
 export interface QLReportService {
@@ -231,6 +233,7 @@ export interface QLReportDataInput {
     source?: QLReportDataSource;
     deleted?: QLDeleteDetails;
     abc?: QLReportDataAbc;
+    intensity?: number;
     serviceProgress?: QLReportDataProgress;
     modifications?: string[];
     redoDurations?: boolean;
@@ -332,6 +335,7 @@ export interface QLLicenseFeatures {
     notifications: boolean;
     appGroups: boolean;
     documents: boolean;
+    intensity?: number;
     intervalWBaseline: boolean;
     personal?: PersonalSubscriptionType;
     displayTags?: QLLicenseDisplayTags[];

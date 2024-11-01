@@ -48,7 +48,8 @@ export interface ReportData {
     abc?: {
         a: string;
         c: string;
-    },
+    };
+    intensity?: number;
     duration?: number;
 }
 

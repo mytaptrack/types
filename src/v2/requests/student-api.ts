@@ -73,6 +73,7 @@ export const StudentBehaviorSchema: Schema = {
         daytime: { type: 'boolean' },
         baseline: { type: 'boolean' },
         trackAbc: { type: 'boolean' },
+        intensity: { type: 'number' },
         requireResponse: { type: 'boolean' },
         targets: {
             type: 'list',
@@ -237,6 +238,7 @@ export const AppPutRequestSchema: Schema = {
                         eventId: { type: 'string', required: true},
                         track: { type: 'boolean', required: true},
                         abc: { type: 'boolean' },
+                        intensity: { type: 'boolean' },
                         order: { type: 'number', required: true }
                     }
                 }
@@ -277,6 +279,7 @@ export interface DevicePutRequestEvent {
     eventId: string;
     track?: boolean;
     abc?: boolean;
+    intensity?: boolean;
     order: number;
 }
 
@@ -410,7 +413,8 @@ export interface StudentDataPut {
     abc?: {
         a: string;
         c: string;
-    }
+    },
+    intensity?: number;
 }
 export const StudentDataPutSchema: Schema = {
     type: 'object',

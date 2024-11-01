@@ -8,6 +8,7 @@ export interface TrackedBehavior {
     durationOn?: boolean;
     track: boolean;
     abc: boolean;
+    intensity?: number;
     order: number;
     managed?: boolean;
 }
@@ -98,6 +99,7 @@ export interface AppTrackRequest {
     timezone?: string;
     antecedent?: string;
     consequence?: string;
+    intensity?: number;
     remove?: boolean;
 }
 
