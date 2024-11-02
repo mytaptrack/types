@@ -3,7 +3,8 @@ import { QLAbcCollection, QLService, QLServiceGoal, QLStudent, QLTag, QLTrackabl
 export interface GraphQLAppBehaviorItem {
     id: string;
     abc?: boolean;
-    intensity?: number;
+    intensity?: boolean;
+    maxIntensity?: number;
     order: number;
     name: string;
 }
@@ -16,8 +17,10 @@ export interface GraphQLAppBehaviorItemEx extends GraphQLAppBehaviorItem {
 
 export interface GraphQLAppBehaviorItemInput {
     id: string;
+    name?: string;
     abc?: boolean;
     intensity?: boolean;
+    maxIntensity?: number;
     order: number;
 }
 
