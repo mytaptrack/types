@@ -11,7 +11,6 @@
     },
     "devDependencies": {
         "@types/jsonschema": "^1.1.1",
-        "@types/moment-timezone": "^0.5.30",
         "@types/node": "^11.15.8",
         "tslib": "^2.6.3",
         "typescript": "~5.3.3"
@@ -28,11 +27,13 @@
     "license": "",
     "homepage": "https://bitbucket.org/inspiredfuturesai/lib#readme",
     "dependencies": {
-        "jsonschema": "^1.4.1",
-        "moment-timezone": "^0.5.43"
+        "jsonschema": "^1.4.1"
     },
     "files": [
         "cjs",
         "esm"
-    ]
+    ],
+    "peerDependencies": {
+        "moment-timezone": "^0.5.46"
+    }
 }
