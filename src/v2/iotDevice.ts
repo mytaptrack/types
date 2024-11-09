@@ -59,6 +59,7 @@ export interface IoTDeviceEvent {
     alert?: boolean;
     track?: boolean;
     abc?: boolean;
+    intensity?: boolean;
     customMessage?: string;
     order?: number;
     isDuration?: boolean;
