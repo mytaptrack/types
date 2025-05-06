@@ -762,3 +762,7 @@ export interface QLEmailSupport {
     url: string;
     problem: string;
 }
+
+export interface QLServerSettings {
+    token: string;
+}

@@ -9,6 +9,11 @@ export interface GraphQLAppBehaviorItem {
     name: string;
 }
 
+export interface QLAppToken {
+    deviceId: string;
+    token: string;
+}
+
 export interface GraphQLAppBehaviorItemEx extends GraphQLAppBehaviorItem {
     isDuration: boolean;
     notStopped?: boolean;
