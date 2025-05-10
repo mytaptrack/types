@@ -1,11 +1,11 @@
 {
     "name": "@mytaptrack/types",
-    "version": "2.0.45",
+    "version": "2.0.46",
     "main": "./cjs/index.js",
     "scripts": {
         "start": "tsc -d --watch",
         "startesm": "tsc -d --watch --module es2022 --outDir esm/",
-        "build": "sh ./build.sh",
+        "build": "tsc -d",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "release": "npm publish"
     },
