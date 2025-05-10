@@ -5,7 +5,7 @@
     "scripts": {
         "start": "tsc -d --watch",
         "startesm": "tsc -d --watch --module es2022 --outDir esm/",
-        "build": "sh ./build.sh",
+        "build": "tsc -d",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "release": "npm publish"
     },
